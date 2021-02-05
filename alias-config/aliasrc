@@ -1,0 +1,13 @@
+alias c="clear"
+alias lsh="ls -h -l -a"
+alias ll="ls -al"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+
+
+# Pretty print the path
+alias path='echo $PATH | tr -s ":" "\n"'
+
+
+# kubernetes
+alias k="kubectl"
