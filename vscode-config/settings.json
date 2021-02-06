@@ -1,0 +1,74 @@
+{
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.ignorecase": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.leader": "<spa. e>",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.suggestSelection": "first",
+  "files.autoSave": "onWindowChange",
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.tabSize": 2,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "terminal.integrated.rendererType": "dom",
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": true,
+    // "source.fixAll.eslint": true
+  },
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.lineNumbers": "relative",
+  "editor.wordWrap": "on",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vs-kubernetes": {
+    "vs-kubernetes.helm-path.mac": "/Users/MrX/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+    "vs-kubernetes.draft-path.mac": "/Users/MrX/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+    "vs-kubernetes.minikube-path.mac": "/Users/MrX/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+  },
+  "diffEditor.wordWrap": "on",
+  "scm.defaultViewMode": "tree",
+  "remote.restoreForwardedPorts": true,
+  "tabnine.experimentalAutoImports": true,
+  "gruvboxMaterial.colorfulSyntax": true,
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.darkWorkbench": "flat"
+}
