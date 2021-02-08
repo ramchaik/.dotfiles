@@ -1,7 +1,7 @@
 {
   "vim.easymotion": true,
   "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
+  "vim.useSystemClipboard": false,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.ignorecase": true,
@@ -70,5 +70,8 @@
   "tabnine.experimentalAutoImports": true,
   "gruvboxMaterial.colorfulSyntax": true,
   "gruvboxMaterial.darkContrast": "hard",
-  "gruvboxMaterial.darkWorkbench": "flat"
+  "gruvboxMaterial.darkWorkbench": "flat",
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true
 }
