@@ -73,5 +73,12 @@
   "gruvboxMaterial.darkWorkbench": "flat",
   "workbench.editor.wrapTabs": true,
   "workbench.editor.decorations.badges": true,
-  "workbench.editor.decorations.colors": true
+  "workbench.editor.decorations.colors": true,
+  "remote.SSH.defaultExtensions": [
+    "eamodio.gitlens",
+    "mutantdino.resourcemonitor",
+    "tabnine.tabnine-vscode",
+    "vscodevim.vim",
+    "sainnhe.gruvbox-material"
+  ]
 }
