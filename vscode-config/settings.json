@@ -11,11 +11,11 @@
       "after": ["<Esc>"]
     }
   ],
-  "vim.leader": "<spa. e>",
+  "vim.leader": "<space>",
   "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "editor.suggestSelection": "first",
   "files.autoSave": "onWindowChange",
-  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
