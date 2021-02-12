@@ -1,9 +1,13 @@
+#-----------------
+# Custom
+#-----------------
 alias c="clear"
-alias lsh="ls -h -l -a"
+alias lsh="ls -lah"
+alias grep='grep --colour=auto'
+alias r.zsh="source ~/.zshrc"
 alias ll="ls -al"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
-
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
