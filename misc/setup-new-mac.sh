@@ -92,7 +92,6 @@ apps=(
  osxfuse
  postman
  appcleaner
- github
  chromium
  lastpass
  qlmarkdown
