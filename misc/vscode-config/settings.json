@@ -60,9 +60,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vs-kubernetes": {
-    "vs-kubernetes.helm-path.mac": "/Users/MrX/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vs-kubernetes.draft-path.mac": "/Users/MrX/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-    "vs-kubernetes.minikube-path.mac": "/Users/MrX/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "vs-kubernetes.helm-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+    "vs-kubernetes.draft-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+    "vs-kubernetes.minikube-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
   },
   "diffEditor.wordWrap": "on",
   "scm.defaultViewMode": "tree",
