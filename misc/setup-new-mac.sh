@@ -52,14 +52,14 @@ brew install the_silver_searcher
 brew install vv
 brew install gist
 brew install shellcheck
-
-#@TODO install our custom fonts and stuff
+brew install mongodb-community
+brew install postgresql
+brew install redis
+brew install ngrok
+brew install font-fira-code
 
 echo "Cleaning up brew"
 brew cleanup
-
-echo "Installing homebrew cask"
-brew install caskroom/cask/brew-cask
 
 echo "Copying dotfiles from Github"
 cd ~
@@ -89,6 +89,12 @@ apps=(
  visual-studio-code
  notion
  evernote
+ osxfuse
+ postman
+ appcleaner
+ github
+ chromium
+ lastpass
  qlmarkdown
  transmission
  iterm2
@@ -103,14 +109,11 @@ apps=(
  slack
 )
 
-# Install apps to /Applications
+# Install apps to /Applications -> `--appdir="/Applications"`
 # Default is: /Users/$user/Applications
 echo "installing apps with Cask..."
-brew cask install --appdir="/Applications" ${apps[@]}
+brew install --cask  ${apps[@]}
 
-brew cask alfred link
-
-brew cask cleanup
 brew cleanup
 
 echo "Setting some Mac settings..."
