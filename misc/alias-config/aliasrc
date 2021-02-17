@@ -12,8 +12,11 @@ alias mkdir="mkdir -p"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# add hub cli 
+#-----------------
+# Git
+#-----------------
 alias git="hub"
+alias s="git status -sb"
 
 # kubernetes
 alias k="kubectl"
