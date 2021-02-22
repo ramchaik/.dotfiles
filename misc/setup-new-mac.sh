@@ -57,7 +57,8 @@ brew install postgresql
 brew install redis
 brew install ngrok
 brew install font-fira-code
-brew install the_silver_searcher
+brew install fzf
+brew install ripgrep
 
 echo "Cleaning up brew"
 brew cleanup
