@@ -80,5 +80,7 @@
     "tabnine.tabnine-vscode",
     "vscodevim.vim",
     "sainnhe.gruvbox-material"
-  ]
+  ],
+  "git.suggestSmartCommit": false,
+  "workbench.panel.defaultLocation": "right"
 }
