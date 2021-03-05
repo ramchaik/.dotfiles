@@ -6,7 +6,7 @@ services:
     volumes:
       - /data/db/mongo
     ports:
-      - "27018:27017"
+      - "27017:27017"
 
   redis:
     image: redis
