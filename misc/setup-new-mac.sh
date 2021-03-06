@@ -108,6 +108,7 @@ apps=(
  spotify
  macdown
  slack
+ dozer
 )
 
 # Install apps to /Applications -> `--appdir="/Applications"`
