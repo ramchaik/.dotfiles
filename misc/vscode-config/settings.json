@@ -24,7 +24,6 @@
   },
   "editor.tabSize": 2,
   "liveServer.settings.donotShowInfoMsg": true,
-  "workbench.colorTheme": "Gruvbox Material Dark",
   "terminal.integrated.rendererType": "dom",
   "editor.minimap.enabled": false,
   "editor.fontFamily": "Fira Code",
@@ -33,7 +32,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     // "source.organizeImports": true,
     // "source.fixAll.eslint": true
@@ -68,9 +66,9 @@
   "scm.defaultViewMode": "tree",
   "remote.restoreForwardedPorts": true,
   "tabnine.experimentalAutoImports": true,
-  "gruvboxMaterial.colorfulSyntax": true,
-  "gruvboxMaterial.darkContrast": "hard",
-  "gruvboxMaterial.darkWorkbench": "flat",
+  // "gruvboxMaterial.colorfulSyntax": true,
+  // "gruvboxMaterial.darkContrast": "hard",
+  // "gruvboxMaterial.darkWorkbench": "flat",
   "workbench.editor.wrapTabs": true,
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
@@ -82,5 +80,10 @@
     "sainnhe.gruvbox-material"
   ],
   "git.suggestSmartCommit": false,
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "go.toolsManagement.autoUpdate": true,
+  "gruvboxMaterial.colorfulSyntax": true,
+  "gruvboxMaterial.darkWorkbench": "high-contrast",
+  "workbench.sideBar.location": "right",
   "workbench.panel.defaultLocation": "right"
 }
