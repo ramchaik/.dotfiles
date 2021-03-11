@@ -66,9 +66,6 @@
   "scm.defaultViewMode": "tree",
   "remote.restoreForwardedPorts": true,
   "tabnine.experimentalAutoImports": true,
-  // "gruvboxMaterial.colorfulSyntax": true,
-  // "gruvboxMaterial.darkContrast": "hard",
-  // "gruvboxMaterial.darkWorkbench": "flat",
   "workbench.editor.wrapTabs": true,
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
@@ -77,13 +74,12 @@
     "mutantdino.resourcemonitor",
     "tabnine.tabnine-vscode",
     "vscodevim.vim",
-    "sainnhe.gruvbox-material"
+    "wart.ariake-dark"
   ],
   "git.suggestSmartCommit": false,
-  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "workbench.colorTheme": "Ariake Dark",
   "go.toolsManagement.autoUpdate": true,
-  "gruvboxMaterial.colorfulSyntax": true,
-  "gruvboxMaterial.darkWorkbench": "high-contrast",
   "workbench.sideBar.location": "right",
-  "workbench.panel.defaultLocation": "right"
+  "workbench.panel.defaultLocation": "right",
+  "workbench.fontAliasing": "antialiased"
 }
