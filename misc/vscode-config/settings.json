@@ -1,7 +1,7 @@
 {
   "vim.easymotion": true,
   "vim.incsearch": true,
-  "vim.useSystemClipboard": false,
+  "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.ignorecase": true,
