@@ -57,7 +57,11 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
 bindkey -v
-export KEYTIMEOUT=1
+
+# Custom mapping to change mode to command
+bindkey -M viins 'jk' vi-cmd-mode
+# min val of keytimeout need to be >= 20ms for custom mapping of cmd mode
+export KEYTIMEOUT=20
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
