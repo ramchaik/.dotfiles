@@ -15,7 +15,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "editor.suggestSelection": "first",
-  "files.autoSave": "onWindowChange",
+  "files.autoSave": "onFocusChange",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -33,8 +33,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.codeActionsOnSave": {
-    // "source.organizeImports": true,
-    // "source.fixAll.eslint": true
+    "source.organizeImports": true,
+    "source.fixAll.eslint": true
   },
   "gitlens.gitCommands.closeOnFocusOut": true,
   "files.exclude": {
@@ -57,11 +57,6 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "vs-kubernetes": {
-    "vs-kubernetes.helm-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vs-kubernetes.draft-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-    "vs-kubernetes.minikube-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-  },
   "diffEditor.wordWrap": "on",
   "scm.defaultViewMode": "tree",
   "remote.restoreForwardedPorts": true,
@@ -72,14 +67,15 @@
   "remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
     "mutantdino.resourcemonitor",
-    "tabnine.tabnine-vscode",
     "vscodevim.vim",
-    "wart.ariake-dark"
+    "jdinhlife.gruvbox"
   ],
   "git.suggestSmartCommit": false,
-  "workbench.colorTheme": "Ariake Dark",
-  "go.toolsManagement.autoUpdate": true,
   "workbench.sideBar.location": "right",
   "workbench.panel.defaultLocation": "right",
-  "workbench.fontAliasing": "antialiased"
+  "workbench.fontAliasing": "antialiased",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "resmon.show.disk": true,
+  "resmon.show.cputemp": true,
+  "Notes.notesLocation": "/Users/ramchaik/Documents/vs-code-notes",
 }
