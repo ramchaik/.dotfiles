@@ -12,7 +12,6 @@
     }
   ],
   "vim.leader": "<space>",
-  "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "editor.suggestSelection": "first",
   "files.autoSave": "onFocusChange",
@@ -34,7 +33,7 @@
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": true,
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": true
   },
   "gitlens.gitCommands.closeOnFocusOut": true,
   "files.exclude": {
@@ -72,13 +71,12 @@
   ],
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
-  "workbench.panel.defaultLocation": "right",
   "workbench.fontAliasing": "antialiased",
-  "workbench.colorTheme": "Horizon",
   "resmon.show.disk": true,
   "resmon.show.cputemp": true,
   "Notes.notesLocation": "/Users/ramchaik/Documents/vs-code-notes",
   "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "modifications",
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Gruvbox Dark Medium"
 }
-a
