@@ -8,12 +8,16 @@ alias r.zsh="source ~/.zshrc"
 alias ll="ls -al"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
+alias ip="ipconfig getifaddr en0"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# add hub cli 
+#-----------------
+# Git
+#-----------------
 alias git="hub"
+alias s="git status -sb"
 
 # kubernetes
 alias k="kubectl"
