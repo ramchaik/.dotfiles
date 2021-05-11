@@ -72,11 +72,14 @@
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
   "workbench.fontAliasing": "antialiased",
-  "resmon.show.disk": true,
-  "resmon.show.cputemp": true,
   "Notes.notesLocation": "/Users/ramchaik/Documents/vs-code-notes",
   "editor.formatOnSave": true,
   "workbench.productIconTheme": "material-product-icons",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Gruvbox Dark Medium"
+  "gitmoji.showEmojiCode": true,
+  "resmon.disk.format": "PercentRemaining",
+  "resmon.show.cputemp": true,
+  "resmon.show.disk": true,
+  "workbench.colorTheme": "Ayu Mirage Bordered",
+  "workbench.panel.defaultLocation": "right"
 }
