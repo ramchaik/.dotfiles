@@ -43,6 +43,8 @@ brew install node
 brew install nvm
 brew install tmux
 brew install hub
+brew install htop
+brew install gotop
 brew install python
 brew install imagemagick
 brew install cowsay
