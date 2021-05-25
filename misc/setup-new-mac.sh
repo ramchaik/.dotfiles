@@ -50,6 +50,7 @@ brew install python
 brew install imagemagick
 brew install cowsay
 brew install fortune
+brew install dwm
 brew install htop-osx
 brew install the_silver_searcher
 brew install vv
