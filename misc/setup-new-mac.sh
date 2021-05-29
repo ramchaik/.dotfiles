@@ -52,6 +52,7 @@ brew install cowsay
 brew install fortune
 brew install dwm
 brew install --cask amethyst
+brew install --cask karabiner-elements
 brew install htop-osx
 brew install the_silver_searcher
 brew install vv
