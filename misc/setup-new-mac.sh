@@ -62,6 +62,7 @@ brew install ngrok
 brew install font-fira-code
 brew install fzf
 brew install ripgrep
+brew install fd
 brew install koekeishiya/formulae/yabai
 brew install jq # https://github.com/stedolan/jq
 brew install koekeishiya/formulae/skhd # https://github.com/koekeishiya/skhd
