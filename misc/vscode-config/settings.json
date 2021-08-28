@@ -1,7 +1,6 @@
 {
-  "vim.easymotion": true,
   "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
+  "vim.useSystemClipboard": false,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.ignorecase": true,
@@ -12,16 +11,14 @@
     }
   ],
   "vim.leader": "<space>",
-  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "editor.suggestSelection": "first",
-  "files.autoSave": "onFocusChange",
+  "files.autoSave": "onWindowChange",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "editor.tabSize": 2,
   "liveServer.settings.donotShowInfoMsg": true,
   "terminal.integrated.rendererType": "dom",
   "editor.minimap.enabled": false,
@@ -32,7 +29,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
+    // "source.organizeImports": true,
     "source.fixAll.eslint": true
   },
   "gitlens.gitCommands.closeOnFocusOut": true,
@@ -67,19 +64,65 @@
     "eamodio.gitlens",
     "mutantdino.resourcemonitor",
     "vscodevim.vim",
-    "jdinhlife.gruvbox"
   ],
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
-  "workbench.fontAliasing": "antialiased",
-  "Notes.notesLocation": "/Users/ramchaik/Documents/vs-code-notes",
-  "editor.formatOnSave": true,
-  "workbench.productIconTheme": "material-product-icons",
-  "workbench.iconTheme": "material-icon-theme",
+  "projectManager.git.baseFolders": ["/Users/ramchaik/workspace/insider"],
   "gitmoji.showEmojiCode": true,
-  "resmon.disk.format": "PercentRemaining",
-  "resmon.show.cputemp": true,
-  "resmon.show.disk": true,
-  "workbench.colorTheme": "Ayu Mirage Bordered",
-  "workbench.panel.defaultLocation": "right"
+  "editor.linkedEditing": true,
+  "fzf-quick-open.findDirectoriesCmd": "fd --type d",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "files.defaultLanguage": "${activeEditorLanguage}",
+  "vim.easymotion": true,
+  "prettier.singleQuote": true,
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "editor.tabSize": 2,
+  "editor.inlineSuggest.enabled": true,
+  "git.autofetch": true,
+  "editor.autoClosingBrackets": "always",
+  "javascript.suggest.completeJSDocs": false,
+  "terminal.integrated.detectLocale": "on",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "docthis.returnsTag": true,
+  "redhat.telemetry.enabled": true,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "editor.formatOnSaveMode": "modifications",
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+    "vscode-kubernetes.minikube-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "window.autoDetectColorScheme": true,
+  "terminal.external.osxExec": "iTerm.app",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.list.smoothScrolling": true,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "diffEditor.codeLens": true,
+  "merge-conflict.autoNavigateNextConflict.enabled": true,
+  "editor.codeLensFontFamily": "Fira Code",
+  "editor.semanticHighlighting.enabled": false,
+  "workbench.fontAliasing": "antialiased",
+  "workbench.colorTheme": "Just Black",
+  "editor.lineHeight": 2,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.block"
+        ],
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#ff1493"
+        }
+      }
+    ]
+  }
 }

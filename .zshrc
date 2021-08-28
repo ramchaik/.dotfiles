@@ -129,3 +129,5 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export FZF_DEFAULT_COMMAND='fd'
+
+fortune | cowsay -f tux
