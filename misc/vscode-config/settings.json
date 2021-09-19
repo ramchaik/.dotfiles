@@ -1,6 +1,6 @@
 {
   "vim.incsearch": true,
-  "vim.useSystemClipboard": false,
+  "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.ignorecase": true,
@@ -12,15 +12,13 @@
   ],
   "vim.leader": "<space>",
   "editor.suggestSelection": "first",
-  "files.autoSave": "onWindowChange",
+  "files.autoSave": "afterDelay",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "liveServer.settings.donotShowInfoMsg": true,
-  "terminal.integrated.rendererType": "dom",
   "editor.minimap.enabled": false,
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
@@ -62,15 +60,12 @@
   "workbench.editor.decorations.colors": true,
   "remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
-    "mutantdino.resourcemonitor",
-    "vscodevim.vim",
+    "vscodevim.vim"
   ],
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
   "projectManager.git.baseFolders": ["/Users/ramchaik/workspace/insider"],
-  "gitmoji.showEmojiCode": true,
   "editor.linkedEditing": true,
-  "fzf-quick-open.findDirectoriesCmd": "fd --type d",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "files.defaultLanguage": "${activeEditorLanguage}",
   "vim.easymotion": true,
@@ -84,19 +79,8 @@
   "javascript.suggest.completeJSDocs": false,
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-  "docthis.returnsTag": true,
-  "redhat.telemetry.enabled": true,
-  "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
-  },
   "editor.formatOnSaveMode": "modifications",
-  "vs-kubernetes": {
-    "vscode-kubernetes.helm-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vscode-kubernetes.minikube-path.mac": "/Users/ramchaik/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-  },
   "diffEditor.ignoreTrimWhitespace": false,
-  "go.toolsManagement.autoUpdate": true,
-  "workbench.iconTheme": "material-icon-theme",
   "window.autoDetectColorScheme": true,
   "terminal.external.osxExec": "iTerm.app",
   "security.workspace.trust.untrustedFiles": "open",
@@ -108,21 +92,9 @@
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "editor.codeLensFontFamily": "Fira Code",
   "editor.semanticHighlighting.enabled": false,
-  "workbench.fontAliasing": "antialiased",
-  "workbench.colorTheme": "Just Black",
   "editor.lineHeight": 2,
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": [
-          "comment",
-          "comment.block"
-        ],
-        "settings": {
-          "fontStyle": "italic",
-          "foreground": "#ff1493"
-        }
-      }
-    ]
-  }
+  "workbench.fontAliasing": "auto",
+  "editor.fontSize": 14,
+  "terminal.integrated.fontSize": 13,
+  "files.autoSaveDelay": 1500
 }
