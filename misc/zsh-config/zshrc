@@ -219,4 +219,4 @@ fi
 
 # fun is important in life
 neofetch
-fortune | cowsay -f dragon | lolcat
+fortune -s computers | cowsay -f dragon | lolcat

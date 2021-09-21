@@ -131,4 +131,4 @@ fi
 export FZF_DEFAULT_COMMAND='fd'
 
 neofetch
-fortune | cowsay -f dragon | lolcat
+fortune -s computers | cowsay -f dragon | lolcat
