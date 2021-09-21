@@ -130,4 +130,5 @@ fi
 
 export FZF_DEFAULT_COMMAND='fd'
 
-fortune | cowsay -f tux
+neofetch
+fortune | cowsay -f dragon | lolcat
