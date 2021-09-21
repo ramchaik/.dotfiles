@@ -1,6 +1,5 @@
 {
   "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
   "vim.ignorecase": true,
@@ -60,7 +59,7 @@
   "workbench.editor.decorations.colors": true,
   "remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
-    "vscodevim.vim"
+    "vscodevim.vim",
   ],
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
@@ -92,9 +91,32 @@
   "merge-conflict.autoNavigateNextConflict.enabled": true,
   "editor.codeLensFontFamily": "Fira Code",
   "editor.semanticHighlighting.enabled": false,
-  "editor.lineHeight": 2,
   "workbench.fontAliasing": "auto",
   "editor.fontSize": 14,
   "terminal.integrated.fontSize": 13,
-  "files.autoSaveDelay": 1500
+  "files.autoSaveDelay": 1500,
+  "[haskell]": {
+    "editor.defaultFormatter": "haskell.haskell"
+  },
+  "workbench.iconTheme": "eq-material-theme-icons-darker",
+  "editor.bracketPairColorization.enabled": true,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "editor.lineHeight": 3,
+  "workbench.colorTheme": "Just Black",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.block"
+        ],
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#ff1493"
+        }
+      }
+    ]
+  }
 }
