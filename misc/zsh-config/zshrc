@@ -218,4 +218,5 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # fun is important in life
-fortune | cowsay -f tux | lolcat
+neofetch
+fortune | cowsay -f dragon | lolcat
