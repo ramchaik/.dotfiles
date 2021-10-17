@@ -1,2 +1,6 @@
 !bin
 vim/bundle/
+.DS_Store
+dist
+node_modules
+coverage
