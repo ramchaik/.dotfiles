@@ -1,3 +1,3 @@
 #!/bin/bash
-rm Brewfile
+rm Brewfile &> /dev/null
 brew bundle dump --describe                                                                                                  
