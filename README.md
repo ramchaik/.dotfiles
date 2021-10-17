@@ -3,5 +3,5 @@
 ## TODO:
 - [x] clean up
 - [x] update config sys links
-- [ ] add brew dump
+- [x] add brew dump
 - [ ] update bootstrap script
