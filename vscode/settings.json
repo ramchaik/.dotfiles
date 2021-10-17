@@ -92,19 +92,18 @@
   "editor.codeLensFontFamily": "Fira Code",
   "editor.semanticHighlighting.enabled": false,
   "workbench.fontAliasing": "auto",
-  "editor.fontSize": 14,
+  "editor.fontSize": 12,
   "terminal.integrated.fontSize": 13,
   "files.autoSaveDelay": 1500,
   "[haskell]": {
     "editor.defaultFormatter": "haskell.haskell"
   },
-  "workbench.iconTheme": "eq-material-theme-icons-darker",
+  "workbench.iconTheme": "material-icon-theme",
   "editor.bracketPairColorization.enabled": true,
   "[php]": {
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
-  "editor.lineHeight": 3,
-  "workbench.colorTheme": "Just Black",
+  "editor.lineHeight": 2,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -118,5 +117,7 @@
         }
       }
     ]
-  }
+  },
+  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+  "workbench.productIconTheme": "fluent-icons"
 }
