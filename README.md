@@ -1,7 +1,7 @@
 #  🏴‍☠️ dotfiles
 
-## To Do:
+## TODO:
 - [x] clean up
-- [ ] update config sys links
+- [x] update config sys links
 - [ ] add brew dump
 - [ ] update bootstrap script
