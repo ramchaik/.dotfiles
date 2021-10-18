@@ -118,6 +118,8 @@
       }
     ]
   },
-  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
-  "workbench.productIconTheme": "fluent-icons"
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.darkWorkbench": "flat"
 }
