@@ -103,7 +103,6 @@
   "[php]": {
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
-  "editor.lineHeight": 2,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -119,7 +118,9 @@
     ]
   },
   "workbench.productIconTheme": "material-product-icons",
-  "workbench.colorTheme": "Gruvbox Material Dark",
   "gruvboxMaterial.darkContrast": "hard",
-  "gruvboxMaterial.darkWorkbench": "flat"
+  "gruvboxMaterial.darkWorkbench": "flat",
+  "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "editor.lineHeight": 2,
+  "sync.gist": "fa21363adf8837ee7672f4ece2c88753"
 }
