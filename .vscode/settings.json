@@ -57,10 +57,7 @@
   "workbench.editor.wrapTabs": true,
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
-  "remote.SSH.defaultExtensions": [
-    "eamodio.gitlens",
-    "vscodevim.vim",
-  ],
+  "remote.SSH.defaultExtensions": ["eamodio.gitlens", "vscodevim.vim"],
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
   "projectManager.git.baseFolders": ["/Users/ramchaik/workspace/insider"],
@@ -71,7 +68,6 @@
   "prettier.singleQuote": true,
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.quoteStyle": "single",
-  "editor.tabSize": 2,
   "editor.inlineSuggest.enabled": true,
   "git.autofetch": true,
   "editor.autoClosingBrackets": "always",
@@ -79,7 +75,6 @@
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "editor.formatOnSaveMode": "modifications",
-  "diffEditor.ignoreTrimWhitespace": false,
   "window.autoDetectColorScheme": true,
   "terminal.external.osxExec": "iTerm.app",
   "security.workspace.trust.untrustedFiles": "open",
@@ -106,10 +101,7 @@
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": [
-          "comment",
-          "comment.block"
-        ],
+        "scope": ["comment", "comment.block"],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#ff1493"
@@ -118,9 +110,13 @@
     ]
   },
   "workbench.productIconTheme": "material-product-icons",
-  "gruvboxMaterial.darkContrast": "hard",
-  "gruvboxMaterial.darkWorkbench": "flat",
-  "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "workbench.colorTheme": "One Dark Pro Darker",
   "editor.lineHeight": 2,
-  "sync.gist": "fa21363adf8837ee7672f4ece2c88753"
+  "sync.gist": "fa21363adf8837ee7672f4ece2c88753",
+  "json.schemas": [],
+  "aws.profile": "profile:default",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "workbench.list.keyboardNavigation": "filter"
 }
