@@ -60,7 +60,7 @@
   "remote.SSH.defaultExtensions": ["eamodio.gitlens", "vscodevim.vim"],
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
-  "projectManager.git.baseFolders": ["/Users/ramchaik/workspace/insider"],
+  "projectManager.git.baseFolders": ["/Users/ramchaik/workspace"],
   "editor.linkedEditing": true,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "files.defaultLanguage": "${activeEditorLanguage}",
