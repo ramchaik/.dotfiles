@@ -48,7 +48,7 @@
   "editor.lineNumbers": "relative",
   "editor.wordWrap": "on",
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "diffEditor.wordWrap": "on",
   "scm.defaultViewMode": "tree",
@@ -87,8 +87,6 @@
   "editor.codeLensFontFamily": "Fira Code",
   "editor.semanticHighlighting.enabled": false,
   "workbench.fontAliasing": "auto",
-  "editor.fontSize": 12,
-  "terminal.integrated.fontSize": 13,
   "files.autoSaveDelay": 1500,
   "[haskell]": {
     "editor.defaultFormatter": "haskell.haskell"
@@ -110,7 +108,6 @@
     ]
   },
   "workbench.productIconTheme": "material-product-icons",
-  "workbench.colorTheme": "One Dark Pro Darker",
   "editor.lineHeight": 2,
   "sync.gist": "fa21363adf8837ee7672f4ece2c88753",
   "json.schemas": [],
@@ -118,5 +115,15 @@
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "workbench.list.keyboardNavigation": "filter"
+  "workbench.list.keyboardNavigation": "filter",
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": true
+  },
+  "gitmoji.showEmojiCode": true,
+  "workbench.colorTheme": "Plastic",
+  "editor.fontSize": 14,
+  "terminal.integrated.fontSize": 14
 }
