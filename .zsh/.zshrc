@@ -126,4 +126,4 @@ export FZF_DEFAULT_COMMAND='fd'
 neofetch
 fortune -s computers | cowsay -f dragon | lolcat
 
-[ -f "/Users/ramchaik/.ghcup/env" ] && source "/Users/ramchaik/.ghcup/env" # ghcup-env
+#[ -f "/Users/ramchaik/.ghcup/env" ] && source "/Users/ramchaik/.ghcup/env" # ghcup-env
