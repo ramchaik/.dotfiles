@@ -5,8 +5,13 @@
   "vim.ignorecase": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.leader": "<space>",
@@ -57,10 +62,15 @@
   "workbench.editor.wrapTabs": true,
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
-  "remote.SSH.defaultExtensions": ["eamodio.gitlens", "vscodevim.vim"],
+  "remote.SSH.defaultExtensions": [
+    "eamodio.gitlens",
+    "vscodevim.vim",
+  ],
   "git.suggestSmartCommit": false,
   "workbench.sideBar.location": "right",
-  "projectManager.git.baseFolders": ["/Users/ramchaik/workspace"],
+  "projectManager.git.baseFolders": [
+    "/Users/ramchaik/workspace"
+  ],
   "editor.linkedEditing": true,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "files.defaultLanguage": "${activeEditorLanguage}",
@@ -71,7 +81,6 @@
   "editor.inlineSuggest.enabled": true,
   "git.autofetch": true,
   "editor.autoClosingBrackets": "always",
-  "javascript.suggest.completeJSDocs": false,
   "terminal.integrated.detectLocale": "on",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "editor.formatOnSaveMode": "modifications",
@@ -99,7 +108,11 @@
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": ["comment", "comment.block"],
+        "scope": [
+          "comment",
+          "comment.block",
+          "comment.line.double-slash"
+        ],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#ff1493"
@@ -123,7 +136,75 @@
     "markdown": true
   },
   "gitmoji.showEmojiCode": true,
-  "workbench.colorTheme": "Plastic",
+  "terminal.integrated.fontSize": 14,
   "editor.fontSize": 14,
-  "terminal.integrated.fontSize": 14
+  "workbench.colorTheme": "Night Wolf [black]",
+  "redhat.telemetry.enabled": true,
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#dd0531"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#61dafb"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Svelte Orange",
+      "value": "#ff3d00"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "yaml.customTags": [
+    "!And",
+    "!And sequence",
+    "!If",
+    "!If sequence",
+    "!Not",
+    "!Not sequence",
+    "!Equals",
+    "!Equals sequence",
+    "!Or",
+    "!Or sequence",
+    "!FindInMap",
+    "!FindInMap sequence",
+    "!Base64",
+    "!Join",
+    "!Join sequence",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!ImportValue sequence",
+    "!Select",
+    "!Select sequence",
+    "!Split",
+    "!Split sequence"
+  ]
 }
