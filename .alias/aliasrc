@@ -2,13 +2,17 @@
 # Custom
 #-----------------
 alias c="clear"
-alias lsh="ls -lah"
 alias grep='grep --colour=auto'
 alias rr="source ~/.zshrc"
-alias ll="ls -al"
+alias l="exa -alhgiHS"
+alias ll="ls -lah"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
+alias ci="code-insiders"
+alias co="code"
+alias vim="nvim"
+alias vi="nvim"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'

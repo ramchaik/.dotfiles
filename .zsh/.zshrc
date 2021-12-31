@@ -127,3 +127,6 @@ neofetch
 fortune -s computers | cowsay -f dragon | lolcat
 
 #[ -f "/Users/ramchaik/.ghcup/env" ] && source "/Users/ramchaik/.ghcup/env" # ghcup-env
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
