@@ -7,8 +7,14 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "mongodb/brew"
 tap "thoughtbot/formulae"
+# Generic library support script
+brew "libtool"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
 # GNU Emacs text editor
-brew "emacs"
+brew "emacs", restart_service: true
 # Emacs dependency management
 brew "cask"
 # Cross-platform make
@@ -19,6 +25,8 @@ brew "cowsay"
 brew "doctl"
 # Dynamic window manager
 brew "dwm"
+# Modern replacement for 'ls'
+brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Banner-like program prints strings as ASCII art
@@ -87,6 +95,8 @@ brew "ruby"
 brew "skaffold"
 # Prints a steam locomotive if you type sl instead of ls
 brew "sl"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # User interface to the TELNET protocol
 brew "telnet"
 # Code-search similar to ack
@@ -133,6 +143,8 @@ cask "joplin"
 cask "karabiner-elements"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# MongoDB management tool
+cask "robo-3t"
 # Break time reminder app
 cask "stretchly"
 # Text editor for code, markup and prose
