@@ -138,7 +138,7 @@
   "gitmoji.showEmojiCode": true,
   "terminal.integrated.fontSize": 14,
   "editor.fontSize": 14,
-  "workbench.colorTheme": "Night Wolf [black]",
+  "workbench.colorTheme": "Ayu Dark Bordered",
   "redhat.telemetry.enabled": true,
   "peacock.favoriteColors": [
     {
@@ -208,3 +208,4 @@
     "!Split sequence"
   ]
 }
+
