@@ -49,7 +49,9 @@ ln -s ~/.dotfiles/docker/docker-compose.yml ~/docker-compose.yml && echo -e "doc
 # nvim
 [ -e ~/.config/nvim/init.vim ] && rm ~/.config/nvim/init.vim && echo "nvim removed"
 [ -d ~/.config/nvim/plugin ] && rm -rf ~/.config/nvim/plugin && echo "nvim plugin removed"
+[ -d ~/.config/nvim/lua ] && rm -rf ~/.config/nvim/lua && echo "nvim lua files removed"
 ln -s ~/.dotfiles/nvim/.config/nvim/init.vim ~/.config/nvim/init.vim && echo "nvim link created"
-ln -s ~/.dotfiles/nvim/.config/nvim/plugin ~/.config/nvim/plugin && echo -e "nvim plugin link created \n"
+ln -s ~/.dotfiles/nvim/.config/nvim/plugin ~/.config/nvim/plugin && echo -e "nvim plugin link created"
+ln -s ~/.dotfiles/nvim/.config/nvim/lua ~/.config/nvim/lua && echo -e "nvim lua files link created \n"
 
 echo "*** done [setup config sys link] ***"
