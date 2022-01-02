@@ -1,3 +1,6 @@
+" Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
 " Ignore files
 set wildignore+=*.pyc
 set wildignore+=*_build/*
@@ -19,6 +22,10 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'rstacruz/vim-closer'
+Plug 'tpope/vim-commentary'
+
 
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
@@ -40,10 +47,6 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'tpope/vim-fugitive'
 Plug 'theprimeagen/git-worktree.nvim'
 Plug 'hoob3rt/lualine.nvim'
-
-Plug 'honza/vim-snippets'
-Plug 'rstacruz/vim-closer'
-Plug 'tpope/vim-commentary'
 
 " telescope
 Plug 'nvim-lua/plenary.nvim'

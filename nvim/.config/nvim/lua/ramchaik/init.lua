@@ -1,6 +1,5 @@
 require("ramchaik.telescope")
 require("ramchaik.lsp")
-require("ramchaik.cmp")
 require("ramchaik.lualine")
 --require("ramchaik.git-worktree")
 --require("ramchaik.debugger")
