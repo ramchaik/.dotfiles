@@ -25,6 +25,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'github/copilot.vim'
 
 " For vsnip users.
