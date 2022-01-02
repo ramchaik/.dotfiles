@@ -25,7 +25,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-commentary'
-
+Plug 'github/copilot.vim'
 
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
@@ -49,6 +49,7 @@ Plug 'theprimeagen/git-worktree.nvim'
 Plug 'hoob3rt/lualine.nvim'
 
 " telescope
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
