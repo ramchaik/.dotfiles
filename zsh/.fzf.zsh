@@ -19,8 +19,6 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
-zle -N fd
-bindkey '^F' fd
 
 # fh - search in your command history and execute selected command
 fh() {
