@@ -1,3 +1,12 @@
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
 call plug#begin('~/.vim/plugged')
 " fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -29,7 +38,7 @@ Plug 'hrsh7th/vim-vsnip'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'ThePrimeagen/git-worktree.nvim'
+Plug 'theprimeagen/git-worktree.nvim'
 Plug 'hoob3rt/lualine.nvim'
 
 Plug 'honza/vim-snippets'
