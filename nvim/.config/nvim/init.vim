@@ -64,7 +64,6 @@ let mapleader = " "
 
 " Custom
 tnoremap <Esc> <C-\><C-n>
-tnoremap <C-c> <C-\><C-n>
 inoremap jk <Esc>
 inoremap <C-c> <esc>
 nnoremap <leader>pv :Vex<CR>
