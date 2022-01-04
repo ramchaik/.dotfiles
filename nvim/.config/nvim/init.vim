@@ -1,4 +1,4 @@
-" Nice menu when typing `:find *.py`
+"Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
 " Ignore files
@@ -25,9 +25,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'rstacruz/vim-closer'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
@@ -45,21 +43,32 @@ Plug 'hrsh7th/vim-vsnip'
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
 
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'theprimeagen/git-worktree.nvim'
-Plug 'hoob3rt/lualine.nvim'
-
 " telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
+Plug 'theprimeagen/harpoon'
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'theprimeagen/git-worktree.nvim'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'theprimeagen/vim-be-good'
 Plug 'gruvbox-community/gruvbox'
+
+" Prettier
+Plug 'sbdchd/neoformat'
+
 "
 call plug#end()
 
+" lua
+lua require'ramchaik'
+
+" Remaps
 let mapleader = " "
 
 " Custom
@@ -80,7 +89,3 @@ nnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
-
-" lua
-lua require'ramchaik'
-
