@@ -24,16 +24,20 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-Plug 'rstacruz/vim-closer'
+Plug 'onsails/lspkind-nvim'
 " Plug 'github/copilot.vim'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 
 " For vsnip users.
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
 
 " For luasnip users.
-" Plug 'L3MON4D3/LuaSnip'
-" Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'simrat39/symbols-outline.nvim'
 
 " For ultisnips users.
 " Plug 'SirVer/ultisnips'
@@ -42,6 +46,11 @@ Plug 'hrsh7th/vim-vsnip'
 " For snippy users.
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
+
+" Debugger Plugins
+Plug 'mfussenegger/nvim-dap'
+Plug 'Pocco81/DAPInstall.nvim'
+Plug 'szw/vim-maximizer'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
@@ -53,10 +62,18 @@ Plug 'theprimeagen/harpoon'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'rstacruz/vim-closer'
+
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 Plug 'theprimeagen/git-worktree.nvim'
+Plug 'vim-utils/vim-man'
+
 Plug 'hoob3rt/lualine.nvim'
+
 Plug 'theprimeagen/vim-be-good'
+
 Plug 'gruvbox-community/gruvbox'
 
 " Prettier
