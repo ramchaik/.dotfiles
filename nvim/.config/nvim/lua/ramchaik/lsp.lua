@@ -1,16 +1,3 @@
--- *** LSP LANG SETUP FNs ***
--- ts/js
--- npm install -g typescript typescript-language-server
-require'lspconfig'.tsserver.setup{}
-
--- python
--- npm i -g pyright
-require'lspconfig'.pyright.setup{}
--- *** LSP LANG SETUP FNs ***
-
-
--- *** LSP autocomplete SETUP FNs ***
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -110,8 +97,11 @@ local function config(_config)
 	}, _config or {})
 end
 
+-- npm install -g typescript typescript-language-server
 require("lspconfig").tsserver.setup(config())
 
+-- npm i -g pyright
+require'lspconfig'.pyright.setup(config())
 
 local opts = {
 	-- whether to highlight the currently hovered symbol
@@ -145,5 +135,3 @@ require("luasnip.loaders.from_vscode").lazy_load({
 	include = nil, -- Load all languages
 	exclude = {},
 })
--- *** LSP autocomplete SETUP FNs ***
-
