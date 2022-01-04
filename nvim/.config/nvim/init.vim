@@ -25,7 +25,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'onsails/lspkind-nvim'
-" Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 
@@ -62,7 +62,6 @@ Plug 'theprimeagen/harpoon'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'rstacruz/vim-closer'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
