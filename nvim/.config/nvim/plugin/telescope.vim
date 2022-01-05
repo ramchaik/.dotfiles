@@ -9,5 +9,5 @@ nnoremap <leader>gc :lua require('ramchaik.telescope').git_branches()<CR>
 nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
 nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
-" nnoremap <leader>va :lua require('ramchaik.telescope').anime_selector()<CR>
+nnoremap <leader>va :lua require('ramchaik.telescope').anime_selector()<CR>
 

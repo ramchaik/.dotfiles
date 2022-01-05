@@ -1,9 +1,9 @@
 require("ramchaik.telescope")
 require("ramchaik.lsp")
 require("ramchaik.lualine")
---require("ramchaik.git-worktree")
---require("ramchaik.debugger")
---require("ramchaik.harpoon")
+require("ramchaik.harpoon")
+require("ramchaik.debugger")
+-- require("ramchaik.git-worktree")
 
 P = function(v)
   print(vim.inspect(v))
