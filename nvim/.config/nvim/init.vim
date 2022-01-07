@@ -47,6 +47,10 @@ Plug 'simrat39/symbols-outline.nvim'
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
 
+" Neovim Tree shitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
 " Debugger Plugins
 Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'
@@ -83,6 +87,8 @@ call plug#end()
 
 " lua
 lua require'ramchaik'
+lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
+
 
 " Remaps
 let mapleader = " "
@@ -98,9 +104,6 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 
 
 " Custom
-tnoremap <Esc> <C-\><C-n>
-inoremap jk <Esc>
-inoremap <C-c> <esc>
 nnoremap <leader>pv :Vex<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
@@ -118,3 +121,12 @@ nnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
+
+tnoremap <Esc> <C-\><C-n>
+inoremap jk <Esc>
+inoremap <C-c> <esc>
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
