@@ -73,11 +73,13 @@ Plug 'junegunn/gv.vim'
 Plug 'theprimeagen/git-worktree.nvim'
 Plug 'vim-utils/vim-man'
 
-Plug 'hoob3rt/lualine.nvim'
 
 Plug 'theprimeagen/vim-be-good'
 
 Plug 'gruvbox-community/gruvbox'
+
+Plug 'hoob3rt/lualine.nvim'
+Plug 'glepnir/dashboard-nvim'
 
 " Prettier
 Plug 'sbdchd/neoformat'
@@ -89,6 +91,14 @@ call plug#end()
 lua require'ramchaik'
 lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
+" Dashboard
+let g:dashboard_default_executive ='telescope'
+let g:dashboard_custom_header =<< trim END
+____________    _____   ____ |  |__ _____  |__|  | __
+\_  __ \__  \  /     \_/ ___\|  |  \\__  \ |  |  |/ /
+ |  | \// __ \|  Y Y  \  \___|   Y  \/ __ \|  |    < 
+ |__|  (____  /__|_|  /\___  >___|  (____  /__|__|_ \
+END
 
 " Remaps
 let mapleader = " "
