@@ -91,16 +91,7 @@ call plug#end()
 lua require'ramchaik'
 lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
-" Dashboard
-let g:dashboard_default_executive ='telescope'
-let g:dashboard_custom_header =<< trim END
-____________    _____   ____ |  |__ _____  |__|  | __
-\_  __ \__  \  /     \_/ ___\|  |  \\__  \ |  |  |/ /
- |  | \// __ \|  Y Y  \  \___|   Y  \/ __ \|  |    < 
- |__|  (____  /__|_|  /\___  >___|  (____  /__|__|_ \
-END
-
-" Remaps
+ " Remaps
 let mapleader = " "
 
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
