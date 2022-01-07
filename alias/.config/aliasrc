@@ -14,9 +14,9 @@ alias co="code"
 alias vim="nvim"
 alias vi="nvim"
 alias ta="tmux a"
-alias tk="tmux kill-server"
-alias txs="tmux new -s "
-alias tw="tmux neww"
+alias tks="tmux kill-server"
+alias tcs="tmux new -s "
+alias tc="tmux neww"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
