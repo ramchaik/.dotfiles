@@ -13,6 +13,8 @@ alias ci="code-insiders"
 alias co="code"
 alias vim="nvim"
 alias vi="nvim"
+alias ta="tmux a"
+alias tk="tmux kill-server"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
