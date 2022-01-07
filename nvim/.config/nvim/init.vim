@@ -126,7 +126,3 @@ tnoremap <Esc> <C-\><C-n>
 inoremap jk <Esc>
 inoremap <C-c> <esc>
 
-augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
-augroup END
