@@ -66,16 +66,15 @@ Plug 'theprimeagen/harpoon'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-dispatch'
 
 Plug 'tpope/vim-fugitive'
+Plug 'mbbill/undotree'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'theprimeagen/git-worktree.nvim'
 Plug 'vim-utils/vim-man'
-
-
 Plug 'theprimeagen/vim-be-good'
-
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'hoob3rt/lualine.nvim'
@@ -84,6 +83,7 @@ Plug 'glepnir/dashboard-nvim'
 " Prettier
 Plug 'sbdchd/neoformat'
 
+Plug 'vuciv/vim-bujo'
 "
 call plug#end()
 
@@ -103,10 +103,14 @@ snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
+nmap <Leader>tu <Plug>BujoChecknormal
+nmap <Leader>th <Plug>BujoAddnormal
+let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
 " Custom
 nnoremap <leader>pv :Vex<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <leader>u :UndotreeShow<CR>
 
 nnoremap <leader>gll :let g:_search_term = expand("%")<CR><bar>:Gclog -- %<CR>:call search(g:_search_term)<CR>
 nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
