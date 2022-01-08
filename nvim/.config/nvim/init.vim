@@ -79,6 +79,7 @@ Plug 'gruvbox-community/gruvbox'
 
 Plug 'hoob3rt/lualine.nvim'
 Plug 'glepnir/dashboard-nvim'
+Plug 'jiangmiao/auto-pairs'
 
 " Prettier
 Plug 'sbdchd/neoformat'
