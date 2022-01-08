@@ -18,7 +18,7 @@ fun! ColorMyPencils()
     highlight ColorColumn ctermbg=0 guibg=grey
     hi SignColumn guibg=none
     hi CursorLine guibg=None
-    hi CursorLineNr guibg=None
+    hi CursorLineNr guibg=black
     highlight Normal guibg=none
     highlight LineNr guifg=#5eacd3
     highlight netrwDir guifg=#5eacd3
