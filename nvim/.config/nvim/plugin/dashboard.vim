@@ -1,7 +1,12 @@
 let g:dashboard_default_executive ='telescope'
 
 function! GetHeader()
-    let cres =[
+    function! RandInt(l, h) abort
+        let l:milisec = str2nr(matchstr(reltimestr(reltime()), '\v\.\zs\d+'))
+        return l:milisec % (a:h - a:l + 1) + a:l
+    endfunction
+
+    let l:cres =[
     \'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
     \'⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡖⠁⠀⠀⠀⠀⠀⠀⠈⢲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
     \'⠀⠀⠀⠀⠀⠀⠀⠀⣼⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣧⠀⠀⠀⠀⠀⠀⠀⠀ ',
@@ -19,7 +24,7 @@ function! GetHeader()
     \'⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠉⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀ ',
     \]
 
-    let lambada = [
+    let l:lambada = [
     \'',
      \'⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣤⣤⣴⣦⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
      \'⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⠿⠿⠿⠿⣿⣿⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⠀ ',
@@ -38,14 +43,21 @@ function! GetHeader()
      \'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠛⠛⠛⠛⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
      \]
 
-    let me =<< trim END
+    let l:me =<< trim END
     ____________    _____   ____ |  |__ _____  |__|  | __
     \_  __ \__  \  /     \_/ ___\|  |  \\__  \ |  |  |/ /
      |  | \// __ \|  Y Y  \  \___|   Y  \/ __ \|  |    < 
      |__|  (____  /__|_|  /\___  >___|  (____  /__|__|_ \
     END
 
-    return lambada
+    let l:all_headers = [
+        \l:cres,
+        \l:lambada,
+        \l:me,
+    \]
+    
+    let l:h_nu = RandInt(0, len(l:all_headers) - 1)
+    return get(all_headers, l:h_nu, lambada)
 endfunction
 
 let g:dashboard_custom_header= GetHeader()
