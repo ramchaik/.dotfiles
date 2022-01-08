@@ -15,25 +15,15 @@ fun! ColorMyPencils()
         colorscheme gruvbox
     endif
 
-    " hi Normal guibg=none
-    " highlight ColorColumn ctermbg=0 guibg=grey
-    " hi SignColumn guibg=none ctermbg=none
-    " hi CursorLineNR guibg=None ctermbg=None
-    " highlight LineNr guifg=#ff8659
-    " highlight LineNr guifg=#aed75f
-    " highlight LineNr guifg=#5eacd3 
-    " highlight netrwDir guifg=#5eacd3
-    " highlight qfFileName guifg=#aed75f
-    " hi TelescopeBorder guifg=#5eacd
-    
-    hi Normal ctermbg=none
-    highlight ColorColumn ctermbg=7 guibg=Black
-    hi SignColumn ctermbg=none
-    hi CursorLineNR ctermbg=none
-    highlight LineNr ctermfg=cyan
-    highlight netrwDir ctermfg=cyan
-    highlight qfFileName ctermfg=green
-    hi TelescopeBorder cterm=bold ctermfg=cyan
+    highlight ColorColumn ctermbg=0 guibg=grey
+    hi SignColumn guibg=none
+    hi CursorLine guibg=None
+    hi CursorLineNr guibg=None
+    highlight Normal guibg=none
+    highlight LineNr guifg=#5eacd3
+    highlight netrwDir guifg=#5eacd3
+    highlight qfFileName guifg=#aed75f
+    hi TelescopeBorder guifg=#5eacd3
 endfun
 call ColorMyPencils()
 
