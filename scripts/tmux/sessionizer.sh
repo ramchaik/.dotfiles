@@ -26,5 +26,7 @@ function setup_workspace() {
 
 set_main_dir "$1"
 setup_workspace
+echo "BOI! itz done! go kill it!"
+
 
 
