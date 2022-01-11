@@ -4,7 +4,7 @@ function set_main_dir() {
     local dir="$1"
 
     if [[ ! -n "$dir" ]]; then
-        read -p "Enter directory: " dir
+        read -p "Enter directory (absolute path): " dir
     fi
 
     main_dir="$dir"
