@@ -11,14 +11,16 @@ alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
 alias vim="nvim"
 alias vi="nvim"
-# sweet tmux 
-alias ta="tmux a"
-alias tks="tmux kill-server"
-alias tcs="tmux new -s "
-alias tc="tmux neww"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
+
+#-----------------
+# Tmux Swag
+#-----------------
+alias tx="./.dotfiles/scripts/tmux/sessionizer.sh"
+alias ta="tmux a"
+alias tks="tmux kill-server"
 
 #-----------------
 # Git
