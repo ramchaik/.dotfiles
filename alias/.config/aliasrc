@@ -28,5 +28,7 @@ alias tks="tmux kill-server"
 alias git="hub"
 alias s="git status -sb"
 
-# kubernetes
+#-----------------
+# Kubernetes
+#-----------------
 alias k="kubectl"
