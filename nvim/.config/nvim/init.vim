@@ -28,6 +28,7 @@ Plug 'onsails/lspkind-nvim'
 Plug 'github/copilot.vim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'jiangmiao/auto-pairs'
 
 " For vsnip users.
 " Plug 'hrsh7th/cmp-vsnip'
@@ -80,7 +81,6 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'glepnir/dashboard-nvim'
-Plug 'jiangmiao/auto-pairs'
 
 " Prettier
 Plug 'sbdchd/neoformat'
