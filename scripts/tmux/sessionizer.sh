@@ -18,7 +18,7 @@ function setup_workspace() {
     fi
 
     session=$(basename "$main_dir")
-    tmux new-session -d -s $session
+    tmux new-session -d -s $session -n 'init'
 
      for i in "${!sub_dirs[@]}"; do
         sub_dir="${sub_dirs[$i]}"
@@ -26,13 +26,13 @@ function setup_workspace() {
 
         if [[ -z "$(ls -A "$sub_dir")" ]]; then
             echo "Skipping $sub_dir, its empty"
-            exit 1
+            continue
         fi
 
 
         if [[ "$i" != 0 && ! -d "$sub_dir/.git" ]]; then
             echo "Skipping $window not a git repo"
-            exit 1
+            continue
         fi
 
         tmux neww -c "$sub_dir" -n "$window" 
