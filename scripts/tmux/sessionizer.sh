@@ -18,7 +18,7 @@ function setup_workspace() {
     fi
 
     session=$(basename "$main_dir")
-    tmux new-session -d -s $session -n 'init'
+    tmux new-session -d -c $main_dir -s $session -n 'init'
 
      for i in "${!sub_dirs[@]}"; do
         sub_dir="${sub_dirs[$i]}"
