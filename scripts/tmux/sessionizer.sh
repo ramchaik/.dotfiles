@@ -10,17 +10,32 @@ function set_main_dir() {
     main_dir="$dir"
 }
 
-function create_session() {
-    s_name=$(basename "$d")
-    w_name=$s_name
-    tmux new -d -c "$d" -s "$s_name" -n "$w_name"
-    tmux send-keys -t $s_name 'vim'
-}
-
 function setup_workspace() {
     sub_dirs=($(find "$main_dir" -maxdepth 1 -type d))
-    for d in "${sub_dirs[@]}"; do
-        create_session "$d"
+    if [[ ${#sub_dirs[@]} -eq 0 ]]; then
+        echo "No sub-directories found in $main_dir"
+        exit 1
+    fi
+
+    session=$(basename "$main_dir")
+    tmux new-session -d -s $session
+
+     for i in "${!sub_dirs[@]}"; do
+        sub_dir="${sub_dirs[$i]}"
+        window=$(basename "$sub_dir")
+
+        if [[ -z "$(ls -A "$sub_dir")" ]]; then
+            echo "Skipping $sub_dir, its empty"
+            exit 1
+        fi
+
+
+        if [[ "$i" != 0 && ! -d "$sub_dir/.git" ]]; then
+            echo "Skipping $window not a git repo"
+            exit 1
+        fi
+
+        tmux neww -c "$sub_dir" -n "$window" 
     done
 }
 
