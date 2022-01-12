@@ -8,7 +8,6 @@ function set_paths() {
         if [ -d ~/work/insider ]; then 
             paths+=" $HOME/work/insider"
             [ -d ~/work/insider/repos ] && paths+=" $HOME/work/insider/repos"
-            [ -d ~/work/insider/repos/active ] && paths+=" $HOME/work/insider/repos/active"
             [ -d ~/work/insider/extra ] && paths+=" $HOME/work/insider/extra"
             [ -d ~/work/insider/bare-repos ] && paths+=" $HOME/work/insider/bare-repos"
         fi
