@@ -52,6 +52,9 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
+" Refactoring
+Plug 'ThePrimeagen/refactoring.nvim'
+
 " Debugger Plugins
 Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'

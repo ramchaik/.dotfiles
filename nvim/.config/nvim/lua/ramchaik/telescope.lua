@@ -87,7 +87,7 @@ local function image_selector(prompt, cwd)
     end
 end
 
-M.anime_selector = image_selector("< Anime Bobs > ", "~/workspace/anime")
+M.anime_selector = image_selector("< Anime Bobs > ", "~/personal/anime")
 
 local function refactor(prompt_bufnr)
     local content = require("telescope.actions.state").get_selected_entry(
