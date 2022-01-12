@@ -74,6 +74,9 @@ bindkey '^e' edit-command-line
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 
+# tmux sessionizer
+bindkey -s ^f "tmux-sessionizer\n"
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 

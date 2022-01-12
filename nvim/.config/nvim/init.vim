@@ -102,6 +102,7 @@ let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
 " Custom
 nnoremap <leader>pv :Vex<CR>
+nnoremap <silent> <C-f> :silent !tmux neww ~/.dotfiles/scripts/tmux/sessionizer.sh<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 

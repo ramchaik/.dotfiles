@@ -1,47 +1,47 @@
 #!/bin/bash
 
-function set_main_dir() {
-    local dir="$1"
+paths="$HOME"
 
-    if [[ ! -n "$dir" ]]; then
-        read -p "Enter directory (absolute path): " dir
+function set_paths() {
+    if [ -d ~/work ]; then
+        paths+=" $HOME/work"
+        if [ -d ~/work/insider ]; then 
+            paths+=" $HOME/work/insider"
+            [ -d ~/work/insider/repos ] && paths+=" $HOME/work/insider/repos"
+            [ -d ~/work/insider/extra ] && paths+=" $HOME/work/insider/extra"
+            [ -d ~/work/insider/bare-repos ] && paths+=" $HOME/work/insider/bare-repos"
+        fi
     fi
 
-    main_dir="$dir"
-}
-
-function setup_workspace() {
-    sub_dirs=($(find "$main_dir" -maxdepth 1 -type d))
-    if [[ ${#sub_dirs[@]} -eq 0 ]]; then
-        echo "No sub-directories found in $main_dir"
-        exit 1
+    if [ -d ~/personal ]; then
+        paths+=" $HOME/personal"
+        [ -d ~/personal/JS ] && paths+=" $HOME/personal/JS"
+        [ -d ~/personal/scripts ] && paths+=" $HOME/personal/scripts"
     fi
-
-    session=$(basename "$main_dir")
-    tmux new-session -d -c $main_dir -s $session -n 'init'
-
-     for i in "${!sub_dirs[@]}"; do
-        sub_dir="${sub_dirs[$i]}"
-        window=$(basename "$sub_dir")
-
-        if [[ -z "$(ls -A "$sub_dir")" ]]; then
-            echo "Skipping $sub_dir, its empty"
-            continue
-        fi
-
-
-        if [[ "$i" != 0 && ! -d "$sub_dir/.git" ]]; then
-            echo "Skipping $window not a git repo"
-            continue
-        fi
-
-        tmux neww -c "$sub_dir" -n "$window" 
-    done
 }
+set_paths
 
-set_main_dir "$1"
-setup_workspace
-echo "BOI! itz done! go kill it!"
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find $paths -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
 
+if [[ -z $selected ]]; then
+    exit 0
+fi
 
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+fi
+
+if ! tmux has-session -t $selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name -c $selected
+fi
+
+tmux switch-client -t $selected_name
 

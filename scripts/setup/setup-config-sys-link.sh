@@ -37,6 +37,10 @@ ln -s ~/.dotfiles/alias/.config/aliasrc ~/.config/aliasrc && echo -e "alias link
 # tmux
 [ -e ~/.tmux.conf ] && rm ~/.tmux.conf && echo "tmux conf removed"
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf && echo -e "tmux conf link created \n"
+[ -e ~/.cht-languages ] && rm ~/.cht-languages && echo "cht-languages removed"
+ln -s ~/.dotfiles/tmux/.cht-languages ~/.cht-languages && echo -e "cht-languages conf link created \n"
+[ -e ~/.cht-command ] && rm ~/.cht-command && echo "cht-command removed"
+ln -s ~/.dotfiles/tmux/.cht-command ~/.cht-command && echo -e "cht-command conf link created \n"
 
 # curl
 [ -e ~/.curlrc ] && rm ~/.curlrc && echo "curl removed" 
