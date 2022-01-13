@@ -21,6 +21,10 @@ plugins=(
   docker-compose
 )
 
+if [[ -z $DOTFILES ]]; then
+    export DOTFILES=$HOME/.dotfiles
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

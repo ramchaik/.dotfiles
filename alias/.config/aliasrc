@@ -9,6 +9,7 @@ alias ll="ls -lah"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
+alias python="python3"
 alias vim="nvim"
 alias vi="nvim"
 
