@@ -18,6 +18,7 @@ head
 tail
 tar
 cp
+scp
 rm
 rename
 jq
