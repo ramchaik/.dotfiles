@@ -20,6 +20,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # Tmux Swag
 #-----------------
 alias tmux-sessionizer="~/.dotfiles/scripts/tmux/sessionizer.sh"
+alias tmux-windowizer="~/.dotfiles/scripts/tmux/windowizer.sh"
 alias ta="tmux a"
 alias tks="tmux kill-server"
 
