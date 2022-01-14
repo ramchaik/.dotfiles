@@ -68,7 +68,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 Plug 'theprimeagen/harpoon'
 
-Plug 'tpope/vim-commentary'
+Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 
@@ -94,7 +94,6 @@ call plug#end()
 
 " lua
 lua require'ramchaik'
-lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
  " Remaps
 let mapleader = " "
