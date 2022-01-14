@@ -18,27 +18,28 @@ call plug#begin('~/.vim/plugged')
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+
+" Completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'onsails/lspkind-nvim'
-Plug 'github/copilot.vim'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'simrat39/symbols-outline.nvim'
-Plug 'jiangmiao/auto-pairs'
-
-" For vsnip users.
-" Plug 'hrsh7th/cmp-vsnip'
-" Plug 'hrsh7th/vim-vsnip'
 
 " For luasnip users.
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'simrat39/symbols-outline.nvim'
+
+" For vsnip users.
+" Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+
 
 " For ultisnips users.
 " Plug 'SirVer/ultisnips'
@@ -47,6 +48,10 @@ Plug 'simrat39/symbols-outline.nvim'
 " For snippy users.
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
+
+Plug 'github/copilot.vim'
+Plug 'jiangmiao/auto-pairs'
+
 
 " Neovim Tree shitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
