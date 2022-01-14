@@ -10,10 +10,6 @@ ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc && echo -e "zsh link created"
 ln -s ~/.dotfiles/zsh/.fzf.zsh ~/.fzf.zsh && echo -e "fzf link created"
 ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh && echo -e "p10k link created \n"
 
-# fish
-rm ~/.config/fish/conf.d/omf.fish && echo -e "omf removed"
-ln -s ~/.dotfiles/fish/.config/fish/.omf.fish ~/.config/fish/conf.d/omf.fish && echo -e "omf link created \n"
-
 # yabai
 [ -e ~/.config/yabai/yabairc ] && rm ~/.config/yabai/yabairc && echo -e "yabai removed"
 [ -e ~/.config/skhd/skhdrc ] && rm ~/.config/skhd/skhdrc && echo -e "skhd removed"
