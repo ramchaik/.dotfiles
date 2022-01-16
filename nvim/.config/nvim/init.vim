@@ -49,6 +49,9 @@ Plug 'simrat39/symbols-outline.nvim'
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
 
+Plug 'rust-lang/rust.vim'
+Plug 'darrikonn/vim-gofmt'
+
 Plug 'github/copilot.vim'
 Plug 'jiangmiao/auto-pairs'
 
