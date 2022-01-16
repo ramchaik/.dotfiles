@@ -117,7 +117,8 @@ require("lspconfig").cssls.setup(config())
 require'lspconfig'.emmet_ls.setup(config())
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#elixirls 
--- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip unzip elixir-ls.zip -d ~/elixir-ls
+-- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
+-- unzip elixir-ls.zip -d ~/elixir-ls
 -- chmod +x ~/elixir-ls/language_server.sh
 require'lspconfig'.elixirls.setup(config({
     cmd = { "~/elixir-ls/language_server.sh" };
@@ -128,6 +129,9 @@ require('lspconfig').grammarly.setup(config())
 
 -- npm install -g dockerfile-language-server-nodejs
 require('lspconfig').dockerls.setup(config())
+
+-- npm i -g pyright
+require'lspconfig'.pyright.setup(config())
 
 require("lspconfig").solang.setup(config())
 
@@ -146,9 +150,6 @@ require("lspconfig").gopls.setup(config({
 require("lspconfig").rust_analyzer.setup(config({
     cmd = { "rustup", "run", "nightly", "rust-analyzer"},
 }))
-
--- npm i -g pyright
-require'lspconfig'.pyright.setup(config())
 
 local opts = {
 	-- whether to highlight the currently hovered symbol
