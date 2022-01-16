@@ -44,14 +44,15 @@ cmp.setup({
     mapping = {
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
-        -- ['<CR>'] = cmp.mapping.confirm({ 
-        --      behavior = cmp.ConfirmBehavior.Insert,
-        --      select = true 
-        --  }),
-        ['<C-y>'] = cmp.mapping.confirm({ 
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true 
-        }), 
+        ['<C-y>'] = cmp.config.disable,
+        ['<CR>'] = cmp.mapping.confirm({
+             behavior = cmp.ConfirmBehavior.Insert,
+             select = true
+         }),
+        -- ['<C-y>'] = cmp.mapping.confirm({ 
+        --     behavior = cmp.ConfirmBehavior.Insert,
+        --     select = true 
+        -- }), 
         ['<C-e>'] = cmp.mapping.close(),
         ['<C-Space>'] = cmp.mapping.complete(),
     },
