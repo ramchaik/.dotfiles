@@ -10,13 +10,19 @@ ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc && echo -e "zsh link created"
 ln -s ~/.dotfiles/zsh/.fzf.zsh ~/.fzf.zsh && echo -e "fzf link created"
 ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh && echo -e "p10k link created \n"
 
-# yabai
-[ -e ~/.config/yabai/yabairc ] && rm ~/.config/yabai/yabairc && echo -e "yabai removed"
-[ -e ~/.config/skhd/skhdrc ] && rm ~/.config/skhd/skhdrc && echo -e "skhd removed"
-[ -e ~/.config/limelight/limelightrc ] && rm ~/.config/limelight/limelightrc && echo -e "limelight removed"
-ln -s ~/.dotfiles/yabai/.config/yabai/yabairc ~/.config/yabai/yabairc && echo -e "yabai link created"
-ln -s ~/.dotfiles/yabai/.config/skhd/skhdrc ~/.config/skhd/skhdrc && echo -e "skhd link created"
-ln -s ~/.dotfiles/yabai/.config/limelight/limelightrc ~/.config/limelight/limelightrc && echo -e "limelight link created \n"
+# Alacritty
+[ -d ~/.config/alacritty ] && rm -r ~/.config/alacritty && echo -e "alacritty removed"
+ln -s  ~/.dotfiles/alacritty/.config/alacritty ~/.config/alacritty && echo -e "alacritty link created"
+
+# WM - i3 like
+[ -d ~/.config/yabai ] && rm -r ~/.config/yabai && echo -e "yabai removed"
+[ -d ~/.config/skhd ] && rm -r ~/.config/skhd && echo -e "skhd removed"
+[ -d ~/.config/limelight ] && rm -r ~/.config/limelight && echo -e "limelight removed"
+[ -d ~/.config/spacebar ] && rm -r ~/.config/spacebar && echo -e "spacebar removed"
+ln -s ~/.dotfiles/wm/.config/yabai ~/.config/yabai && echo -e "yabai link created"
+ln -s ~/.dotfiles/wm/.config/skhd ~/.config/skhd && echo -e "skhd link created"
+ln -s ~/.dotfiles/wm/.config/limelight ~/.config/limelight && echo -e "limelight link created \n"
+ln -s ~/.dotfiles/wm/.config/spacebar ~/.config/spacebar && echo -e "spacebar link created \n"
 
 # git
 [ -e ~/.gitconfig ] && rm ~/.gitconfig && echo -e "git conf removed"
