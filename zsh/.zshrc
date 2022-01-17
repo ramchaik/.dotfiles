@@ -120,12 +120,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# limelight
-if [[ ! $(pidof limelight) ]]; then
-  killall limelight &> /dev/null
-  limelight  &> /dev/null &
-fi
-
 export FZF_DEFAULT_COMMAND='fd'
 #[ -f "/Users/ramchaik/.ghcup/env" ] && source "/Users/ramchaik/.ghcup/env" # ghcup-env
 

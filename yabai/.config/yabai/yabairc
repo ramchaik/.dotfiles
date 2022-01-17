@@ -1,118 +1,84 @@
 #!/usr/bin/env sh
-#YABAI STUFF
 
-# bsp or float (default: bsp)
-#yabai -m config layout bsp
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+# sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-# My custom space names for my 3 monitor setup. These names are used in some of my scripts.
-yabai -m space 1 --label one
-yabai -m space 2 --label two
-yabai -m space 3 --label three
-yabai -m space 4 --label four
-yabai -m space 5 --label five
-yabai -m space 6 --label six
-yabai -m space 9 --label nine
+#!/usr/bin/env sh
 
-# float system preferences. Most of these just diable Yabai form resizing them.
-yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Finder$" sticky=on lyer=above manage=off
-yabai -m rule --add app="^Keka$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
-yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
-yabai -m rule --add app="^Path Finder$" manage=off
-yabai -m rule --add app="^TeamViewer$" sticky=off layer=above manage=off
-yabai -m rule --add app="Fantastical" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
-yabai -m rule --add app="^iTerm2$" manage=on
-yabai -m rule --add app="^Flux$" manage=off
-yabai -m rule --add app="^Time Out$" manage=off
-yabai -m rule --add app="^perl_client_app$" manage=off
-yabai -m rule --add app="^console$" manage=off
-yabai -m rule --add app="^Harvest$" manage=off
-yabai -m rule --add app="^CiscoSparkHelper$" manage=off
-yabai -m rule --add app="^Logi Options$" manage=off
-yabai -m rule --add app="^Cisco Webex Start$" manage=off
-yabai -m rule --add app="^Private Internet Access$" manage=off
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          autofocus
 
-#find ~/Library/Parallels/Applications\ Menus/ -maxdepth 3 -type f | awk -F'/' '{ print $NF; }' | awk '{$1=$1};1' | sort | uniq | tr "\n" "\0" | xargs -0 -I{} yabai -m rule --add app="^{}\$" title=".*" manage=on
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
 
-## Some random global settings
-#yabai -m config focus_follows_mouse          autoraise
-#yabai -m config focus_follows_mouse          on
-# New window spawns to the right if vertical split, or bottom if horizontal split
-yabai -m config window_placement second_child
-yabai -m config window_topmost off
-#yabai -m config window_shadow float
-yabai -m config window_opacity off
-yabai -m config window_opacity_duration 0.00
-yabai -m config active_window_opacity 1.0
-#yabai -m config normal_window_opacity        0.97
-#yabai -m config window_border                on | off
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config window_shadow                on
 
-## WITH SIP ENABLED (Installed Limelight seperately, Don't need this)
-yabai -m config window_border off
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
 
-## WTIH SIP DISABLED (Limelight build into Yabai, enable it here)
-#yabai -m config window_border on
-#yabai -m config window_border_width 3
-#yabai -m config active_window_border_color 0xFF40FF00
-#yabai -m config normal_window_border_color 0x00FFFFFF
-#yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config active_window_border_color   0xff775759
+yabai -m config normal_window_border_color   0xff555555
 
-## some other settings
-yabai -m config auto_balance off
-yabai -m config split_ratio 0.50
-# # set mouse interaction modifier key (default: fn)
-yabai -m config mouse_modifier ctrl
-# set modifier + right-click drag to resize window (default: resize)
-yabai -m config mouse_action2 resize
-# set modifier + left-click drag to resize window (default: move)
-yabai -m config mouse_action1 move
+# Mouse support
+yabai -m config mouse_modifier               alt
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
 
 # general space settings
-#yabai -m config focused_border_skip_floating  1
-#yabai -m config --space 3 layout             float
+yabai -m config layout                       bsp
+yabai -m config bottom_padding               0
+yabai -m config left_padding                 0
+yabai -m config right_padding                0
+yabai -m config window_gap                   0
 
-## Change how yabai looks
-yabai -m config layout bsp
-yabai -m config top_padding 2
-yabai -m config bottom_padding 2
-yabai -m config left_padding 2
-yabai -m config right_padding 2
-yabai -m config window_gap 10
+# float system preferences
+yabai -m rule --add app='^System Information$' manage=off
+yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add title='Preferences$' manage=off
 
-#Limelight addon (Kill it and start it each time Yabai starts)
-killall limelight &>/dev/null
-limelight &>/dev/null &
+# float Better Touch Tool Preference window
+# yabai -m rule --add title='^BetterTouchTool' manage=off
 
-# #Ubersicht widget bar stuff
-#yabai -m signal --add event=space_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-primary-jsx\"'"
-#yabai -m signal --add event=display_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-primary-jsx\"'"
+# float settings windows
+yabai -m rule --add title='Settings$' manage=off
 
-#yabai -m signal --add event=space_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-secondary-jsx\"'"
-#yabai -m signal --add event=display_changed \
-#action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-secondary-jsx\"'"
+# float Cisco AnyConnect
+yabai -m rule --add app='^Cisco AnyConnect Secure Mobility Client$' manage=off
 
-# signals
-# yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-#yabai -m signal --add event=space_changed action="yabai -m window --focus $(yabai -m query --windows --window | jq ".id")"
-# yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+# float IntelliJ Preference panes
+yabai -m rule --add app='IntelliJ IDEA' title='^$' manage=off
+yabai -m rule --add app='IntelliJ IDEA' title='Project Structure' manage=off
+yabai -m rule --add app='IntelliJ IDEA' title='Preferences' manage=off
+yabai -m rule --add app='IntelliJ IDEA' title='Edit configuration' manage=off
 
-#testing signals
-# yabai -m signal --add event=window_destroyed action="terminal-notifier -message 'window_destroyed'"
-# yabai -m signal --add event=application_terminated action="terminal-notifier -message 'application_terminated'"
+# spacebar
+# external_bar [<main|all|off>:<top_padding>:<bottom_padding>]
+#     Specify top and bottom padding for a potential custom bar that you may be running.
+#     main: Apply the given padding only to spaces located on the main display.
+#     all:  Apply the given padding to all spaces regardless of their display.
+#     off:  Do not apply any special padding.
+# yabai -m config external_bar all:$SPACEBAR_HEIGHT:0 # top
+SPACEBAR_HEIGHT=$(spacebar -m config height)
+yabai -m config external_bar all:0:$SPACEBAR_HEIGHT # bottom
 
-## If I close the active window, focus on any other visible window.
-yabai -m signal --add event=window_destroyed action="bash /Users/jesseskelton/CustomScripts/SwitchSpaces/window-focus-on-destroy.sh"
-# yabai -m signal --add event=space_changed action="export CUR_ACTIVE_APP=\"iTerm2\""
+# limelight
+killall limelight &> /dev/null
+limelight  &> /dev/null &
 
 echo "yabai configuration loaded.."
-
-#END
