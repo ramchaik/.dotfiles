@@ -80,11 +80,14 @@ Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 
+" Git
 Plug 'tpope/vim-fugitive'
-Plug 'mbbill/undotree'
-Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'theprimeagen/git-worktree.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-rhubarb'
 Plug 'vim-utils/vim-man'
 Plug 'theprimeagen/vim-be-good'
 Plug 'gruvbox-community/gruvbox'

@@ -7,6 +7,10 @@ require("ramchaik.comment")
 require("ramchaik.debugger")
 -- require("ramchaik.git-worktree")
 
+-- Plugins
+require('gitsigns').setup()
+
+
 P = function(v)
   print(vim.inspect(v))
   return v
