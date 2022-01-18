@@ -1,19 +1,11 @@
 local dap_install = require("dap-install")
-dap_install.config("chrome", {})
 
+dap_install.setup({
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
+})
 
-local dap = require("dap");
-dap.configurations.typescriptreact = { -- change to typescript if needed
-    {
-        type = "chrome",
-        request = "attach",
-        program = "${file}",
-        cwd = vim.fn.getcwd(),
-        sourceMaps = true,
-        protocol = "inspector",
-        port = 9222,
-        webRoot = "${workspaceFolder}"
-    }
-}
+local dbg_list = require("dap-install.api.debuggers").get_installed_debuggers()
 
-require('dap.ext.vscode').load_launchjs()
+for _, debugger in ipairs(dbg_list) do
+	dap_install.config(debugger)
+end
