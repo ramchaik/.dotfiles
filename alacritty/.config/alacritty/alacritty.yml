@@ -1,5 +1,10 @@
-# env:
-#   TERM: alacritty
+env:
+  TERM: alacritty
+
+shell:
+ program: /usr/local/bin/zsh
+ args:
+   - --login
 
 # issue with macOS window:opacity won't work
 # https://github.com/alacritty/alacritty/issues/3641
@@ -119,7 +124,9 @@ key_bindings:
   # Vim g-qflist navigation
   - { key: LBracket,  mods: Alt, chars: "\x1b[" }
   - { key: RBracket,  mods: Alt, chars: "\x1b]" }
+  - { key: Q,  mods: Alt, chars: "\x1bq" }
 
+  
   # Ctrl+f sessionizer fun
   # - { key: F, mods: Control, chars: "~/.dotfiles/scripts/tmux/sessionizer.sh \x0D" }
   # - { key: F, mods: Control, chars: "tmux-sessionizer\x0D" }
