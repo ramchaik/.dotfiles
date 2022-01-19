@@ -112,7 +112,14 @@ colors:
 
   transparent_background_colors: true
 
-# key_bindings:
+key_bindings:
+  # Support Alt + key (option as meta)
+  # https://github.com/alacritty/alacritty/issues/93#issuecomment-429651216
+  # - { key: [ALPHA_KEY], mods: Alt, chars: "\x1b[ALPHA_KEY]" }
+  # Vim g-qflist navigation
+  - { key: LBracket,  mods: Alt, chars: "\x1b[" }
+  - { key: RBracket,  mods: Alt, chars: "\x1b]" }
+
   # Ctrl+f sessionizer fun
   # - { key: F, mods: Control, chars: "~/.dotfiles/scripts/tmux/sessionizer.sh \x0D" }
   # - { key: F, mods: Control, chars: "tmux-sessionizer\x0D" }
