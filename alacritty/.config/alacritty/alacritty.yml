@@ -80,6 +80,7 @@ colors:
 
 key_bindings:
   # Support Alt + key (option as meta)
+  # https://github.com/alacritty/alacritty/issues/62
   # https://github.com/alacritty/alacritty/issues/93#issuecomment-429651216
   # - { key: [ALPHA_KEY], mods: Alt, chars: "\x1b[ALPHA_KEY]" }
   - { key: LBracket,    mods: Alt, chars: "\x1b["                       } # Alt + [
