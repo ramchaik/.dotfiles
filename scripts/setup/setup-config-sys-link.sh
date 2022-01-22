@@ -14,6 +14,10 @@ ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh && echo -e "p10k link created \n"
 [ -d ~/.config/alacritty ] && rm -r ~/.config/alacritty && echo -e "alacritty removed"
 ln -s  ~/.dotfiles/alacritty/.config/alacritty ~/.config/alacritty && echo -e "alacritty link created"
 
+# bin
+[ -d ~/.local/bin ] && rm -r ~/.local/bin && echo -e "local bin removed"
+ln -s ~/.dotfiles/bin/.local/bin ~/.local/bin && echo -e "local bin link created"
+
 # WM - i3 like
 [ -d ~/.config/yabai ] && rm -r ~/.config/yabai && echo -e "yabai removed"
 [ -d ~/.config/skhd ] && rm -r ~/.config/skhd && echo -e "skhd removed"
