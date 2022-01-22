@@ -18,8 +18,9 @@ set incsearch
 set termguicolors
 set scrolloff=8
 
+set guicursor=
 set termguicolors
-set cursorline
+" set cursorline
 
 set signcolumn=yes
 set isfname+=@-@
