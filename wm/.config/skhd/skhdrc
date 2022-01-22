@@ -81,7 +81,7 @@ alt + shift - y : yabai -m space --mirror y-axis
 alt + shift - x : yabai -m space --mirror x-axis
 
 # balance size of windows
-alt + shift - 0 : yabai -m space --balance
+# alt + shift - 0 : yabai -m space --balance
 
 # increase window size
 alt + shift - a : yabai -m window --resize left:-20:0
