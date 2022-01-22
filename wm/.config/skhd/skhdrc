@@ -11,7 +11,6 @@ alt + shift - r : \
     launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"; \
     skhd --reload
 
-
 ####### Application Blacklists #############
 #.blacklist [
 #  "IntelliJ IDEA"
@@ -103,9 +102,9 @@ alt - s : yabai -m space --layout float
 # float / unfloat window and center on screen
 #alt - t : yabai -m window --toggle float;\
 #          yabai -m window --grid 4:4:1:1:2:2
+
 # float / unfloat window and leave in its current location
 alt + shift - space : yabai -m window --toggle float
-#alt + ctrl - space : yabai -m window --toggle float
 
 # make floating window fill screen
 alt + cmd - up     : yabai -m window --grid 1:1:0:0:1:1

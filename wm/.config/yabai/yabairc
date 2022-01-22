@@ -66,6 +66,9 @@ yabai -m rule --add app='IntelliJ IDEA' title='Project Structure' manage=off
 yabai -m rule --add app='IntelliJ IDEA' title='Preferences' manage=off
 yabai -m rule --add app='IntelliJ IDEA' title='Edit configuration' manage=off
 
+# float Authy
+yabai -m rule --add app='Authy Desktop' manage=off
+
 # spacebar
 # external_bar [<main|all|off>:<top_padding>:<bottom_padding>]
 #     Specify top and bottom padding for a potential custom bar that you may be running.
