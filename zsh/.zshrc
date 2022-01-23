@@ -52,7 +52,10 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
+[ ! -d ~/.cache/zsh ] && mkdir -p ~/.cache/zsh
+[ ! -f ~/.cache/zsh/history ] && touch ~/.cache/zsh/history
 HISTFILE=~/.cache/zsh/history
+
 
 # Basic auto/tab complete:
 autoload -U compinit
