@@ -2,7 +2,8 @@
 
 ####### Shortcut Hotkeys #############
 # open terminal
-alt - return : open -n /Applications/Alacritty.app
+# alt - return : open -n /Applications/Alacritty.app
+alt - return : open -n /Applications/iTerm.app
 # open brave
 alt + shift - return : open -n /Applications/Brave\ Browser.app
 
