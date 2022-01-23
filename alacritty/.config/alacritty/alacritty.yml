@@ -160,6 +160,10 @@ key_bindings:
   - { key: Key6,      mods: Alt|Shift, chars: "\x1b^"                       } # Alt + ^
   - { key: Backslash, mods: Alt,       chars: "\x1b\\"                      } # Alt + \
   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + |
+  # Fix Ctrl+6 for vim
+  # https://github.com/alacritty/alacritty/issues/5024 
+  - { key: Key6,     mods: Control, chars: "\x1e"                        }
+
 
   
   # Ctrl+f sessionizer fun
