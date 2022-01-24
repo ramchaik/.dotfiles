@@ -125,9 +125,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 export FZF_DEFAULT_COMMAND='fd'
 #[ -f "/Users/ramchaik/.ghcup/env" ] && source "/Users/ramchaik/.ghcup/env" # ghcup-env
 
@@ -135,3 +132,6 @@ export FZF_DEFAULT_COMMAND='fd'
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
+[[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh

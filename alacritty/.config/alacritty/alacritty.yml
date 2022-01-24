@@ -468,10 +468,10 @@ live_config_reload: true
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell:
- program: /bin/zsh  
- args:
-   - --login
+# shell:
+#  program: /bin/zsh  
+#  args:
+#    - --login
 
 # Startup directory
 #
