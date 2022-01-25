@@ -148,6 +148,8 @@ require("lspconfig").gopls.setup(config({
 	},
 }))
 
+-- for installation
+-- https://rust-analyzer.github.io/manual.html#installation
 require("lspconfig").rust_analyzer.setup(config({
     cmd = { "rustup", "run", "nightly", "rust-analyzer"},
 }))
