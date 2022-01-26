@@ -124,5 +124,6 @@ LANG=pl_PL.UTF-8
 
 # fzf with speed
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-
+export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
