@@ -53,8 +53,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'darrikonn/vim-gofmt'
 
 Plug 'github/copilot.vim'
-Plug 'jiangmiao/auto-pairs'
-
 
 " Neovim Tree shitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
