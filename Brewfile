@@ -24,6 +24,8 @@ brew "cask"
 brew "cmake"
 # Configurable talking characters in ASCII art
 brew "cowsay"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
 # Command-line tool for DigitalOcean
 brew "doctl"
 # Modern replacement for 'ls'
@@ -136,10 +138,24 @@ cask "alacritty"
 cask "alfred"
 # Redis desktop manager
 cask "another-redis-desktop-manager"
+# Application uninstaller
+cask "appcleaner"
+# Two-factor authentication software
+cask "authy"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Clipboard extension app
+cask "clipy"
 # Universal database tool and SQL client
 cask "dbeaver-community"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Tool to hide status bar icons
 cask "dozer"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
+# Screen color temperature controller
+cask "flux"
 cask "font-fira-code"
 # Icon set and toolkit
 cask "font-fontawesome"
@@ -150,13 +166,21 @@ cask "iterm2"
 cask "java"
 # Keyboard customizer
 cask "karabiner-elements"
+# Open-source Markdown editor
+cask "macdown"
+# Explore and manipulate your MongoDB data
+cask "mongodb-compass"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Collaboration platform for API development
+cask "postman"
 # MongoDB management tool
 cask "robo-3t"
 # Break time reminder app
 cask "stretchly"
 # Text editor for code, markup and prose
 cask "sublime-text"
+# To-do & task list manager
+cask "ticktick"
 # Open-source code editor
 cask "visual-studio-code"
