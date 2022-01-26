@@ -130,6 +130,7 @@ vnoremap <leader>p "_dP
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
+nnoremap <leader>x :!chmod +x %<CR>
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 
