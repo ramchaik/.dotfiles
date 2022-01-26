@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "*** start [generate brew dump] ***"
-
+cd ~/.dotfiles
 rm Brewfile &> /dev/null
 brew bundle dump --describe                                                                                                  
 echo "*** done [generate brew dump] ***"

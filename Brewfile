@@ -1,3 +1,4 @@
+tap "cmacrae/formulae"
 tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -7,6 +8,8 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "mongodb/brew"
 tap "thoughtbot/formulae"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Generic library support script
 brew "libtool"
 # GNU Ubiquitous Intelligent Language for Extensions
@@ -91,10 +94,14 @@ brew "redis", restart_service: true
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Experimental Rust compiler front-end for IDEs
+brew "rust-analyzer"
 # Easy and Repeatable Kubernetes Development
 brew "skaffold"
 # Prints a steam locomotive if you type sl instead of ls
 brew "sl"
+# Terminal based presentation tool
+brew "slides"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # User interface to the TELNET protocol
@@ -103,6 +110,8 @@ brew "telnet"
 brew "the_silver_searcher"
 # Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Vi 'workalike' with many additional features
 brew "vim"
 # JavaScript package manager
@@ -111,6 +120,8 @@ brew "yarn"
 brew "youtube-dl"
 # UNIX shell (command interpreter)
 brew "zsh"
+# A minimal status bar for macOS.
+brew "cmacrae/formulae/spacebar"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # Simple hotkey-daemon for macOS.
@@ -121,6 +132,8 @@ brew "koekeishiya/formulae/yabai"
 brew "mongodb/brew/mongodb-community"
 # management suite for dotfiles
 brew "thoughtbot/formulae/rcm"
+# GPU-accelerated terminal emulator
+cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
 # Automatic tiling window manager similar to xmonad
@@ -132,6 +145,8 @@ cask "dbeaver-community"
 # Tool to hide status bar icons
 cask "dozer"
 cask "font-fira-code"
+# Icon set and toolkit
+cask "font-fontawesome"
 # Desktop client for GitHub repositories
 cask "github"
 # Terminal emulator as alternative to Apple's Terminal app
