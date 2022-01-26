@@ -26,8 +26,6 @@ brew "cmake"
 brew "cowsay"
 # Command-line tool for DigitalOcean
 brew "doctl"
-# Dynamic window manager
-brew "dwm"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -136,8 +134,6 @@ brew "thoughtbot/formulae/rcm"
 cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
-# Automatic tiling window manager similar to xmonad
-cask "amethyst"
 # Redis desktop manager
 cask "another-redis-desktop-manager"
 # Universal database tool and SQL client
@@ -152,8 +148,6 @@ cask "github"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 cask "java"
-# Note taking and to-do application with synchronization capabilities
-cask "joplin"
 # Keyboard customizer
 cask "karabiner-elements"
 # Reverse proxy, secure introspectable tunnels to localhost
@@ -164,7 +158,5 @@ cask "robo-3t"
 cask "stretchly"
 # Text editor for code, markup and prose
 cask "sublime-text"
-# To-do list and time tracker
-cask "superproductivity"
 # Open-source code editor
 cask "visual-studio-code"
