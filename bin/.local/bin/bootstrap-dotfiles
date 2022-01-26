@@ -1,0 +1,54 @@
+#!/bin/bash
+
+echo "*** start [setup config sys link] ***"
+
+
+if [ ! -d ~/.dotfiles ]; then
+    echo "dotfies dir not found"
+    exit 1
+fi
+
+cd ~/.dotfiles
+
+stow_dirs=("alacritty" "alias" "bin" "curl" "docker" "git" "nvim" "tmux" "zsh" "wm" "bash")
+
+for dir in "${stow_dirs[@]}"; do
+    if [ -d $dir ]; then
+        cd $dir
+        stow_parent=0
+        for config in .*; do
+            if [ $config == ".git" ] || [ $config == ".." ] || [ $config == "." ]; then
+                continue
+            fi
+
+            if [ -d $config ]; then
+                if [ $stow_parent -eq 1 ]; then
+                    echo "INVALID DIRECTORY: current dir has .dir as well as .file: $PWD/$config"
+                    exit 1
+                fi
+
+                if [ ! -d $HOME/$config ]; then
+                    echo "create dir: $HOME/$config"
+                    mkdir -p "$HOME/$config"
+                fi
+
+                stow -v -D -t $HOME/$config $config
+                stow -v -t $HOME/$config $config
+                continue
+            fi
+
+            if [ -f $config ]; then
+                if [ $stow_parent -eq 0 ]; then
+                    stow_parent=1
+                fi
+            fi
+        done
+        cd ..
+        if [ $stow_parent -eq 1 ]; then
+            stow -v -D -t $HOME $dir
+            stow -v -t $HOME $dir
+        fi
+    fi
+done
+
+echo "*** done [setup config sys link] ***"

@@ -135,3 +135,7 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
+
+# to aviod error on shell from perl
+LANG=pl_PL.UTF-8
+
