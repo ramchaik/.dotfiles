@@ -32,18 +32,9 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # I really like this minimalistic zsh theme.
 # export ZSH_THEME="refined"
-
-
-# ag (silversearcher-ag) is a faster grep
-# I recommend using it if you have to deal with large codebases
-# Install it by running `sudo apt-get install silversearcher-ag`
-# The variable below makes it a default command to be used by
-# fzf for a file path search
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Enable colors and change prompt:
 # autoload -U colors && colors
@@ -125,17 +116,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export FZF_DEFAULT_COMMAND='fd'
-#[ -f "/Users/ramchaik/.ghcup/env" ] && source "/Users/ramchaik/.ghcup/env" # ghcup-env
-
-#[ -f "/Users/ramchaik/.ghcup/env" ] && source "/Users/ramchaik/.ghcup/env" # ghcup-env
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
 
 # to aviod error on shell from perl
 LANG=pl_PL.UTF-8
+
+# fzf with speed
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
