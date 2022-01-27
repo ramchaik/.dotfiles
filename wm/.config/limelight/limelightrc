@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-limelight -m config width            2
+limelight -m config width            1
 limelight -m config radius           0
 limelight -m config placement        interior
 limelight -m config active_color     0XFF00D8D8
