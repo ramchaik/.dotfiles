@@ -93,6 +93,9 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+" Vim session
+Plug 'tpope/vim-obsession'
+
 " Prettier
 Plug 'sbdchd/neoformat'
 
@@ -122,6 +125,10 @@ nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <Leader>rp :resize 100<CR>
+
+"vim session
+nnoremap <Leader>z :Obsession<CR>  " Start Session
+nnoremap <Leader>Z :Obsession!<CR> " End Session
 
 " amazing stuff
 vnoremap <leader>p "_dP
