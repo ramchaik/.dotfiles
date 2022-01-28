@@ -1,0 +1,6 @@
+[submodule "work"]
+	path = work
+	url = https://github.com/ramchaik/work.git
+[submodule "personal"]
+	path = personal
+	url = https://github.com/ramchaik/personal.git
