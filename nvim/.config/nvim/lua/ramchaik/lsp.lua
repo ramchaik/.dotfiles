@@ -36,7 +36,6 @@ end
 local cmp = require'cmp'
 cmp.setup({
     snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
         end,
@@ -44,15 +43,10 @@ cmp.setup({
     mapping = {
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
-        ['<C-y>'] = cmp.config.disable,
         ['<CR>'] = cmp.mapping.confirm({
              behavior = cmp.ConfirmBehavior.Insert,
              select = true
          }),
-        -- ['<C-y>'] = cmp.mapping.confirm({ 
-        --     behavior = cmp.ConfirmBehavior.Insert,
-        --     select = true 
-        -- }), 
         ['<C-e>'] = cmp.mapping.close(),
         ['<C-Space>'] = cmp.mapping.complete(),
     },

@@ -1,7 +1,8 @@
-nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <Leader>ff :lua require('telescope.builtin').find_files()<CR>
-nnoremap <leader>fw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
-nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > "), hidden = true })<CR>
+nnoremap <Leader>ff :lua require('telescope.builtin').find_files({ hidden = true })<CR>
+nnoremap <leader>fw :lua require('telescope.builtin').grep_string({ search = vim.fn.expand("<cword>"), hidden = true })<CR>
+nnoremap <leader>fW :lua require('telescope.builtin').grep_string({ search = vim.fn.expand("<cWORD>"), hidden = true })<CR>
+nnoremap <leader>fg :lua require('telescope.builtin').live_grep({ hidden = true })<cr>
 nnoremap <leader>fb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>vdl :lua require('telescope.builtin').diagnostics()<CR>

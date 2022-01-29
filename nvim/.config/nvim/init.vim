@@ -109,12 +109,12 @@ lua require'ramchaik'
  " Remaps
 let mapleader = " "
 
-nmap <Leader>tu <Plug>BujoChecknormal
-nmap <Leader>th <Plug>BujoAddnormal
+nmap <Leader>td <Plug>BujoChecknormal
+nmap <Leader>ta <Plug>BujoAddnormal
 let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
 " Custom
-nnoremap <leader>pv :Vex<CR>
+nnoremap <leader>pv :Ex<CR>
 nnoremap <silent> <C-f> :silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <leader>u :UndotreeShow<CR>
@@ -126,9 +126,9 @@ nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <Leader>rp :resize 100<CR>
 
-"vim session
-nnoremap <Leader>z :Obsession<CR>  " Start Session
-nnoremap <Leader>Z :Obsession!<CR> " End Session
+"vim session with obsession
+nnoremap <Leader>ss :Obsession<CR>  " Start Session
+nnoremap <Leader>se :Obsession!<CR> " End Session
 
 " amazing stuff
 vnoremap <leader>p "_dP

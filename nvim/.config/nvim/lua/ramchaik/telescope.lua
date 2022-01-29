@@ -23,6 +23,8 @@ require("telescope").setup({
                 ["<M-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
             },
         },
+
+        file_ignore_patterns = { 'node_modules', '.git' }
     },
     extensions = {
         fzy_native = {
@@ -120,7 +122,8 @@ M.git_branches = function()
         attach_mappings = function(_, map)
             map("i", "<c-d>", actions.git_delete_branch)
             map("n", "<c-d>", actions.git_delete_branch)
-            map("n", "b", actions.git_create_branch)
+            map("i", "<c-b>", actions.git_create_branch)
+            map("n", "<c-b>", actions.git_create_branch)
             return true
         end,
     })
