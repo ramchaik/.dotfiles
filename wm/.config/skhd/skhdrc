@@ -117,25 +117,25 @@ alt + cmd - left   : yabai -m window --grid 1:2:0:0:1:1
 alt + cmd - right  : yabai -m window --grid 1:2:1:0:1:1
 
 # create desktop, move window and follow focus
-alt + shift + cmd - n : yabai -m space --create;\
-                 index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')"; \
-                 yabai -m window --space "${index}";\
-                 yabai -m space --focus "${index}"
+# alt + shift + cmd - n : yabai -m space --create;\
+#                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')"; \
+#                  yabai -m window --space "${index}";\
+#                  yabai -m space --focus "${index}"
 
 # create desktop, move window and stay in current workspace
-alt + shift - n : yabai -m space --create;\
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')"; \
-                  yabai -m window --space "${index}"
+# alt + shift - n : yabai -m space --create;\
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')"; \
+#                   yabai -m window --space "${index}"
 
 # create desktop and follow focus
 # Note: script fails when workspace is empty due to Yabai not reporting the workspace (bug?)
 #       best to use the create + move window command instead of creating a blank window
-alt - n : yabai -m space --create;\
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')"; \
-                  yabai -m space --focus "${index}"
+# alt - n : yabai -m space --create;\
+#                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')"; \
+#                   yabai -m space --focus "${index}"
 
 # destroy desktop
-alt + cmd - w : yabai -m space --destroy
+# alt + cmd - w : yabai -m space --destroy
 
 # close focused window
 alt - w : yabai -m window --close
