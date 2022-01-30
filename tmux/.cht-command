@@ -19,6 +19,7 @@ tail
 tar
 cp
 scp
+rsync
 rm
 rename
 jq
