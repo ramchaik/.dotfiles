@@ -4,7 +4,7 @@ require("ramchaik.lualine")
 require("ramchaik.harpoon")
 require("ramchaik.nvim-treesitter")
 require("ramchaik.comment")
-require("ramchaik.debugger")
+-- require("ramchaik.debugger")
 -- require("ramchaik.git-worktree")
 
 -- Plugins

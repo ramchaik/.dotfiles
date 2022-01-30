@@ -62,9 +62,10 @@ Plug 'nvim-treesitter/playground'
 Plug 'ThePrimeagen/refactoring.nvim'
 
 " Debugger Plugins
-Plug 'mfussenegger/nvim-dap'
-Plug 'Pocco81/DAPInstall.nvim'
+Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+" Plug 'mfussenegger/nvim-dap'
+" Plug 'Pocco81/DAPInstall.nvim'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
