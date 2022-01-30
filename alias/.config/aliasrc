@@ -11,7 +11,7 @@ alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
 alias python="python3"
 alias vim="nvim"
-alias nv="nvim"
+alias v="nvim"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
