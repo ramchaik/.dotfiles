@@ -13,7 +13,6 @@ fi
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-#zsh-vim-mode
 plugins=(
   brew
   git
@@ -32,14 +31,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-
-# I really like this minimalistic zsh theme.
-# export ZSH_THEME="refined"
-
-# Enable colors and change prompt:
-# autoload -U colors && colors
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -47,20 +38,12 @@ SAVEHIST=10000
 [ ! -f ~/.cache/zsh/history ] && touch ~/.cache/zsh/history
 HISTFILE=~/.cache/zsh/history
 
-
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
-
-# vi mode
-bindkey -v
-
-# Custom mapping to change mode to command
-bindkey -M viins 'jk' vi-cmd-mode
-export KEYTIMEOUT=20
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -84,7 +67,6 @@ bindkey -s ^f "tmux-sessionizer\n"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 export PATH="/usr/local/sbin:$PATH"
-
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -119,8 +101,8 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
 
-# to aviod error on shell from perl
-LANG=pl_PL.UTF-8
+# manually setting Lang
+export LANG=en_US.UTF-8
 
 # fzf with speed
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
