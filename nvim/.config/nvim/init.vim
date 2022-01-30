@@ -93,6 +93,8 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+Plug 'tpope/vim-eunuch'
+
 " Vim session
 Plug 'tpope/vim-obsession'
 
