@@ -31,6 +31,13 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# vi mode
+bindkey -v
+
+# Custom mapping to change mode to command
+bindkey -M viins 'jk' vi-cmd-mode
+export KEYTIMEOUT=20
+
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
