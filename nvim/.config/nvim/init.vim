@@ -99,8 +99,6 @@ Plug 'tpope/vim-obsession'
 " Prettier
 Plug 'sbdchd/neoformat'
 
-Plug 'vuciv/vim-bujo'
-"
 call plug#end()
 
 " lua
@@ -108,10 +106,6 @@ lua require'ramchaik'
 
  " Remaps
 let mapleader = " "
-
-nmap <Leader>toa <Plug>BujoChecknormal
-nmap <Leader>tod <Plug>BujoAddnormal
-let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
 " Custom
 nnoremap <leader>pv :Ex<CR>
