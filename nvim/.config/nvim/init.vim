@@ -109,8 +109,8 @@ lua require'ramchaik'
  " Remaps
 let mapleader = " "
 
-nmap <Leader>td <Plug>BujoChecknormal
-nmap <Leader>ta <Plug>BujoAddnormal
+nmap <Leader>toa <Plug>BujoChecknormal
+nmap <Leader>tod <Plug>BujoAddnormal
 let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
 " Custom

@@ -972,8 +972,8 @@ key_bindings:
   # Fix Ctrl+6 for vim
   # https://github.com/alacritty/alacritty/issues/5024 
   - { key: Key6,     mods: Control, chars: "\x1e"                        }
-
-
+  # Hack for Ctrl+; vim doesn't capture ctrl+; keycode
+  - { key: Semicolon,    mods: Control, chars: "\x1b\\"                       } # Ctrl + ; -> Alt+\
   
   # Ctrl+f sessionizer fun
   # - { key: F, mods: Control, chars: "~/.dotfiles/scripts/tmux/sessionizer.sh \x0D" }
