@@ -8,10 +8,16 @@ tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "mongodb/brew"
 tap "thoughtbot/formulae"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
 # Generic library support script
 brew "libtool"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # GNU Ubiquitous Intelligent Language for Extensions
 brew "guile"
 # GNU Transport Layer Security (TLS) Library
@@ -24,6 +30,8 @@ brew "cask"
 brew "cmake"
 # Configurable talking characters in ASCII art
 brew "cowsay"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Pack, ship and run any application as a lightweight container
 brew "docker", link: false
 # Command-line tool for DigitalOcean
@@ -72,6 +80,8 @@ brew "node@14"
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Small build system for use with gyp or CMake
+brew "ninja"
 # Port scanning utility for large networks
 brew "nmap"
 # Manage multiple Node.js versions
@@ -174,6 +184,8 @@ cask "macdown"
 cask "mongodb-compass"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Collaboration platform for API development
 cask "postman"
 # MongoDB management tool
