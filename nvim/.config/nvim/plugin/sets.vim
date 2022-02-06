@@ -2,8 +2,6 @@ set nu
 set rnu
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-set splitbelow
-set splitright
 set expandtab
 set smartindent
 set nohlsearch
@@ -21,6 +19,9 @@ set scrolloff=8
 set gcr=
 set termguicolors
 " set cursorline
+
+" set splitbelow
+" set splitright
 
 set signcolumn=yes
 set isfname+=@-@
