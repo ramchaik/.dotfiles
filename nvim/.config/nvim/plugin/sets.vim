@@ -16,7 +16,7 @@ set incsearch
 set termguicolors
 set scrolloff=8
 
-set gcr=
+" set gcr=
 set termguicolors
 " set cursorline
 
