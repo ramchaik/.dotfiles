@@ -49,8 +49,10 @@ Plug 'simrat39/symbols-outline.nvim'
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
 
+" Lang
 Plug 'rust-lang/rust.vim'
 Plug 'darrikonn/vim-gofmt'
+Plug 'digitaltoad/vim-pug'
 
 Plug 'github/copilot.vim'
 
