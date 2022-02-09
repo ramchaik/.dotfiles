@@ -102,12 +102,9 @@ require("lspconfig").cssls.setup(config())
 -- npm install -g emmet-ls
 require'lspconfig'.emmet_ls.setup(config())
 
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#elixirls 
--- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
--- unzip elixir-ls.zip -d ~/elixir-ls
--- chmod +x ~/elixir-ls/language_server.sh
+-- brew install elixir-ls
 require'lspconfig'.elixirls.setup(config({
-    cmd = { "~/elixir-ls/language_server.sh" };
+    cmd = { "elixir-ls" };
 }))
 
 -- npm i -g @emacs-grammarly/unofficial-grammarly-language-server
@@ -121,16 +118,17 @@ require'lspconfig'.pyright.setup(config())
 
 require("lspconfig").solang.setup(config())
 
+-- brew install gopls
 require("lspconfig").gopls.setup(config({
-	cmd = { "gopls", "serve" },
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-	},
+    cmd = {"gopls", "serve"},
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
 }))
 
 -- for installation
