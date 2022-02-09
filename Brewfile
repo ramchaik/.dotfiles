@@ -36,6 +36,8 @@ brew "curl"
 brew "docker", link: false
 # Command-line tool for DigitalOcean
 brew "doctl"
+# Language Server and Debugger for Elixir
+brew "elixir-ls"
 # Modern replacement for 'ls'
 brew "exa"
 # Simple, fast and user-friendly alternative to find
@@ -60,6 +62,8 @@ brew "node"
 brew "gitmoji"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Language server for the Go language
+brew "gopls"
 # Terminal based graphical activity monitor inspired by gtop and vtop
 brew "gotop"
 # Improved top (interactive process viewer)
