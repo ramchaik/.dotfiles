@@ -49,10 +49,12 @@ Plug 'simrat39/symbols-outline.nvim'
 " Plug 'dcampos/nvim-snippy'
 " Plug 'dcampos/cmp-snippy'
 
-" Lang
+" Lang Syntax hilighters & Formatters
 Plug 'rust-lang/rust.vim'
 Plug 'darrikonn/vim-gofmt'
+" Template engines
 Plug 'digitaltoad/vim-pug'
+Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'github/copilot.vim'
 
