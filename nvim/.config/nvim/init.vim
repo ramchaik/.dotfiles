@@ -106,6 +106,9 @@ Plug 'tpope/vim-obsession'
 " Prettier
 Plug 'sbdchd/neoformat'
 
+" auto-detect indent heuristically
+Plug 'tpope/vim-sleuth'
+
 call plug#end()
 
 " lua
