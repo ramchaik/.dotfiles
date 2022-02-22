@@ -109,6 +109,9 @@ Plug 'sbdchd/neoformat'
 " auto-detect indent heuristically
 Plug 'tpope/vim-sleuth'
 
+" Todo higlight
+Plug 'folke/todo-comments.nvim'
+
 call plug#end()
 
 " lua

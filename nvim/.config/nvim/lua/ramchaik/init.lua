@@ -7,8 +7,7 @@ require("ramchaik.comment")
 -- require("ramchaik.debugger")
 -- require("ramchaik.git-worktree")
 
--- Plugins
-require('gitsigns').setup()
+require("ramchaik.plugins")
 
 
 P = function(v)
