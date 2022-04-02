@@ -112,6 +112,9 @@ Plug 'tpope/vim-sleuth'
 " Todo higlight
 Plug 'folke/todo-comments.nvim'
 
+" Todo: works *.todo.md file
+Plug 'aserebryakov/vim-todo-lists'
+
 call plug#end()
 
 " lua

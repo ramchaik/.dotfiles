@@ -108,7 +108,7 @@ require'lspconfig'.elixirls.setup(config({
 }))
 
 -- npm i -g @emacs-grammarly/unofficial-grammarly-language-server
-require('lspconfig').grammarly.setup(config())
+-- require('lspconfig').grammarly.setup(config())
 
 -- npm install -g dockerfile-language-server-nodejs
 require('lspconfig').dockerls.setup(config())

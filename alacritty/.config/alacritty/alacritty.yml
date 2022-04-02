@@ -25,7 +25,7 @@
 
 # issue with macOS window:opacity won't work
 # https://github.com/alacritty/alacritty/issues/3641
-background_opacity: 0.90
+background_opacity: 0.95
 
 window:
   # Window dimensions (changes require restart)
