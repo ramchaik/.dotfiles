@@ -38,24 +38,36 @@ fi
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 
-
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
 
-# fzf with speed
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--ansi"
-
 # plugin: [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 function zvm_config() {
-  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
   # Only changing the escape key to `jk` in insert mode, we still
   # keep using the default keybindings `^[` in other modes
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
   # Change to Zsh's default readkey engine
   ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+}
+# The plugin will auto execute this zvm_after_init function
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS="--ansi"
+}
+# The plugin will auto execute this zvm_after_lazy_keybindings function
+function zvm_after_lazy_keybindings() {
+  # Use vim keys in tab complete menu:
+  bindkey -M menuselect 'h' vi-backward-char
+  bindkey -M menuselect 'k' vi-up-line-or-history
+  bindkey -M menuselect 'l' vi-forward-char
+  bindkey -M menuselect 'j' vi-down-line-or-history
+  bindkey -v '^?' backward-delete-char
+
+  # tmux sessionizer
+  bindkey -s ^f "tmux-sessionizer\n"
 }
 
 # Source --------end------------- 
@@ -76,20 +88,6 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
-
-# Use vim keys in tab complete menu:
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-# tmux sessionizer
-bindkey -s ^f "tmux-sessionizer\n"
 
 export PATH="/usr/local/sbin:$PATH"
 
