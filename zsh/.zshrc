@@ -48,16 +48,9 @@ export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --e
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi"
 
-# vi mode
-# bindkey -v
-#
-# # Custom mapping to change mode to command
-# bindkey -M viins 'jk' vi-cmd-mode
-# export KEYTIMEOUT=20
-
+# plugin: [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 function zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-  # plugin: zsh-vi-mode
   # Only changing the escape key to `jk` in insert mode, we still
   # keep using the default keybindings `^[` in other modes
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
@@ -69,7 +62,6 @@ function zvm_config() {
 
 # Source OMZ 
 source $ZSH/oh-my-zsh.sh
-
 
 # History in cache directory:
 HISTSIZE=10000
