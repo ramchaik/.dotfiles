@@ -3,7 +3,8 @@
 #-----------------
 alias c="clear"
 alias grep='grep --colour=auto'
-alias rr="source ~/.zshrc"
+alias zs="source ~/.zshrc"
+alias zr="exec zsh"
 alias l="ls"
 alias ll="exa -alhgiHS"
 alias ls="exa"
@@ -12,6 +13,7 @@ alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
 alias python="python3"
 alias vim="nvim"
+alias vi="nvim"
 alias v="nvim"
 
 # Pretty print the path
