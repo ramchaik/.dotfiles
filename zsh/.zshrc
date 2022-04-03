@@ -19,24 +19,57 @@ plugins=(
   node
   npm 
   nvm
-  zsh-autosuggestions
-  zsh-syntax-highlighting
   docker
   docker-compose
+  zsh-vi-mode
+  # -- add plugins above this line --
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 if [[ -z $DOTFILES ]]; then
     export DOTFILES=$HOME/.dotfiles
 fi
 
-source $ZSH/oh-my-zsh.sh
+# -------------------------
+# Source Plugins
+# -------------------------
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
+[[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
+
+# fzf with speed
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--ansi"
 
 # vi mode
-bindkey -v
+# bindkey -v
+#
+# # Custom mapping to change mode to command
+# bindkey -M viins 'jk' vi-cmd-mode
+# export KEYTIMEOUT=20
 
-# Custom mapping to change mode to command
-bindkey -M viins 'jk' vi-cmd-mode
-export KEYTIMEOUT=20
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  # plugin: zsh-vi-mode
+  # Only changing the escape key to `jk` in insert mode, we still
+  # keep using the default keybindings `^[` in other modes
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+  # Change to Zsh's default readkey engine
+  ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+}
+
+# Source --------end------------- 
+
+# Source OMZ 
+source $ZSH/oh-my-zsh.sh
+
 
 # History in cache directory:
 HISTSIZE=10000
@@ -63,15 +96,8 @@ bindkey -v '^?' backward-delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-
 # tmux sessionizer
 bindkey -s ^f "tmux-sessionizer\n"
-
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 export PATH="/usr/local/sbin:$PATH"
 
@@ -105,14 +131,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
-[[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
-
 # manually setting Lang
 export LANG=en_US.UTF-8
 
-# fzf with speed
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS="--ansi"
