@@ -43,7 +43,8 @@ fi
 
 # plugin: [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 function zvm_config() {
-  ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_INIT_MODE=sourcing
   # Only changing the escape key to `jk` in insert mode, we still
   # keep using the default keybindings `^[` in other modes
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
@@ -56,9 +57,7 @@ function zvm_after_init() {
   export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --exclude .git'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_DEFAULT_OPTS="--ansi"
-}
-# The plugin will auto execute this zvm_after_lazy_keybindings function
-function zvm_after_lazy_keybindings() {
+
   # Use vim keys in tab complete menu:
   bindkey -M menuselect 'h' vi-backward-char
   bindkey -M menuselect 'k' vi-up-line-or-history
