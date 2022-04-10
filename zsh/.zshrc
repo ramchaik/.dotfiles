@@ -27,10 +27,6 @@ fi
 # -------------------------
 # Source Plugins
 # -------------------------
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-
 # plugin: [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 function zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
@@ -114,3 +110,8 @@ fi
 export LANG=en_US.UTF-8
 
 source "/Users/ramchaik/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
+
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+
