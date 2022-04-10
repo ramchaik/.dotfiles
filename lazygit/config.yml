@@ -1,0 +1,14 @@
+keybinding:
+  universal:
+    quit: 'Q'
+    return: 'q'
+gui:
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
