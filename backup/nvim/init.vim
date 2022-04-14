@@ -134,8 +134,8 @@ nnoremap <leader>gln :cnext<CR>:call search(_search_term)<CR>
 nnoremap <leader>glp :cprev<CR>:call search(_search_term)<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
-nnoremap <Leader>rp :resize 100<CR>
 
+nnoremap <Leader>rp :resize 100<CR>
 "vim session with obsession
 nnoremap <Leader>ss :Obsession<CR>  " Start Session
 nnoremap <Leader>se :Obsession!<CR> " End Session
