@@ -2,6 +2,7 @@
 # Custom
 #-----------------
 alias c="clear"
+alias b="bat"
 alias grep='grep --colour=auto'
 alias zs="source ~/.zshrc"
 alias zr="exec zsh"

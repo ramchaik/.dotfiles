@@ -4,7 +4,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="spaceship"
 
 plugins=(
   brew
@@ -109,9 +108,9 @@ fi
 # manually setting Lang
 export LANG=en_US.UTF-8
 
-source "/Users/ramchaik/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
-
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+
+eval "$(starship init zsh)"
 
