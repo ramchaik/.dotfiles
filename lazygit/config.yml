@@ -1,3 +1,7 @@
+os:
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} +{{line}} {{filename}}'
+    
 keybinding:
   universal:
     quit: 'Q'
