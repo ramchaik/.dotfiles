@@ -55,8 +55,8 @@ function M.config()
       },
     },
     window = {
-      position = "left",
-      width = 25,
+      position = "right",
+      width = 30,
       mappings = {
         ["<2-LeftMouse>"] = "open",
         ["<cr>"] = "open",
@@ -86,7 +86,7 @@ function M.config()
     filesystem = {
       filtered_items = {
         visible = false,
-        hide_dotfiles = true,
+        hide_dotfiles = false,
         hide_gitignored = false,
         hide_by_name = {
           ".DS_Store",
