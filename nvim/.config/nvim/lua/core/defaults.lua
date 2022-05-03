@@ -2,6 +2,28 @@ local config = {
 
   colorscheme = "default_theme",
 
+  header = {
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " █████  ███████ ████████ ██████   ██████",
+    "██   ██ ██         ██    ██   ██ ██    ██",
+    "███████ ███████    ██    ██████  ██    ██",
+    "██   ██      ██    ██    ██   ██ ██    ██",
+    "██   ██ ███████    ██    ██   ██  ██████",
+    " ",
+    "    ███    ██ ██    ██ ██ ███    ███",
+    "    ████   ██ ██    ██ ██ ████  ████",
+    "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
+    "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
+    "    ██   ████   ████   ██ ██      ██",
+    " ",
+    " ",
+    " ",
+  },
+
   plugins = {
     packer = {
       compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
@@ -13,7 +35,7 @@ local config = {
   },
 
   default_theme = {
-    diagnostics_style = "none",
+    diagnostics_style = {},
   },
 
   enabled = {
@@ -24,13 +46,20 @@ local config = {
     colorizer = true,
     toggle_term = true,
     comment = true,
-    symbols_outline = true,
     indent_blankline = true,
-    dashboard = true,
     which_key = true,
     neoscroll = true,
     ts_rainbow = true,
     ts_autotag = true,
+  },
+
+  cmp = {
+    source_priority = {
+      nvim_lsp = 1000,
+      luasnip = 750,
+      buffer = 500,
+      path = 250,
+    },
   },
 
   ui = {
