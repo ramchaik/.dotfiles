@@ -4,6 +4,3 @@
 [submodule "personal"]
 	path = personal
 	url = https://github.com/ramchaik/personal.git
-[submodule "nvim-a"]
-	path = nvim-a
-	url = https://github.com/ramchaik/AstroNvim.git
