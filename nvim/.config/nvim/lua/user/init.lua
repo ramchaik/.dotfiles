@@ -262,6 +262,12 @@ local config = {
           -- which-key registration table for normal mode, leader prefix
           -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
           -- Telescope
+          ["ff"] = {
+            function()
+              require("telescope.builtin").find_files({ hidden = true })
+            end,
+            "Find files"
+          },
           ["fs"] = {
             function()
               require("telescope.builtin").live_grep({ hidden = true })

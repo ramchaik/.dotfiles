@@ -295,12 +295,12 @@ if status_ok then
       end,
       "Find Buffers",
     }
-    mappings.n["<leader>"].f.f = {
-      function()
-        require("telescope.builtin").find_files()
-      end,
-      "Find Files",
-    }
+    -- mappings.n["<leader>"].f.f = {
+    --   function()
+    --     require("telescope.builtin").find_files()
+    --   end,
+    --   "Find Files",
+    -- }
     mappings.n["<leader>"].f.h = {
       function()
         require("telescope.builtin").help_tags()
