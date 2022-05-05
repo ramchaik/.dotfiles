@@ -268,11 +268,17 @@ local config = {
             end,
             "Find files"
           },
-          ["fs"] = {
+          ["fg"] = {
             function()
               require("telescope.builtin").live_grep({ hidden = true })
             end,
             "Live Grep"
+          },
+          ["fs"] = {
+            function()
+              require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > "), hidden = true })
+            end,
+            "Grep For"
           },
           ["fw"] = {
             function()
