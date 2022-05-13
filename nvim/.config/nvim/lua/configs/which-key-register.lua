@@ -142,10 +142,12 @@ if status_ok then
       "Preview Hunk",
     }
     mappings.n["<leader>"].g.h = {
-      function()
-        require("gitsigns").reset_hunk()
-      end,
-      "Reset Hunk",
+      "<cmd>GHInteractive<cr>",
+      "Open blob on GH",
+    }
+    mappings.n["<leader>"].g.b = {
+      "<cmd>GBInteractive<cr>",
+      "Open blame on GH",
     }
     mappings.n["<leader>"].g.r = {
       function()
@@ -275,12 +277,12 @@ if status_ok then
       end,
       "Open changed file",
     }
-    mappings.n["<leader>"].g.b = {
-      function()
-        require("telescope.builtin").git_branches()
-      end,
-      "Checkout branch",
-    }
+    -- mappings.n["<leader>"].g.b = {
+    --   function()
+    --     require("telescope.builtin").git_branches()
+    --   end,
+    --   "Checkout branch",
+    -- }
     mappings.n["<leader>"].g.c = {
       function()
         require("telescope.builtin").git_commits()

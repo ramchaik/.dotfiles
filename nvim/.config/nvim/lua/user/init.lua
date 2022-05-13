@@ -67,6 +67,7 @@ local config = {
       --   end,
       -- },
       { "github/copilot.vim" },
+      { "ruanyl/vim-gh-line" },
       { "ThePrimeagen/harpoon",
         config = function()
           require("harpoon").setup({
