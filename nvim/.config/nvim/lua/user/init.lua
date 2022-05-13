@@ -159,7 +159,7 @@ local config = {
       },
       window = {
         position = "right",
-        width = 30,
+        width = 50,
         mappings = {
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
