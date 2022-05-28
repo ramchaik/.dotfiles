@@ -89,14 +89,15 @@ local config = {
           })
         end,
       },
-    },
-    -- All other entries override the setup() call for default plugins
-    treesitter = {
-      ensure_installed = { "lua" },
-    },
-    ["nvim-lsp-installer"] = {
-      ensure_installed = { "sumneko_lua" },
-    },
+      { "dhruvasagar/vim-dotoo" }
+  },
+  -- All other entries override the setup() call for default plugins
+  treesitter = {
+    ensure_installed = { "lua" },
+  },
+  ["nvim-lsp-installer"] = {
+    ensure_installed = { "sumneko_lua" },
+  },
     packer = {
       compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
     },
