@@ -374,13 +374,20 @@ local config = {
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     local diagnostics = null_ls.builtins.diagnostics
 
+    -- Check supported completion
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/completion
+    local completion = null_ls.builtins.completion
+
     null_ls.setup {
       debug = false,
       sources = {
         -- Set a formatter
-        formatting.rufo,
+        formatting.prettier,
         -- Set a linter
         diagnostics.rubocop,
+        
+        -- Set a completion 
+        completion.spell,
       },
       -- NOTE: You can remove this on attach function to disable format on save
       on_attach = function(client)
@@ -429,6 +436,9 @@ local config = {
     map("n", "<leader>td", "<cmd>lua require(\"harpoon.term\").gotoTerminal(2)<CR>")
     map("n", "<leader>ts", "<cmd>lua require(\"harpoon.term\").gotoTerminal(3)<CR>")
 
+    -- vim.cmd([[ let g:dotoo#agenda#files="~/my-org/**/*.dotoo"]])
+    vim.cmd([[ let g:dotoo#agenda#files=["~/my-org/*.dotoo"] ]])
+    vim.cmd([[ let g:dotoo#capture#refile=expand("~/my-org/refile.dotoo") ]])
 
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", {})
