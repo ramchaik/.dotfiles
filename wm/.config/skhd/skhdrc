@@ -4,8 +4,8 @@
 # open terminal
 alt - return : open -n /Applications/Alacritty.app
 # alt - return : open -n /Applications/iTerm.app
-# open brave
-alt + shift - return : open -n /Applications/Brave\ Browser.app
+# open browser
+alt + shift - return : open -n /Applications/Firefox\ Developer\ Edition.app
 
 # restart Yabi, SpaceBar, and SKHD
 alt + shift - r : \
