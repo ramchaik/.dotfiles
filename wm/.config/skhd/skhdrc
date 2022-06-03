@@ -2,10 +2,15 @@
 
 ####### Shortcut Hotkeys #############
 # open terminal
-#alt - return : open -n /Applications/Alacritty.app
- alt - return : open -n /Applications/iTerm.app
-# open brave
+# alt - return : open -n /Applications/Alacritty.app
+alt - return : open -n /Applications/iTerm.app
+
+# open browser
 alt + shift - return : open -n /Applications/Brave\ Browser.app
+# open mongo
+alt + shift - m  : open -n /Applications/MongoDB\ Compass.app
+# open postman
+alt + shift - p  : open -n /Applications/Postman.app
 
 # restart Yabi, SpaceBar, and SKHD
 alt + shift - r : \
