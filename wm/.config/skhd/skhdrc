@@ -6,7 +6,7 @@
 alt - return : open -n /Applications/iTerm.app
 
 # open browser
-alt + shift - return : open -n /Applications/Brave\ Browser.app
+alt + shift - return : open -n /Applications/Google\ Chrome.app/
 # open mongo
 alt + shift - m  : open -n /Applications/MongoDB\ Compass.app
 # open postman
