@@ -410,6 +410,9 @@ local config = {
     -- Set options
     set.relativenumber = true
 
+    -- set bg highlight
+    vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE ]])
+
     -- Set key bindings
     -- map("n", "<C-s>", ":w!<CR>")
 
