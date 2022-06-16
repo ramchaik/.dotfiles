@@ -423,8 +423,8 @@ local config = {
     map("n", "<leader>x", ":!chmod +x %<CR>")
 
     -- Quickfix List
-    map("n", "<A-[>", "<cmd>cnext<CR>zz")
-    map("n", "<A-]>", "<cmd>cprev<CR>zz")
+    map("n", "<A-[>", "<cmd>cprev<CR>zz")
+    map("n", "<A-]>", "<cmd>cnext<CR>zz")
     map("n", "<A-q>", "<cmd>lua require(\"ramchaik.quickfix\").toggle(1)<CR>")
 
     -- Harpoon
