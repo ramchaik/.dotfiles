@@ -89,7 +89,11 @@ local config = {
           })
         end,
       },
-      { "dhruvasagar/vim-dotoo" }
+      { "dhruvasagar/vim-dotoo" },
+      -- DAP
+      { "mfussenegger/nvim-dap" },
+      { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
+      { 'theHamsta/nvim-dap-virtual-text' }
   },
   -- All other entries override the setup() call for default plugins
   treesitter = {
@@ -407,6 +411,9 @@ local config = {
   polish = function()
     local map = vim.keymap.set
     local set = vim.opt
+
+    require('ramchaik.dap')
+
     -- Set options
     set.relativenumber = true
 
@@ -415,6 +422,13 @@ local config = {
 
     -- Set key bindings
     -- map("n", "<C-s>", ":w!<CR>")
+
+    map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+    map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
+    map("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<cr>")
+    map("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<cr>")
+    map("n", "<leader>dso", "<cmd>lua require'dap'.step_out()<cr>")
+    map("n", "<leader>dro", "<cmd>lua require'dap'.repl.open()<cr>")
 
     -- General
     map("v", "J", ":m '>+1<cr>gv=gv")
@@ -430,14 +444,18 @@ local config = {
     -- Harpoon
     map("n", "<leader>a", "<cmd>lua require(\"harpoon.mark\").add_file()<CR>")
     map("n", "<C-s>", "<cmd>lua require(\"harpoon.ui\").toggle_quick_menu()<CR>")
+    map("n", "<leader>tc", "<cmd>lua require(\"harpoon.cmd-ui\").toggle_quick_menu()<CR>")
     ---- Harpoon buffer hotkeys
     map("n", "<C-j>", "<cmd>lua require(\"harpoon.ui\").nav_file(1)<CR>")
     map("n", "<C-k>", "<cmd>lua require(\"harpoon.ui\").nav_file(2)<CR>")
     map("n", "<C-l>", "<cmd>lua require(\"harpoon.ui\").nav_file(3)<CR>")
     ---- Harpoon terminal hotkeys
-    map("n", "<leader>tf", "<cmd>lua require(\"harpoon.term\").gotoTerminal(1)<CR>")
-    map("n", "<leader>td", "<cmd>lua require(\"harpoon.term\").gotoTerminal(2)<CR>")
-    map("n", "<leader>ts", "<cmd>lua require(\"harpoon.term\").gotoTerminal(3)<CR>")
+    map("n", "<leader>tf", "<cmd>lua require(\"harpoon.term\").gotoTerminal(1)<cr>")
+    map("n", "<leader>td", "<cmd>lua require(\"harpoon.term\").gotoTerminal(2)<cr>")
+    map("n", "<leader>ts", "<cmd>lua require(\"harpoon.term\").gotoTerminal(3)<cr>")
+    map("n", "<leader>cf", "<cmd>lua require(\"harpoon.term\").sendCommand(1, 1)<cr>")
+    map("n", "<leader>cd", "<cmd>lua require(\"harpoon.term\").sendCommand(2, 1)<cr>")
+    map("n", "<leader>cs", "<cmd>lua require(\"harpoon.term\").sendCommand(3, 1)<cr>")
 
     -- vim.cmd([[ let g:dotoo#agenda#files="~/my-org/**/*.dotoo"]])
     vim.cmd([[ let g:dotoo#agenda#files=["~/my-org/*.dotoo"] ]])
