@@ -89,7 +89,11 @@ local config = {
           })
         end,
       },
-      { "dhruvasagar/vim-dotoo" }
+      { "dhruvasagar/vim-dotoo" },
+      -- DAP
+      { "mfussenegger/nvim-dap" },
+      { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
+      { 'theHamsta/nvim-dap-virtual-text' }
   },
   -- All other entries override the setup() call for default plugins
   treesitter = {
@@ -407,6 +411,9 @@ local config = {
   polish = function()
     local map = vim.keymap.set
     local set = vim.opt
+
+    require('ramchaik.dap')
+
     -- Set options
     set.relativenumber = true
 
@@ -415,6 +422,13 @@ local config = {
 
     -- Set key bindings
     -- map("n", "<C-s>", ":w!<CR>")
+
+    map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+    map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
+    map("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<cr>")
+    map("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<cr>")
+    map("n", "<leader>dso", "<cmd>lua require'dap'.step_out()<cr>")
+    map("n", "<leader>dro", "<cmd>lua require'dap'.repl.open()<cr>")
 
     -- General
     map("v", "J", ":m '>+1<cr>gv=gv")
