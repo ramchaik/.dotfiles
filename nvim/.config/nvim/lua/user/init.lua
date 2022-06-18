@@ -423,12 +423,16 @@ local config = {
     -- Set key bindings
     -- map("n", "<C-s>", ":w!<CR>")
 
-    map("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
-    map("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
-    map("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<cr>")
-    map("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<cr>")
-    map("n", "<leader>dso", "<cmd>lua require'dap'.step_out()<cr>")
-    map("n", "<leader>dro", "<cmd>lua require'dap'.repl.open()<cr>")
+    -- DAP
+    map("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>")
+    map("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>")
+    map("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>")
+    map("n", "<F12>", "<cmd>lua require'dap'.step_out()<cr>")
+    map("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+    map("n", "<leader>B", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
+    map("n", "<leader>lp", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
+    map("n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<cr>")
+    map("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>")
 
     -- General
     map("v", "J", ":m '>+1<cr>gv=gv")
