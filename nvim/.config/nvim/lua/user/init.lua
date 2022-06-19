@@ -90,6 +90,7 @@ local config = {
         end,
       },
       { "dhruvasagar/vim-dotoo" },
+      { 'mtth/scratch.vim' },
       -- DAP
       { "mfussenegger/nvim-dap" },
       { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
@@ -461,9 +462,17 @@ local config = {
     map("n", "<leader>cd", "<cmd>lua require(\"harpoon.term\").sendCommand(2, 1)<cr>")
     map("n", "<leader>cs", "<cmd>lua require(\"harpoon.term\").sendCommand(3, 1)<cr>")
 
+    -- Vim dotoo
     -- vim.cmd([[ let g:dotoo#agenda#files="~/my-org/**/*.dotoo"]])
     vim.cmd([[ let g:dotoo#agenda#files=["~/my-org/*.dotoo"] ]])
     vim.cmd([[ let g:dotoo#capture#refile=expand("~/my-org/refile.dotoo") ]])
+
+    -- Scratch
+    vim.cmd([[ let g:scratch_insert_autohide = 0 ]])
+    vim.cmd([[ let g:scratch_height = 30 ]])
+    vim.cmd([[ let g:scratch_top = 1 ]])
+    vim.cmd([[ let g:scratch_persistence_file = '/tmp/scratch.md' ]])
+    vim.cmd([[ let g:scratch_persistence_file = '.scratch.md' ]])
 
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", {})
