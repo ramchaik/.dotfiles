@@ -80,6 +80,7 @@ return packer.startup(function(use)
   }
   use { "dhruvasagar/vim-dotoo" }
   use { 'mtth/scratch.vim' }
+  use { 'vimwiki/vimwiki' }
 
   -- Colorschemes
   use { "gruvbox-community/gruvbox", commit = "34ad436b234c5095d46bb065c5b32780618df83f" }
