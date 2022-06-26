@@ -1,43 +1,24 @@
-vim.opt.rtp:append(vim.fn.stdpath "config" .. "/../astronvim")
+require "ramchaik.options"
+require "ramchaik.keymaps"
+require "ramchaik.plugins"
+require "ramchaik.autocommands"
+require "ramchaik.colorscheme"
+require "ramchaik.cmp"
+require "ramchaik.telescope"
+require "ramchaik.treesitter"
+require "ramchaik.autopairs"
+require "ramchaik.comment"
+require "ramchaik.gitsigns"
+require "ramchaik.nvim-tree"
+require "ramchaik.bufferline"
+require "ramchaik.lualine"
+require "ramchaik.toggleterm"
+require "ramchaik.project"
+require "ramchaik.impatient"
+require "ramchaik.illuminate"
+require "ramchaik.indentline"
+require "ramchaik.alpha"
+require "ramchaik.lsp"
+require "ramchaik.dap"
+require "ramchaik.sets"
 
-local impatient_ok, impatient = pcall(require, "impatient")
-if impatient_ok then
-  impatient.enable_profile()
-end
-
-local utils = require "core.utils"
-
-utils.disabled_builtins()
-
-utils.bootstrap()
-
-local sources = {
-  "core.options",
-  "core.plugins",
-  "core.autocmds",
-  "core.mappings",
-  "configs.which-key-register",
-}
-
-for _, source in ipairs(sources) do
-  local status_ok, fault = pcall(require, source)
-  if not status_ok then
-    error("Failed to load " .. source .. "\n\n" .. fault)
-  elseif source == "core.plugins" then
-    utils.compiled()
-  end
-end
-
-local status_ok, ui = pcall(require, "core.ui")
-if status_ok then
-  for ui_addition, enabled in pairs(utils.user_settings().ui) do
-    if enabled and type(ui[ui_addition]) == "function" then
-      ui[ui_addition]()
-    end
-  end
-end
-
-local polish = utils.user_plugin_opts "polish"
-if type(polish) == "function" then
-  polish()
-end

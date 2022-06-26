@@ -1,130 +1,165 @@
-<div align="center" id="madewithlua">
-    <img src="https://astronvim.github.io/img/logo/astronvim.svg" width="110", height="100">
-</div>
+# A Basic Stable IDE config for Neovim
 
-<h1 align="center">AstroNvim</h1>
+> Why does this repo exist?
 
-<div align="center"><p>
-    <a href="https://github.com/AstroNvim/AstroNvim/pulse">
-      <img src="https://img.shields.io/github/last-commit/AstroNvim/AstroNvim?color=%4dc71f&label=Last%20Commit&logo=github&style=flat-square"/>
-    </a>
-    <a href="https://github.com/AstroNvim/AstroNvim/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/AstroNvim/AstroNvim?label=License&logo=GNU&style=flat-square"/>
-	</a>
-    <a href="https://neovim.io/">
-      <img src="https://img.shields.io/badge/Neovim-0.7+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white"/>
-    </a>
-    <a href="https://discord.gg/UcZutyeaFW">
-      <img src="https://img.shields.io/badge/discord-Join-7289da?color=%235865F2%20&label=Discord&logo=discord&logoColor=%23ffffff&style=flat-square"/>
-    </a>
-</p>
-</div>
+This config attempts to provide a rock solid fully featured starting point for someone new to Neovim, or just tired of maintaining the basic IDE components of their config. 
 
-<p align="center">
-AstroNvim is an aesthetic and feature-rich neovim config that is extensible and easy to use with a great set of plugins
-</p>
+> What makes it "rock solid"?
 
-**REBRANDING NOTICE:** AstroVim will now be known as AstroNvim to clear up any confusion surrounding this being a Neovim configuration vs a Vim configuration. If you have used AstroNvim before the rebranding please run the following command to update your installation repo:
+All of the included plugins are pinned to a version that ensures they are compatible and will not update potentially introducing errors into your config. For every Neovim release I will update this repo along with the community to keep it up to date with the newest versions.
+
+As I mentioned, this config is meant as a starting point for people new to Neovim who want a familiar IDE experience. The config has a very simple structure that makes it easy to add new plugins. 
+
+## Install Neovim 0.7
+
+You can install Neovim with your package manager e.g. brew, apt, pacman etc.. but remember that when you update your packages Neovim may be upgraded to a newer version.
+
+If you would like to make sure Neovim only updates when you want it to than I recommend installing from source:
 
 ```sh
-git -C ~/.config/nvim remote set-url origin https://github.com/AstroNvim/AstroNvim.git
+git clone https://github.com/neovim/neovim.git
+cd neovim
+git checkout release-0.7
+make CMAKE_BUILD_TYPE=Release
+sudo make install
 ```
 
-> **Pre-v1.0 Notice:** If you were using AstroVim before the v1.0 release, please see the updated documentation because there were breaking changes.
+## Install the config
 
-## 🌟 Preview
+Make sure to remove or move your current `nvim` directory
 
-![Preview1](./screenshots/preview1.png)
-![Preview2](./screenshots/preview2.png)
-![Preview33](./screenshots/preview3.png)
-
-## ✨ Features
-
-- File explorer with [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- Autocompletion with [Cmp](https://github.com/hrsh7th/nvim-cmp)
-- Git integration with [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- Statusline with [Lualine](https://github.com/nvim-lualine/lualine.nvim)
-- Terminal with [Toggleterm](https://github.com/akinsho/toggleterm.nvim)
-- Fuzzy finding with [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-- Syntax highlighting with [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- Formatting and linting with [Null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
-- Language Server Protocol with [Native LSP](https://github.com/neovim/nvim-lspconfig)
-
-## ⚡ Requirements
-
-- [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
-- [Neovim 0.7+](https://github.com/neovim/neovim/releases/tag/v0.7.0)
-- Terminal with true color support (for the default theme, otherwise it is dependent on the theme you are using)
-- Optional Requirements:
-  - [ripgrep](https://github.com/BurntSushi/ripgrep) - live grep telescope search (`<leader>fw`)
-  - [lazygit](https://github.com/jesseduffield/lazygit) - git ui toggle terminal (`<leader>tl` or `<leader>gg`)
-  - [NCDU](https://dev.yorhel.nl/ncdu) - disk usage toggle terminal (`<leader>tu`)
-  - [Htop](https://htop.dev/) - process viewer toggle terminal (`<leader>tt`)
-  - [Python](https://www.python.org/) - python repl toggle terminal (`<leader>tp`)
-  - [Node](https://nodejs.org/en/) - node repl toggle terminal (`<leader>tn`)
-
-> Note when using default theme: For MacOS, the default terminal does not have true color support. You wil need to use [iTerm2](https://iterm2.com/) or another [terminal emulator](https://gist.github.com/XVilka/8346728#terminal-emulators) that has true color support.
-
-> Note if you are still on Neovim v0.6: You can still install the previous version of AstroNvim that supported. After cloning the repository run `git checkout nvim-0.6` to check out this version. This will no longer be receiving updates.
-
-## 🛠️ Installation
-
-#### Make a backup of your current nvim folder
-
-```
-mv ~/.config/nvim ~/.config/nvimbackup
+```sh
+git clone https://github.com/LunarVim/nvim-basic-ide.git ~/.config/nvim
 ```
 
-#### Clone the repository
+Run `nvim` and wait for the plugins to be installed 
+
+**NOTE** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
+
+**NOTE** Checkout this file for some predefined keymaps: [keymaps](https://github.com/LunarVim/nvim-basic-ide/blob/master/lua/user/keymaps.lua)
+
+## Get healthy
+
+Open `nvim` and enter the following:
 
 ```
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-nvim +PackerSync
+:checkhealth
 ```
 
-## 📦 Basic Setup
+You'll probably notice you don't have support for copy/paste also that python and node haven't been setup
 
-#### Install LSP
+So let's fix that
 
-Enter `:LspInstall` followed by the name of the server you want to install<br>
-Example: `:LspInstall pyright`
+First we'll fix copy/paste
 
-#### Install language parser
+- On mac `pbcopy` should be builtin
 
-Enter `:TSInstall` followed by the name of the language you want to install<br>
-Example: `:TSInstall python`
+- On Ubuntu
 
-#### Manage plugins
+  ```sh
+  sudo apt install xsel # for X11
+  sudo apt install wl-clipboard # for wayland
+  ```
 
-Run `:PackerClean` to remove any disabled or unused plugins<br>
-Run `:PackerSync` to update and clean plugins<br>
+Next we need to install python support (node is optional)
 
-#### Update AstroNvim
+- Neovim python support
 
-Run `:AstroUpdate` to get the latest updates from the repository<br>
+  ```sh
+  pip install pynvim
+  ```
 
-## 🗒️ Links
+- Neovim node support
 
-[AstroNvim Documentation](https://astronvim.github.io/)
+  ```sh
+  npm i -g neovim
+  ```
 
-- [Basic Usage](https://astronvim.github.io/usage/walkthrough) is given for basic usage
-- [Default Mappings](https://astronvim.github.io/usage/mappings) more about the default key bindings
-- [Default Plugin Configuration](https://astronvim.github.io/configuration/plugin_defaults) more about the provided plugin defaults
-- [Advanced Configuration](https://astronvim.github.io/configuration/config_options) more about advanced configuration
+We will also need `ripgrep` for Telescope to work: 
 
-[Watch](https://www.youtube.com/watch?v=JQLZ7NJRTEo&t=4s&ab_channel=JohnCodes) a review video to know about the out of the box experience
+- Ripgrep
 
-## ⭐ Credits
+  ```sh
+  sudo apt install ripgrep
+  ```
+---
 
-Sincere appreciation to the following repositories, plugin authors and the entire neovim community out there that made the development of AstroNvim possible.
+**NOTE** make sure you have [node](https://nodejs.org/en/) installed, I recommend a node manager like [fnm](https://github.com/Schniz/fnm).
 
-- [Plugins](https://astronvim.github.io/acknowledgements#plugins-used-in-astronvim)
-- [NvChad](https://github.com/NvChad/NvChad)
-- [LunarVim](https://github.com/LunarVim)
-- [CosmicVim](https://github.com/CosmicNvim/CosmicNvim)
+## Fonts
 
-<div align="center" id="madewithlua">
+I recommend using the following repo to get a "Nerd Font" (Font that supports icons)
 
-[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blue.svg?style=for-the-badge&logo=lua)](https://lua.org)
+[getnf](https://github.com/ronniedroid/getnf)
 
-</div>
+## Configuration
+
+### LSP
+
+To add a new LSP
+
+First Enter:
+
+```
+:LspInstallInfo
+```
+
+and press `i` on the Language Server you wish to install
+
+Next you will need to add the server to this list: [servers](https://github.com/LunarVim/nvim-basic-ide/blob/8b9ec3bffe8c8577042baf07c75408532a733fea/lua/user/lsp/lsp-installer.lua#L6)
+
+### Formatters and linters
+
+Make sure the formatter or linter is installed and add it to this setup function: [null-ls](https://github.com/LunarVim/nvim-basic-ide/blob/8b9ec3bffe8c8577042baf07c75408532a733fea/lua/user/lsp/null-ls.lua#L13)
+
+**NOTE** Some are already setup as examples, remove them if you want
+
+### Plugins
+
+You can install new plugins here: [plugins](https://github.com/LunarVim/nvim-basic-ide/blob/8b9ec3bffe8c8577042baf07c75408532a733fea/lua/user/plugins.lua#L42)
+
+---
+
+## Plugins
+
+- [packer](https://github.com/wbthomason/packer.nvim)
+- [plenary](https://github.com/nvim-lua/plenary.nvim)
+- [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+- [vim-bbye](https://github.com/moll/vim-bbye)
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [impatient.nvim](https://github.com/lewis6991/impatient.nvim)
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- [darkplus.nvim](https://github.com/LunarVim/darkplus.nvim)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+- [cmp-path](https://github.com/hrsh7th/cmp-path)
+- [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+- [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+- [cmp-nvim-lua](https://github.com/hrsh7th/cmp-nvim-lua)
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
+- [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- [vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+- [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- [DAPInstall.nvim](https://github.com/ravenxrz/DAPInstall.nvim)
+
+---
+
+> The computing scientist's main challenge is not to get confused by the complexities of his own making. 
+
+\- Edsger W. Dijkstra
