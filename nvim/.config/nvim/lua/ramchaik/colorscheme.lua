@@ -1,8 +1,13 @@
 local colorscheme = "gruvbox"
+-- local colorscheme = "tokyonight"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
   return
 end
 
-vim.cmd([[ let g:gruvbox_contrast = 'hard' ]])
+vim.opt.background = "dark"
+
+-- transparent background
+vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE ]])
+

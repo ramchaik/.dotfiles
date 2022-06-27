@@ -88,9 +88,6 @@ keymap("n", "<leader>fW",
 keymap("n", "<leader>fm", function()
   require("telescope.builtin").marks()
 end, opts)
-keymap("n", "<leader>sk", function()
-  require("telescope.builtin").keymaps()
-end, opts)
 keymap("n", "<leader>ls", function()
   local aerial_avail, _ = pcall(require, "aerial")
   if aerial_avail then
@@ -104,6 +101,9 @@ keymap("n", "<leader>lR", function()
 end, opts)
 keymap("n", "<leader>lD", function()
   require("telescope.builtin").diagnostics()
+end, opts)
+keymap("n", "<leader>sk", function()
+  require("telescope.builtin").keymaps()
 end, opts)
 keymap("n", "<leader>sn", function()
   require("telescope").extensions.notify.notify()
@@ -167,11 +167,11 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 keymap("n", "<leader>a", "<cmd>lua require(\"harpoon.mark\").add_file()<CR>", opts)
 keymap("n", "<C-s>", "<cmd>lua require(\"harpoon.ui\").toggle_quick_menu()<CR>", opts)
 keymap("n", "<leader>tc", "<cmd>lua require(\"harpoon.cmd-ui\").toggle_quick_menu()<CR>", opts)
----- Harpoon buffer hotkeys
+--- Harpoon buffer hotkeys
 keymap("n", "<C-j>", "<cmd>lua require(\"harpoon.ui\").nav_file(1)<CR>", opts)
 keymap("n", "<C-k>", "<cmd>lua require(\"harpoon.ui\").nav_file(2)<CR>", opts)
 keymap("n", "<C-l>", "<cmd>lua require(\"harpoon.ui\").nav_file(3)<CR>", opts)
----- Harpoon terminal hotkeys
+--- Harpoon terminal hotkeys
 keymap("n", "<leader>tf", "<cmd>lua require(\"harpoon.term\").gotoTerminal(1)<cr>", opts)
 keymap("n", "<leader>td", "<cmd>lua require(\"harpoon.term\").gotoTerminal(2)<cr>", opts)
 keymap("n", "<leader>ts", "<cmd>lua require(\"harpoon.term\").gotoTerminal(3)<cr>", opts)
