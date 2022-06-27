@@ -112,9 +112,10 @@ local function override_ui_select()
 
     local menu_items = {}
     for index, item in ipairs(items) do
-      item.index = index
+      local _i = {}
+      _i.id = index
       local item_text = string.sub(format_item(item), 0, max_width - 2)
-      table.insert(menu_items, Menu.item(item_text, item))
+      table.insert(menu_items, Menu.item(item_text, _i))
     end
 
     select_ui = Menu({

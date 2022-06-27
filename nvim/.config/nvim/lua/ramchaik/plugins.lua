@@ -85,6 +85,13 @@ return packer.startup(function(use)
   use { 'MunifTanjim/nui.nvim' }
   use { 'rcarriga/nvim-notify' }
 
+  use {
+    "Shatur/neovim-session-manager",
+    module = "session_manager",
+    cmd = "SessionManager",
+    event = "BufWritePost",
+  }
+
   -- Colorschemes
   use { 'folke/tokyonight.nvim' }
   use { "ellisonleao/gruvbox.nvim" }

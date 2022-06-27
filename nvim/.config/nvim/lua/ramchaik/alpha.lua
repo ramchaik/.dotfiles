@@ -18,6 +18,7 @@ dashboard.section.buttons.val = {
   dashboard.button("p", " " .. " Find project", ":lua require('telescope').extensions.projects.projects()<CR>"),
   dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
   dashboard.button("t", " " .. " Find text", ":lua require('telescope.builtin').live_grep({ hidden = true })<cr>"),
+  dashboard.button("l", " " .. " Last Session", "<cmd>SessionManager! load_last_session<cr>"),
   dashboard.button("c", " " .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
   dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 }
