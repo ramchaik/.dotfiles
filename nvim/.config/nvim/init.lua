@@ -20,5 +20,7 @@ require "ramchaik.indentline"
 require "ramchaik.alpha"
 require "ramchaik.lsp"
 require "ramchaik.dap"
+require "ramchaik.ui"
+require "ramchaik.notify"
 require "ramchaik.sets"
 

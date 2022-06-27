@@ -82,8 +82,11 @@ return packer.startup(function(use)
   use { 'mtth/scratch.vim' }
   use { 'vimwiki/vimwiki' }
 
+  use { 'MunifTanjim/nui.nvim' }
+  use { 'rcarriga/nvim-notify' }
+
   -- Colorschemes
-  use { "gruvbox-community/gruvbox", commit = "34ad436b234c5095d46bb065c5b32780618df83f" }
+  use { "gruvbox-community/gruvbox" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" } -- The completion plugin
@@ -102,9 +105,14 @@ return packer.startup(function(use)
   use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
   use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
   use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup() end
+  } 
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
+  use { "nvim-telescope/telescope-fzy-native.nvim" }
 
   -- Treesitter
   use {
@@ -114,6 +122,7 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
+  use { 'ThePrimeagen/git-worktree.nvim' }
 
   -- DAP
   use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
