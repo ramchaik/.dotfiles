@@ -1,94 +1,89 @@
-local dap = require('dap')
-local dapui =  require("dapui")
+local dap_status_ok, dap = pcall(require, "dap")
+if not dap_status_ok then
+  return
+end
 
-dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  args = {os.getenv('HOME') .. '/vscode-node-debug2/out/src/nodeDebug.js'},
-}
-dap.configurations.javascript = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach to process',
-    type = 'node2',
-    request = 'attach',
-    processId = require'dap.utils'.pick_process,
-  },
-}
+local dap_ui_status_ok, dapui = pcall(require, "dapui")
+if not dap_ui_status_ok then
+  return
+end
+
+local dap_install_status_ok, dap_install = pcall(require, "dap-install")
+if not dap_install_status_ok then
+  return
+end
+
+local dap_virtual_text_status_ok, dap_virtual_text = pcall(require, "nvim-dap-virtual-text")
+if not dap_virtual_text_status_ok then
+  return
+end
 
 
-require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-    toggle = "t",
+dap_install.setup {}
+
+dap_install.config("python", {})
+dap_install.config("jsnode", {
+  adapters = {
+    node2 = {
+      type = 'executable',
+      command = 'node',
+      args = {os.getenv('HOME') .. '.local/share/nvim/dapinstall/jsnode/vscode-node-debug2/out/src/nodeDebug.js'},
+    }
   },
-  -- Expand lines larger than the window
-  -- Requires >= 0.7
-  expand_lines = vim.fn.has("nvim-0.7"),
-  -- Layouts define sections of the screen to place windows.
-  -- The position can be "left", "right", "top" or "bottom".
-  -- The size specifies the height/width depending on position.
-  -- Elements are the elements shown in the layout (in order).
-  -- Layouts are opened in order so that earlier layouts take priority in window sizing.
-  layouts = {
-    {
-      elements = {
-      -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
-        "stacks",
-        "watches",
+  configurations = {
+    javascript = {
+      {
+        name = 'Launch',
+        type = 'node2',
+        request = 'launch',
+        program = '${file}',
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = 'inspector',
+        console = 'integratedTerminal',
       },
-      size = 40,
-      position = "left",
-    },
-    {
-      elements = {
-        "repl",
-        "console",
+      {
+        -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+        name = 'Attach to process',
+        type = 'node2',
+        request = 'attach',
+        processId = require'dap.utils'.pick_process,
       },
-      size = 10,
-      position = "bottom",
-    },
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
-  render = {
-    max_type_length = nil, -- Can be integer or nil.
+    }
   }
 })
 
-require("nvim-dap-virtual-text").setup()
+-- add other configs here
+
+dap_virtual_text.setup()
+
+dapui.setup {
+  sidebar = {
+    elements = {
+      {
+        id = "scopes",
+        size = 0.25, -- Can be float or integer > 1
+      },
+      { id = "breakpoints", size = 0.25 },
+    },
+    size = 40,
+    position = "right", -- Can be "left", "right", "top", "bottom"
+  },
+  tray = {
+    elements = {},
+  },
+}
+
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
+
 dap.listeners.before.event_terminated["dapui_config"] = function()
   dapui.close()
 end
+
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
