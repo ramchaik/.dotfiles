@@ -2,7 +2,9 @@ local Input = require("nui.input")
 local Menu = require("nui.menu")
 local event = require("nui.utils.autocmd").event
 
-local function override_ui_input()
+local function nui_input()
+  -- Set up NUI for UI Input
+  -- From: https://github.com/MunifTanjim/nui.nvim/wiki/vim.ui#vimuiinput
   local input_ui
 
   vim.ui.input = function(opts, on_confirm)
@@ -71,86 +73,71 @@ local function override_ui_input()
   end
 end
 
-local function override_ui_select()
-  local select_ui = nil
+local function telescope_select()
+  -- Telescope UI selection
+  -- From: https://github.com/stevearc/dressing.nvim/blob/master/lua/dressing/select/telescope.lua
+  vim.ui.select = vim.schedule_wrap(function(items, opts, on_choice)
+    local themes = require "telescope.themes"
+    local actions = require "telescope.actions"
+    local state = require "telescope.actions.state"
+    local pickers = require "telescope.pickers"
+    local finders = require "telescope.finders"
+    local conf = require("telescope.config").values
 
-  vim.ui.select = function(items, opts, on_choice)
-    if select_ui then
-      -- ensure single ui.select operation
-      vim.api.nvim_err_writeln("busy: another select is pending!")
-      return
-    end
-
-    local function on_done(item, index)
-      if select_ui then
-        -- if it's still mounted, unmount it
-        select_ui:unmount()
+    if opts.format_item then
+      local format_item = opts.format_item
+      opts.format_item = function(item)
+        return tostring(format_item(item))
       end
-      -- pass the select value
-      on_choice(item, index)
-      -- indicate the operation is done
-      select_ui = nil
+    else
+      opts.format_item = tostring
     end
 
-    local border_top_text = opts.prompt or "[Choose Item]"
-    local kind = opts.kind or "unknown"
-    local format_item = opts.format_item or tostring
-
-    local relative = "editor"
-    local position = "50%"
-
-    if kind == "codeaction" then
-      -- change position for codeaction selection
-      relative = "cursor"
-      position = {
-        row = 1,
-        col = 0,
+    local entry_maker = function(item)
+      local formatted = opts.format_item(item)
+      return {
+        display = formatted,
+        ordinal = formatted,
+        value = item,
       }
     end
 
-    local max_width = vim.api.nvim_win_get_width(0)
+    local picker_opts = themes.get_dropdown()
 
-    local menu_items = {}
-    for index, item in ipairs(items) do
-      local _i = {}
-      _i.id = index
-      local item_text = string.sub(format_item(item), 0, max_width - 2)
-      table.insert(menu_items, Menu.item(item_text, _i))
-    end
-
-    select_ui = Menu({
-      relative = relative,
-      position = position,
-      border = {
-        style = "rounded",
-        highlight = "Normal",
-        text = {
-          top = border_top_text,
-          top_align = "left",
-        },
+    pickers.new(picker_opts, {
+      prompt_title = opts.prompt,
+      previewer = false,
+      finder = finders.new_table {
+        results = items,
+        entry_maker = entry_maker,
       },
-      win_options = {
-        winhighlight = "Normal:Normal",
-      },
-    }, {
-      lines = menu_items,
-      on_close = function()
-        on_done(nil, nil)
-      end,
-      on_submit = function(item)
-        on_done(item, item.index)
-      end,
-    })
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = function(prompt_bufnr)
+        actions.select_default:replace(function()
+          local selection = state.get_selected_entry()
+          actions.close(prompt_bufnr)
+          if not selection then
+            -- User did not select anything.
+            on_choice(nil, nil)
+            return
+          end
+          local idx = nil
+          for i, item in ipairs(items) do
+            if item == selection.value then
+              idx = i
+              break
+            end
+          end
+          on_choice(selection.value, idx)
+        end)
 
-    select_ui:mount()
+        actions.close:enhance { post = function() end }
 
-    -- cancel operation if cursor leaves select
-    select_ui:on(event.BufLeave, function()
-      on_done(nil, nil)
-    end, { once = true })
-  end
+        return true
+      end,
+    }):find()
+  end)
 end
 
-override_ui_input()
-override_ui_select()
-
+nui_input()
+telescope_select()

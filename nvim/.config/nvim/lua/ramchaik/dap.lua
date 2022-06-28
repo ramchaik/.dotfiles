@@ -22,6 +22,7 @@ end
 dap_install.setup {}
 
 dap_install.config("python", {})
+
 dap_install.config("jsnode", {
   adapters = {
     node2 = {
@@ -31,7 +32,6 @@ dap_install.config("jsnode", {
     }
   },
   configurations = {
-    javascript = {
       {
         name = 'Launch',
         type = 'node2',
@@ -49,7 +49,6 @@ dap_install.config("jsnode", {
         request = 'attach',
         processId = require'dap.utils'.pick_process,
       },
-    }
   }
 })
 
