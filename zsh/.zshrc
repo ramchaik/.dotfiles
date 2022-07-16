@@ -119,6 +119,11 @@ lg() {
     fi
 }
 
+tere() {
+    local result=$(/Users/ramchaik/.cargo/bin/tere "$@")
+    [ -n "$result" ] && cd -- "$result"
+}
+
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"

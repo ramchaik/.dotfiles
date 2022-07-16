@@ -9,5 +9,5 @@ end
 vim.opt.background = "dark"
 
 -- transparent background
-vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE ]])
+-- vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE ]])
 
