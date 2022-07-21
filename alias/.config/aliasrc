@@ -14,8 +14,8 @@ alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
 alias python="python3"
 alias vim="nvim"
-alias vi="nvm use lts/gallium && nvim"
-alias v="nvm use lts/gallium && nvim"
+alias vi="asdf install nodejs latest && nvim"
+alias v="asdf install nodejs latest && nvim"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
