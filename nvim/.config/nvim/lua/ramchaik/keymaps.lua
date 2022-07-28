@@ -121,7 +121,7 @@ keymap("n", "<leader>sn", function()
 end, opts)
 
 keymap("n", "<leader>vrc", function()
-  require('ramchaik.telescope').search_dotfiles({ hidden = true })
+  require('ramchaik.telescope').search_dotfiles()
 end, opts)
 
 --- Git Worktree
