@@ -103,7 +103,7 @@ tere() {
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 
 eval "$(starship init zsh)"
-
+eval "$(zoxide init zsh)"
 
 
 . /usr/local/opt/asdf/libexec/asdf.sh
