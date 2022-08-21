@@ -1,0 +1,212 @@
+{
+  // -- VIM
+  "vim.useSystemClipboard": true,
+  "vim.incsearch": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.searchHighlightColor": "#7e57c2",
+  "vim.ignorecase": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.easymotionMarkerBackgroundColor": "#7e57c2",
+  // "vim.easymotion": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // {
+    // * faster keystrokes not registered will need to set the key timeout TTL
+    // * if you wish to you this
+    //   "before": ["leader", "leader"],
+    //   "after": ["leader", "leader", "leader", "b", "d", "w"]
+    // },
+    {
+      "before": ["<leader>", "h"],
+      "commands": [":nohl"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "m"],
+      "commands": ["bookmarks.toggle"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["bookmarks.listFromAllFiles"]
+    },
+    {
+      "before": ["<leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "f", "s"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["K"],
+      "commands": [
+        "editor.action.showHover",
+        "editor.action.showDefinitionPreviewHover"
+      ]
+    }
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
+
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["<leader>", "r", "r"],
+      "commands": ["editor.action.refactor"]
+    },
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    }
+  ],
+
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  // -- VIM
+
+  "editor.suggestSelection": "first",
+  // "files.autoSave": "afterDelay",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": true,
+    // "source.fixAll.eslint": true
+  },
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.lineNumbers": "relative",
+  "editor.wordWrap": "on",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "diffEditor.wordWrap": "on",
+  "scm.defaultViewMode": "tree",
+  "remote.restoreForwardedPorts": true,
+  "tabnine.experimentalAutoImports": true,
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true,
+  "remote.SSH.defaultExtensions": ["eamodio.gitlens", "vscodevim.vim"],
+  "git.suggestSmartCommit": false,
+  "workbench.sideBar.location": "right",
+  "editor.linkedEditing": true,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "files.defaultLanguage": "${activeEditorLanguage}",
+  "editor.inlineSuggest.enabled": true,
+  "git.autofetch": true,
+  "editor.autoClosingBrackets": "always",
+  "terminal.integrated.detectLocale": "on",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "window.autoDetectColorScheme": true,
+  "terminal.external.osxExec": "iTerm.app",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.list.smoothScrolling": true,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "merge-conflict.autoNavigateNextConflict.enabled": true,
+  "editor.semanticHighlighting.enabled": false,
+  "workbench.fontAliasing": "auto",
+  // "files.autoSaveDelay": 1500,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.bracketPairColorization.enabled": true,
+  // custom comment highlight
+  // "editor.tokenColorCustomizations": {
+  //   "textMateRules": [
+  //     {
+  //       "scope": ["comment", "comment.block", "comment.line.double-slash"],
+  //       "settings": {
+  //         "fontStyle": "italic",
+  //         "foreground": "#ff1493"
+  //       }
+  //     }
+  //   ]
+  // },
+  "editor.lineHeight": 2,
+  "sync.gist": "fa21363adf8837ee7672f4ece2c88753",
+  "workbench.list.keyboardNavigation": "filter",
+  "terminal.integrated.fontSize": 14,
+  "tabnine.receiveBetaChannelUpdates": true,
+  "editor.fontSize": 14,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "projectManager.vscode.baseFolders": ["/Users/ramchaik/work"],
+  "projectManager.git.baseFolders": ["/Users/ramchaik/work/insider/repos"],
+  "editor.accessibilitySupport": "off",
+  "editor.experimental.stickyScroll.enabled": true,
+  "telemetry.telemetryLevel": "error",
+  "editor.codeLens": false,
+  "bookmarks.navigateThroughAllFiles": true
+}
+
