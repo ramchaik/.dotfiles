@@ -14,9 +14,11 @@ alias lg="lazygit"
 alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
 alias python="python3"
-alias vi="nvim"
-alias v="nvim"
+alias vi="nvm use lts/gallium && nvim"
+alias v="nvm use lts/gallium && nvim"
+alias nvim="nvm use lts/gallium && nvim"
 alias code="code-insiders"
+
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
