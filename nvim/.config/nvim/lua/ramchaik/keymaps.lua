@@ -103,12 +103,7 @@ end, opts)
 
 --- LSP
 keymap("n", "<leader>ls", function()
-  local aerial_avail, _ = pcall(require, "aerial")
-  if aerial_avail then
-    require("telescope").extensions.aerial.aerial()
-  else
-    require("telescope.builtin").lsp_document_symbols()
-  end
+  require("telescope.builtin").lsp_document_symbols()
 end, opts)
 keymap("n", "<leader>lR", function()
   require("telescope.builtin").lsp_references()

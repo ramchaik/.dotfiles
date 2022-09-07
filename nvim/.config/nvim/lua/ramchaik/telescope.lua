@@ -44,10 +44,6 @@ telescope.setup {
       override_generic_sorter = false,
       override_file_sorter = true,
     },
-     aerial = {
-      -- Display symbols as <root>.<parent>.<symbol>
-      show_nesting = true
-    }
   },
 }
 
@@ -55,11 +51,6 @@ telescope.setup {
 local notify_present, _ = pcall(require, "notify")
 if notify_present then
   telescope.load_extension "notify"
-end
-
-local aerial_present, _ = pcall(require, "aerial")
-if aerial_present then
-  telescope.load_extension "aerial"
 end
 
 local git_worktree_present, _ = pcall(require, "git_worktree")
