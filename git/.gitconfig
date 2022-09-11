@@ -26,7 +26,8 @@
 
 [delta]
 	features = decorations
-	side-by-side = true
+	navigate = true
+	side-by-side = false
 	line-numbers = true
 
 [delta "interactive"]
