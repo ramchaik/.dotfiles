@@ -48,11 +48,6 @@ telescope.setup {
 }
 
 
-local notify_present, _ = pcall(require, "notify")
-if notify_present then
-  telescope.load_extension "notify"
-end
-
 local git_worktree_present, _ = pcall(require, "git_worktree")
 if git_worktree_present then
   telescope.load_extension "git_worktree"
