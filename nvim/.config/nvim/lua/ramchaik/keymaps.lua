@@ -181,3 +181,6 @@ keymap("n", "<leader>cd", "<cmd>lua require(\"harpoon.term\").sendCommand(2, 1)<
 keymap("n", "<leader>cs", "<cmd>lua require(\"harpoon.term\").sendCommand(3, 1)<cr>", opts)
 
 
+keymap("n", "<leader>y", "\"+y")
+keymap("v","<leader>y", "\"+y")
+keymap("n", "<leader>Y", "\"+Y")
