@@ -100,9 +100,6 @@ end, opts)
 keymap("n", "<leader>sr", function()
   require("telescope.builtin").registers()
 end, opts)
-keymap("n", "<leader>san", function()
-  require("telescope").extensions.notify.notify()
-end, opts)
 keymap("n", "<leader>src", function()
   require('ramchaik.telescope').search_dotfiles()
 end, opts)
@@ -183,10 +180,4 @@ keymap("n", "<leader>cf", "<cmd>lua require(\"harpoon.term\").sendCommand(1, 1)<
 keymap("n", "<leader>cd", "<cmd>lua require(\"harpoon.term\").sendCommand(2, 1)<cr>", opts)
 keymap("n", "<leader>cs", "<cmd>lua require(\"harpoon.term\").sendCommand(3, 1)<cr>", opts)
 
--- Sessions
-keymap("n", "<leader>Sl", "<cmd>SessionManager! load_last_session<cr>", opts)
-keymap("n", "<leader>Ss", "<cmd>SessionManager! save_current_session<cr>", opts)
-keymap("n", "<leader>Sd", "<cmd>SessionManager! delete_session<cr>", opts)
-keymap("n", "<leader>Sf", "<cmd>SessionManager! load_session<cr>", opts)
-keymap( "n", "<leader>S.", "<cmd>SessionManager! load_current_dir_session<cr>", opts)
 
