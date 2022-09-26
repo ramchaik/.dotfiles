@@ -75,6 +75,7 @@ return packer.startup(function(use)
 		end,
 	}
 
+	use { "dhruvasagar/vim-dotoo" }
 	use { 'mtth/scratch.vim' }
 
 	use { 'MunifTanjim/nui.nvim' }
