@@ -181,7 +181,7 @@ keymap("n", "<leader>cd", "<cmd>lua require(\"harpoon.term\").sendCommand(2, 1)<
 keymap("n", "<leader>cs", "<cmd>lua require(\"harpoon.term\").sendCommand(3, 1)<cr>", opts)
 
 -- Markdown
-keymap("n", "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", opts)
+keymap("n", "<leader>sp", "<cmd>MarkdownPreviewToggle<cr>", opts)
 
 
 keymap("n", "<leader>y", "\"+y")
