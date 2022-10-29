@@ -59,6 +59,9 @@ function zvm_after_init() {
 # Source OMZ 
 source $ZSH/oh-my-zsh.sh
 
+## stdout 
+neofetch
+
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
