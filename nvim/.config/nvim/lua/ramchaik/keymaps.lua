@@ -103,6 +103,9 @@ end, opts)
 keymap("n", "<leader>src", function()
   require('ramchaik.telescope').search_dotfiles()
 end, opts)
+keymap("n", "<leader>va", function()
+  require('ramchaik.telescope').anime_selector()
+end, opts)
 
 -- Telescope LSP (check the lsp config for the keymaps)
 keymap("n", "<leader>ss", function()
@@ -179,6 +182,14 @@ keymap("n", "<leader>ts", "<cmd>lua require(\"harpoon.term\").gotoTerminal(3)<cr
 keymap("n", "<leader>cf", "<cmd>lua require(\"harpoon.term\").sendCommand(1, 1)<cr>", opts)
 keymap("n", "<leader>cd", "<cmd>lua require(\"harpoon.term\").sendCommand(2, 1)<cr>", opts)
 keymap("n", "<leader>cs", "<cmd>lua require(\"harpoon.term\").sendCommand(3, 1)<cr>", opts)
+
+-- Refactoring
+keymap("n","<leader>ro", "<cmd>lua require(\"ramchaik.telescope\").refactors()<CR>", opts)
+keymap("v","<leader>ro", "<cmd>lua require(\"ramchaik.telescope\").refactors()<CR>", opts)
+keymap("n","<leader>rP", "<cmd>lua require(\"refactoring\").debug.printf({below = false})<CR>", opts)
+keymap("n","<leader>rp", "<cmd>lua require(\"refactoring\").debug.printf({below = true})<CR>", opts)
+keymap("v","<leader>rp", "<cmd>lua require(\"refactoring\").debug.print_var({})<CR>", opts)
+keymap("n","<leader>rc", "<cmd>lua require(\"refactoring\").debug.cleanup({})<CR>", opts)
 
 -- Markdown
 keymap("n", "<leader>sp", "<cmd>MarkdownPreviewToggle<cr>", opts)
