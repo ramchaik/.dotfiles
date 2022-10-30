@@ -16,6 +16,7 @@ require "ramchaik.impatient"
 require "ramchaik.illuminate"
 require "ramchaik.lsp"
 require "ramchaik.dap"
+require "ramchaik.refactoring"
 require "ramchaik.ui"
 require "ramchaik.sets"
 

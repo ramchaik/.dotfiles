@@ -74,6 +74,7 @@ return packer.startup(function(use)
 			})
 		end,
 	}
+	use { "ThePrimeagen/refactoring.nvim" }
 
 	use { "dhruvasagar/vim-dotoo" }
 	use { 'mtth/scratch.vim' }
@@ -85,7 +86,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use { 'folke/tokyonight.nvim' }
 	use { "ellisonleao/gruvbox.nvim" }
-	use { "catppuccin/nvim", as = "catppuccin" }
+	use { "catppuccin/nvim", as = "catppuccin", commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0' }
 
 	-- cmp plugins
 	use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" } -- The completion plugin
