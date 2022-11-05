@@ -10,3 +10,5 @@ vim.cmd([[ let g:scratch_top = 1 ]])
 vim.cmd([[ let g:scratch_persistence_file = '/tmp/scratch.md' ]])
 vim.cmd([[ let g:scratch_persistence_file = '.scratch.md' ]])
 
+-- Vim Wiki
+vim.cmd([[ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}] ]])
