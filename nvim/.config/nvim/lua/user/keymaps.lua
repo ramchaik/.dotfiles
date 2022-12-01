@@ -77,7 +77,7 @@ keymap("n", "<leader>x", ":!chmod +x %<CR>", opts)
 -- Quickfix List
 keymap("n", "<A-[>", "<cmd>cprev<CR>zz", opts)
 keymap("n", "<A-]>", "<cmd>cnext<CR>zz", opts)
-keymap("n", "<A-q>", "<cmd>lua require(\"ramchaik.utils.quickfix\").toggle(1)<CR>", opts)
+keymap("n", "<A-q>", "<cmd>lua require(\"user.utils.quickfix\").toggle(1)<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
