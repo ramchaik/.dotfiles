@@ -98,6 +98,9 @@ keymap("n", "<leader>cf", "<cmd>lua require(\"harpoon.term\").sendCommand(1, 1)<
 keymap("n", "<leader>cd", "<cmd>lua require(\"harpoon.term\").sendCommand(2, 1)<cr>", opts)
 keymap("n", "<leader>cs", "<cmd>lua require(\"harpoon.term\").sendCommand(3, 1)<cr>", opts)
 
+-- undo tree
+keymap("n", "<leader>u", "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", opts)
+
 -- Markdown
 keymap("n", "<leader>sp", "<cmd>MarkdownPreviewToggle<cr>", opts)
 
