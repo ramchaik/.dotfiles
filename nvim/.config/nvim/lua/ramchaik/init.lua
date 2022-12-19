@@ -1,8 +1,8 @@
-require("ramchiak.set")
-require("ramchiak.remap")
+require("ramchaik.set")
+require("ramchaik.remap")
 
 local augroup = vim.api.nvim_create_augroup
-local ramchiakGroup = augroup('ramchiak', {})
+local ramchaikGroup = augroup('ramchaik', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -23,7 +23,7 @@ autocmd('TextYankPost', {
 })
 
 autocmd({"BufWritePre"}, {
-    group = ramchiakGroup,
+    group = ramchaikGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
