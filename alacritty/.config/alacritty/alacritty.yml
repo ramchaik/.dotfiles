@@ -56,7 +56,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
    x: 10
-   y: 10 
+   y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -185,12 +185,6 @@ font:
   #glyph_offset:
   #  x: 0
   #  y: 0
-
-  # Thin stroke font rendering (macOS only)
-  #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`.
-  use_thin_strokes: true
 
   # Line indicator
   #
@@ -369,7 +363,7 @@ live_config_reload: true
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 # shell:
-#  program: /bin/zsh  
+#  program: /bin/zsh
 #  args:
 #    - --login
 
@@ -791,11 +785,19 @@ key_bindings:
   - { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   - { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
+
   # Fix Ctrl+6 for vim
   # https://github.com/alacritty/alacritty/issues/5024
   - { key: Key6,     mods: Control, chars: "\x1e"                        }
-    
-  
+
+  - { key: Key6,     mods: Control, chars: "\x1e"                        }
+
+  # To know keys send to emulator:
+  # 1. run `cat -v`
+  # 2. press the key
+  - { key: P,              mods: Command,                    chars: "\x10",                } # Remaps Cmd+P -> Ctrl+P
+
+
   # Ctrl+f sessionizer fun
   # - { key: F, mods: Control, chars: "~/.dotfiles/scripts/tmux/sessionizer.sh \x0D" }
   # - { key: F, mods: Control, chars: "tmux-sessionizer\x0D" }
