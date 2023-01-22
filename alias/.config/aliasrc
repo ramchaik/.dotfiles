@@ -17,7 +17,6 @@ alias python="python3"
 alias vi="nvim"
 alias v="nvim"
 alias nvim="nvim"
-alias code="code-insiders"
 
 
 # Pretty print the path
