@@ -1,4 +1,4 @@
 #  🏴‍☠️ dotfiles
 
 ## TODO:
-- [ ] write anisible playbook for the bootstrap setup
+- [ ] write Ansible playbook for the config setup
