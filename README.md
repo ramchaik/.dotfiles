@@ -1,4 +1,4 @@
 #  🏴‍☠️ dotfiles
 
 ## TODO:
-- [ ] why shell bootstrap script, if there is amazing ansible to roll with?
+- [ ] write anisible playbook for the bootstrap setup
