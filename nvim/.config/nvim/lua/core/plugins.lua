@@ -21,6 +21,12 @@ return require('packer').startup(function(use)
 
   use 'mbbill/undotree'
 
+  use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+  }
+
   use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   use {
       'nvim-telescope/telescope.nvim',

@@ -35,8 +35,8 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<A-[>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<A-]>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-[>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-]>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>[", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>]", "<cmd>lprev<CR>zz")
 
