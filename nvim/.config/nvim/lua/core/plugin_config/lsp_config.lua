@@ -10,18 +10,21 @@ require('mason-lspconfig').setup({
 })
 
 local on_attach = function(_, _)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+    local opts = {}
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
-    vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+
+    vim.keymap.set('n', '<leader>li', '<cmd>LspInfo<cr>', opts)
+    vim.keymap.set('n', '<leader>sd', require('telescope.builtin').lsp_document_symbols, opts)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
--- TODO: refactor the setup function for each lsp
 
 require('lspconfig').sumneko_lua.setup {
     on_attach = on_attach,
