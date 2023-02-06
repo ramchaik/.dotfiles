@@ -1,20 +1,20 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-	return
-end
-
-configs.setup({
-	ensure_installed = "all", -- one of "all" or a list of languages
-	ignore_install = { "" }, -- List of parsers to ignore installing
-	highlight = {
-		enable = true, -- false will disable the whole extension
-		disable = { "css" }, -- list of language that will be disabled
-	},
-	autopairs = {
-		enable = true,
-	},
-	indent = { enable = true, disable = { "python", "css" } },
-})
+require('nvim-treesitter.configs').setup {
+    ensure_installed = {
+        "lua",
+        "rust",
+        "vim",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "json"
+    },
+    sync_install = false,
+    auto_install = true,
+    hightlight = {
+        enable = true
+    }
+}
 
 require'treesitter-context'.setup{
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
