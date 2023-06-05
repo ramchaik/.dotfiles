@@ -14,8 +14,7 @@ alias lg="lazygit"
 alias mkdir="mkdir -p"
 alias ip="ipconfig getifaddr en0"
 alias python="python3"
-alias vi="nvim"
-alias v="lvim"
+alias v="nvim"
 alias nvim="nvim"
 
 
