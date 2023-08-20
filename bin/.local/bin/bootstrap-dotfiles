@@ -10,7 +10,7 @@ fi
 
 cd ~/.dotfiles
 
-stow_dirs=("alacritty" "alias" "bin" "curl" "docker" "git" "nvim" "tmux" "zsh" "wm" "bash")
+stow_dirs=("alacritty" "kitty" "alias" "bin" "curl" "docker" "git" "nvim" "tmux" "zsh" "wm" "bash")
 
 for dir in "${stow_dirs[@]}"; do
     if [ -d $dir ]; then
