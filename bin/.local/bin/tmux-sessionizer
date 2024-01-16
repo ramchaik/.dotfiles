@@ -17,6 +17,14 @@ function set_paths() {
         paths+=" $HOME/personal"
         [ -d ~/personal/JS ] && paths+=" $HOME/personal/JS"
         [ -d ~/personal/scripts ] && paths+=" $HOME/personal/scripts"
+
+    fi
+
+    if [ -d ~/DAL-MACS ]; then
+        paths+=" $HOME/DAL-MACS"
+        # DAL MACS
+        [ -d ~/DAL-MACS/ ] && paths+=" $HOME/DAL-MACS"
+        [ -d ~/DAL-MACS/W24 ] && paths+=" $HOME/DAL-MACS/W24"
     fi
 }
 set_paths
