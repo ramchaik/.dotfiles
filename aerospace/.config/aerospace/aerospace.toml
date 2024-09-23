@@ -41,6 +41,7 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = "move-mouse window-lazy-center"
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -155,7 +156,8 @@ alt-shift-b = 'move-node-to-workspace B'
 alt-shift-c = 'move-node-to-workspace C'
 alt-shift-d = 'move-node-to-workspace D'
 alt-shift-e = 'move-node-to-workspace E'
-alt-shift-f = 'move-node-to-workspace F'
+# using this for fullscreen keybind
+# alt-shift-f = 'move-node-to-workspace F'
 alt-shift-g = 'move-node-to-workspace G'
 alt-shift-i = 'move-node-to-workspace I'
 alt-shift-m = 'move-node-to-workspace M'
@@ -172,6 +174,8 @@ alt-shift-w = 'move-node-to-workspace W'
 alt-shift-x = 'move-node-to-workspace X'
 alt-shift-y = 'move-node-to-workspace Y'
 alt-shift-z = 'move-node-to-workspace Z'
+
+alt-shift-f = "fullscreen"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -196,3 +200,20 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+# 1 window for terminal
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace 1"
+
+# 2 window for browser
+# brave
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = "move-node-to-workspace 2"
+
+# firefox
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = "move-node-to-workspace 2"
+

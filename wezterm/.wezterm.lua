@@ -10,7 +10,7 @@ config.font_size = 16
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
-config.color_scheme = "Rosé Pine (base16)"
+config.color_scheme = "Catppuccin Mocha"
 
 config.window_background_opacity = 0.85
 config.macos_window_background_blur = 10
