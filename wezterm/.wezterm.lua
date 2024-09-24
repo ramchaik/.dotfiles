@@ -14,13 +14,17 @@ local function get_random_wallpaper()
 	local WALLPAPERS_BASE_PATH = "/Users/vaibhavsingh/Documents/wallpapers/"
 	local wallpapers = {}
 	local p = io.popen("ls '" .. WALLPAPERS_BASE_PATH .. "'")
-	for file in p:lines() do
-		table.insert(wallpapers, file)
+	if p then
+		for file in p:lines() do
+			table.insert(wallpapers, file)
+		end
+		p:close()
+		local maxIdx = #wallpapers
+		local rndIdx = math.random(1, maxIdx)
+		return WALLPAPERS_BASE_PATH .. wallpapers[rndIdx]
+	else
+		print("Failed to open the directory: " .. WALLPAPERS_BASE_PATH)
 	end
-	p:close()
-	local maxIdx = #wallpapers
-	local rndIdx = math.random(1, maxIdx)
-	return WALLPAPERS_BASE_PATH .. wallpapers[rndIdx]
 end
 
 config.background = {
