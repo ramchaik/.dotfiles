@@ -109,8 +109,8 @@ brew "go"
 brew "gopls"
 # Terminal based graphical activity monitor inspired by gtop and vtop
 brew "gotop"
-# Improved top (interactive process viewer)
-brew "htop"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Add GitHub support to git on the command-line
 brew "hub"
 # Configurable static site generator
