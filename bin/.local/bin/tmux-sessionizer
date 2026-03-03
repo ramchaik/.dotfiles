@@ -26,6 +26,11 @@ function set_paths() {
         [ -d ~/DAL-MACS/ ] && paths+=" $HOME/DAL-MACS"
         [ -d ~/DAL-MACS/W24 ] && paths+=" $HOME/DAL-MACS/W24"
     fi
+
+    if [ -d ~/faire/repos ]; then
+        paths+=" $HOME/faire/repos"
+        [ -d ~/faire/repos/project-docs/projects ] && paths+=" $HOME/faire/repos/project-docs/projects"
+    fi
 }
 set_paths
 
