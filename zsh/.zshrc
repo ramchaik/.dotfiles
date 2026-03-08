@@ -105,6 +105,13 @@ tere() {
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 
+cw() {
+  local default_branch
+  default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+  default_branch=${default_branch:-main}
+  git fetch origin "$default_branch" && claude --worktree "$@"
+}
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
