@@ -1,0 +1,203 @@
+# ~/.config/rift/config.toml
+# Migrated from AeroSpace — Vaibhav's layout
+# Workspace indices are 0-based in Rift:
+#   0 = Terminal  1 = Code  2 = Research  3 = Comms  4 = Scratch
+#
+# ============================================================
+# NEW MACHINE SETUP
+# ============================================================
+# 1. Install Rift (tiling WM):
+#      brew install --cask rift
+#
+# 2. Install JankyBorders (active window highlight):
+#      brew install FelixKratz/formulae/borders
+#
+# 3. Install cmux (terminal multiplexer launcher):
+#      brew install --cask cmux   # or from https://cmuxterm.app
+#
+# 4. Symlink this config (done automatically by dotfiles install):
+#      mkdir -p ~/.config/rift
+#      ln -sf ~/.dotfiles/rift/.config/rift/config.toml ~/.config/rift/config.toml
+#
+# 5. Grant Rift Accessibility permission:
+#      System Settings → Privacy & Security → Accessibility → enable Rift
+#
+# 6. Launch Rift — it will auto-start borders and cmux via run_on_start.
+# ============================================================
+
+[settings]
+default_disable = false
+animate = true
+animation_duration = 0.2
+animation_fps = 120.0
+
+focus_follows_mouse = true
+mouse_follows_focus = true
+mouse_hides_on_focus = false
+
+hot_reload = true
+
+# Start JankyBorders + cmux on launch
+# borders: electric blue active border, no inactive border, width 5
+run_on_start = [
+  "borders active_color=0xff00aaff inactive_color=0x00000000 width=5.0",
+  "open -a cmux",
+]
+
+[settings.layout]
+# Default layout; per-workspace overrides are in workspace_rules below
+mode = "scrolling"
+
+[settings.layout.master_stack]
+master_ratio = 0.6
+master_count = 1
+master_side = "left"
+new_window_placement = "master"
+
+[settings.layout.scrolling]
+column_width_ratio = 0.65
+min_column_width_ratio = 0.3
+max_column_width_ratio = 0.9
+alignment = "center"
+focus_navigation_style = "niri"
+
+[settings.layout.scrolling.gestures]
+enabled = false
+
+[settings.layout.gaps]
+[settings.layout.gaps.outer]
+top    = 5
+left   = 5
+bottom = 5
+right  = 5
+
+[settings.layout.gaps.inner]
+horizontal = 5
+vertical   = 5
+
+[settings.ui.menu_bar]
+enabled      = true
+show_empty   = false
+mode         = "all"
+active_label = "index"
+display_style = "label"
+
+# ---------------------------------------------------------------------------
+# Virtual Workspaces
+# ---------------------------------------------------------------------------
+[virtual_workspaces]
+enabled                       = true
+default_workspace_count       = 5
+auto_assign_windows           = true
+preserve_focus_per_workspace  = true
+workspace_auto_back_and_forth = false
+
+workspace_names = [
+  "Terminal",   # 0
+  "Code",       # 1
+  "Research",   # 2
+  "Comms",      # 3
+  "Scratch",    # 4
+]
+
+# Per-workspace layout overrides
+# WS 0-3: scrolling (niri-style columns)  |  WS 4: master_stack
+workspace_rules = [
+  { workspace = 0, layout = "scrolling"    },
+  { workspace = 1, layout = "scrolling"    },
+  { workspace = 2, layout = "scrolling"    },
+  { workspace = 3, layout = "scrolling"    },
+  { workspace = 4, layout = "master_stack" },
+]
+
+# ---------------------------------------------------------------------------
+# App routing  (0-based workspace indices)
+# ---------------------------------------------------------------------------
+app_rules = [
+  # WS 0 — Terminal
+  { app_id = "com.mitchellh.ghostty",           workspace = 0 },
+  { app_id = "com.cmuxterm.app",                workspace = 0 },
+
+  # WS 1 — Code
+  { app_id = "com.todesktop.230313mzl4w4u92",   workspace = 1 },  # Cursor
+  { app_id = "com.openai.codex",                workspace = 1 },
+  { app_id = "com.microsoft.VSCode",            workspace = 1 },
+  { app_id = "com.jetbrains.intellij.ce",       workspace = 1 },
+
+  # WS 2 — Research
+  { app_id = "com.google.Chrome",               workspace = 2 },
+  { app_id = "com.google.Chrome.canary",        workspace = 2 },
+  { app_id = "org.mozilla.firefox",             workspace = 2 },
+  { app_id = "com.brave.Browser",               workspace = 2 },
+  { app_id = "notion.id",                       workspace = 2 },
+
+  # WS 3 — Comms
+  # ⚠️ WS3 secondary-monitor pinning is NOT yet supported in Rift 0.4.0.
+  # AeroSpace: workspace-to-monitor-force-assignment = { 4 = ["secondary", "main"] }
+  # Track: https://github.com/acsandmann/rift for multi-monitor API updates.
+  { app_id = "com.tinyspeck.slackmacgap",       workspace = 3 },
+  { app_id = "com.openai.chat",                 workspace = 3 },
+  { app_id = "com.anthropic.claudefordesktop",  workspace = 3 },
+
+  # WS 4 — Scratch
+  { app_id = "us.zoom.xos",                     workspace = 4 },
+]
+
+# ---------------------------------------------------------------------------
+# Modifier shorthand
+# ---------------------------------------------------------------------------
+[modifier_combinations]
+ms = "Alt + Shift"
+
+# ---------------------------------------------------------------------------
+# Keybindings
+# ---------------------------------------------------------------------------
+[keys]
+# Focus (mirrors AeroSpace alt-h/j/k/l)
+"Alt + H" = { move_focus = "left"  }
+"Alt + J" = { move_focus = "down"  }
+"Alt + K" = { move_focus = "up"    }
+"Alt + L" = { move_focus = "right" }
+
+# Move window (mirrors AeroSpace alt-shift-h/j/k/l)
+"ms + H" = { move_node = "left"  }
+"ms + J" = { move_node = "down"  }
+"ms + K" = { move_node = "up"    }
+"ms + L" = { move_node = "right" }
+
+# Switch workspace (Alt+1..5 → index 0..4)
+"Alt + 1" = { switch_to_workspace = 0 }
+"Alt + 2" = { switch_to_workspace = 1 }
+"Alt + 3" = { switch_to_workspace = 2 }
+"Alt + 4" = { switch_to_workspace = 3 }
+"Alt + 5" = { switch_to_workspace = 4 }
+
+# Move window to workspace
+"ms + 1" = { move_window_to_workspace = 0 }
+"ms + 2" = { move_window_to_workspace = 1 }
+"ms + 3" = { move_window_to_workspace = 2 }
+"ms + 4" = { move_window_to_workspace = 3 }
+"ms + 5" = { move_window_to_workspace = 4 }
+
+# Fullscreen
+"ms + F" = "toggle_fullscreen"
+"Alt + F" = "toggle_fullscreen_within_gaps"
+
+# Layout toggle (closest to AeroSpace alt-slash)
+"Alt + Slash" = "toggle_orientation"
+
+# Resize
+"ms + Equal" = "resize_window_grow"
+"ms + Minus" = "resize_window_shrink"
+
+# Workspace back-and-forth (mirrors AeroSpace alt-tab)
+"Alt + Tab" = "switch_to_last_workspace"
+
+# Float toggle
+"ms + Space" = "toggle_window_floating"
+
+# Layout switchers (bonus — not in AeroSpace config)
+"Alt + Ctrl + 1" = { set_workspace_layout = { mode = "traditional"  } }
+"Alt + Ctrl + 2" = { set_workspace_layout = { mode = "scrolling"    } }
+"Alt + Ctrl + 3" = { set_workspace_layout = { mode = "master_stack" } }
+"Alt + Ctrl + 4" = { set_workspace_layout = { mode = "bsp"          } }

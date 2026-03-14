@@ -1,0 +1,102 @@
+#!/bin/bash
+
+paths=""
+
+function set_paths() {
+  if [ -d ~/faire ]; then
+    paths+=" $HOME/faire"
+
+    if [ -d ~/faire/fe-migration/ ]; then
+      for dir in ~/faire/fe-migration/*/; do
+        [ -d "$dir" ] && paths+=" $dir"
+      done
+    fi
+
+    if [ -d ~/faire/fe-tech-debt/ ]; then
+      for dir in ~/faire/fe-tech-debt/*/; do
+        [ -d "$dir" ] && paths+=" $dir"
+      done
+    fi
+
+    if [ -d ~/faire/feat/ ]; then
+      for dir in ~/faire/feat/*/; do
+        [ -d "$dir" ] && paths+=" $dir"
+      done
+    fi
+
+    if [ -d ~/faire/bug/ ]; then
+      for dir in ~/faire/bug/*/; do
+        [ -d "$dir" ] && paths+=" $dir"
+      done
+    fi
+
+    if [ -d ~/kb ]; then
+      paths+=" $HOME/kb"
+    fi
+
+    # Add all repos in ~/faire/repos/ dynamically
+    if [ -d ~/faire/repos ]; then
+      for repo in ~/faire/repos/*/; do
+        [ -d "$repo" ] || continue
+        # Skip hidden dirs
+        [[ "$(basename "$repo")" == .* ]] && continue
+        paths+=" $repo"
+      done
+    fi
+
+    # Extra depth for frontend packages/brand
+    if [ -d ~/faire/repos/frontend/packages ]; then
+      paths+=" $HOME/faire/repos/frontend/packages"
+
+      if [ -d ~/faire/repos/frontend/packages/brand ]; then
+        paths+=" $HOME/faire/repos/frontend/packages/brand"
+        for dir in ~/faire/repos/frontend/packages/brand/*/; do
+          [ -d "$dir" ] && paths+=" $dir"
+        done
+      fi
+    fi
+  fi
+}
+
+set_paths
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(echo $paths | tr ' ' '\n' | fzf)
+fi
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+# Inside tmux — delegate to tmux-sessionizer
+if [[ -n $TMUX ]]; then
+  tmux-sessionizer "$selected"
+  exit 0
+fi
+
+# Inside cmux — find existing workspace or create new
+if [[ -n $CMUX_WORKSPACE_ID ]]; then
+  existing=$(cmux list-workspaces 2>/dev/null | while IFS= read -r line; do
+    ref=$(echo "$line" | grep -o 'workspace:[0-9]*')
+    [[ -z $ref ]] && continue
+    if echo "$line" | grep -qF "$selected_name"; then
+      echo "$ref"
+      break
+    fi
+  done | head -1)
+
+  if [[ -n $existing ]]; then
+    cmux select-workspace --workspace "$existing"
+  else
+    new_ws=$(cmux new-workspace --cwd "$selected" | grep -o 'workspace:[0-9]*')
+    cmux workspace-action --action rename --title "$selected_name" --workspace "$new_ws"
+  fi
+  exit 0
+fi
+
+# Outside both — open with cmux (launches app if not running)
+cmux "$selected"
