@@ -7,7 +7,7 @@
 # NEW MACHINE SETUP
 # ============================================================
 # 1. Install Rift (tiling WM):
-#      brew install --cask rift
+#      brew install acsandmann/tap/rift
 #
 # 2. Install JankyBorders (active window highlight):
 #      brew install FelixKratz/formulae/borders
