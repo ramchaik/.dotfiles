@@ -3,115 +3,155 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export ZSH=$HOME/.oh-my-zsh
+# ── Zinit ────────────────────────────────────────────────
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-plugins=(
-  brew
-  git
-  node
-  nvm
-  npm 
-  docker
-  docker-compose
-  zsh-vi-mode
-  # -- add plugins above this line --
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+# ── OMZ plugin snippets ──
+# gitfast: source git's native prompt script first
+source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+zinit snippet OMZP::gitfast
+zinit snippet OMZP::aws
+zinit snippet OMZP::brew
+zinit snippet OMZP::docker
+zinit snippet OMZP::encode64
+zinit snippet OMZP::git
+zinit snippet OMZP::git-extras
+zinit snippet OMZP::jsontools
+zinit snippet OMZP::mvn
+zinit snippet OMZP::node
+zinit snippet OMZP::npm
+zinit snippet OMZP::sudo
+zinit snippet OMZP::urltools
+zinit snippet OMZP::yarn
 
-if [[ -z $DOTFILES ]]; then
-    export DOTFILES=$HOME/.dotfiles
-fi
+# ── Community plugins (turbo/async) ──
+zinit ice wait lucid atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
 
-# -------------------------
-# Source Plugins
-# -------------------------
-# plugin: [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
-function zvm_config() {
-  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-  ZVM_INIT_MODE=sourcing
-  # Only changing the escape key to `jk` in insert mode, we still
-  # keep using the default keybindings `^[` in other modes
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-  # Change to Zsh's default readkey engine
-  ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
-}
-# The plugin will auto execute this zvm_after_init function
+# must be last
+zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
+zinit light zsh-users/zsh-syntax-highlighting
+
+# ── Vim mode (sync — must load after turbo plugins) ──────
 function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-  export FZF_DEFAULT_COMMAND='fd --type file  --color=always --follow --hidden --exclude .git'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_DEFAULT_OPTS="--ansi"
-
-  # Use vim keys in tab complete menu:
-  bindkey -M menuselect 'h' vi-backward-char
-  bindkey -M menuselect 'k' vi-up-line-or-history
-  bindkey -M menuselect 'l' vi-forward-char
-  bindkey -M menuselect 'j' vi-down-line-or-history
-  bindkey -v '^?' backward-delete-char
-
-  # tmux sessionizer
-  bindkey -s ^f "tmux-sessionizer\n"
+  source <(fzf --zsh)
+  bindkey -s ^f "sessionizer\n"
+  bindkey -s ^w "csw\n"
 }
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 
-# Source --------end------------- 
-
-# Source OMZ 
-source $ZSH/oh-my-zsh.sh
-
-## stdout 
-neofetch
-
-# History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
-[ ! -d ~/.cache/zsh ] && mkdir -p ~/.cache/zsh
-[ ! -f ~/.cache/zsh/history ] && touch ~/.cache/zsh/history
-HISTFILE=~/.cache/zsh/history
-
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
+# ── Completions ───────────────────────────────────────────
+autoload -Uz compinit
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+source <(jj util completion zsh)
 
-export PATH="/usr/local/sbin:$PATH"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# manually setting Lang
-export LANG=en_US.UTF-8
-
-lg() {
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-
-    lazygit "$@"
-
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-    fi
+# ── Aliases & Functions ───────────────────────────────────
+gcbj() {
+    read "ticket?JIRA ticket: "
+    read "desc?Description: "
+    desc=$(echo "$desc" | tr " " "-")
+    git checkout -b "$(git config user.github)/$ticket/$desc"
 }
 
-tere() {
-    local result=$(/Users/ramchaik/.cargo/bin/tere "$@")
-    [ -n "$result" ] && cd -- "$result"
-}
-
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-
+alias nx="yarn nx"
+alias v="nvim"
+alias c="claude"
+alias cu="cursor"
+alias ca="cursor-agent"
+alias co="code"
+alias oc="opencode"
 cw() {
   local default_branch
   default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
   default_branch=${default_branch:-main}
   git fetch origin "$default_branch" && claude --worktree "$@"
 }
+alias lg="lazygit"
+lgw() { cmux new-workspace && sleep 0.2 && cmux send "lazygit\n" }
+btopw() { cmux new-workspace && sleep 0.2 && cmux send "btop\n" }
+csw() {
+  local selection
+  selection=$(cmux list-workspaces 2>/dev/null \
+    | sed 's/^\* /  /' \
+    | sed 's/  \[selected\]//' \
+    | fzf --prompt="workspace> " --ansi)
+  [[ -z $selection ]] && return
+  local ref
+  ref=$(echo "$selection" | grep -o 'workspace:[0-9]*')
+  [[ -n $ref ]] && cmux select-workspace --workspace "$ref"
+}
+alias ta="tmux attach"
+alias nxr='cd $(git rev-parse --show-toplevel) && yarn nx'
 
+# ── Environment ───────────────────────────────────────────
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# NX
+NX_TUI_AUTO_EXIT=true
+NX_TUI=false
+
+#compdef gt
+###-begin-gt-completions-###
+#
+# yargs command completion script
+#
+# Installation: gt completion >> ~/.zshrc
+#    or gt completion >> ~/.zprofile on OSX.
+#
+_gt_yargs_completions()
+{
+  local reply
+  local si=$IFS
+  IFS=$'
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" gt --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  _describe 'values' reply
+}
+compdef _gt_yargs_completions gt
+###-end-gt-completions-###
+
+# ── Faire (work) ──────────────────────────────────────────
+# Private env vars (Cypress, ANTHROPIC_API_KEY, etc.) live in ~/.config/.faire
+# Not committed — create locally and source it.
+# Template entries:
+#   export CYPRESS_*=...
+#   export ANTHROPIC_API_KEY=...
+[ -s "$HOME/.config/.faire" ] && source "$HOME/.config/.faire"
+
+export JAVA_HOME="$(/usr/libexec/java_home -v 21)"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# for remote desktop - cursor mode
+export VSCODE_BIN=/Applications/Cursor.app/Contents/Resources/app/bin/cursor
+export EDITOR="nvim"
+
+export SNOWSQL_USER="vaibhav.singh"
+export MY_SNOWFLAKE_USER="vaibhav.singh"
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export DOCKER_HOST=unix://$HOME/.colima/docker.sock
+
+## Faire
+export FAIRE_WEB_SKIP_YARN_INSTALL=1
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# ── Starship (always last) ────────────────────────────────
+eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-eval "$(fnm env --use-on-cd)"
