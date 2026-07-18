@@ -1,35 +1,38 @@
 #!/bin/bash
 
-paths=()
+# Personal projects are nested 1–4 levels deep, so fixed-depth discovery misses
+# repos. Git roots give cleaner results than every directory (which includes
+# categories, courses, and build output). Keep exclusions here for vendored or
+# generated trees that may contain nested .git directories.
+root=${HERDR_PROJECT_ROOT:-"$HOME/personal"}
 
-add_dir() {
-  [ -d "$1" ] && paths+=("$1")
-}
+if [ "$#" -eq 1 ]; then
+  selected=$1
+else
+  selected=$(cd "$root" && fd --hidden --no-ignore --type d '^\.git$' . \
+    --exclude node_modules \
+    --exclude .cache \
+    --exclude dist \
+    --exclude build \
+    --exclude target \
+    --exclude vendor \
+    | sed 's#^\./##; s#/.git/$##' \
+    | sort -u \
+    | fzf --prompt='personal workspace> ')
+  [ -n "$selected" ] && selected="$root/$selected"
+fi
 
-add_children() {
-  [ -d "$1" ] || return
-  for dir in "$1"/*/; do
-    [ -d "$dir" ] && paths+=("${dir%/}")
-  done
-}
-
-add_dir "$HOME"
-add_dir "$HOME/faire"
-add_dir "$HOME/kb"
-add_children "$HOME/faire/fe-migration"
-add_children "$HOME/faire/fe-tech-debt"
-add_children "$HOME/faire/feat"
-add_children "$HOME/faire/bug"
-add_children "$HOME/faire/repos"
-add_dir "$HOME/faire/repos/frontend/packages"
-add_dir "$HOME/faire/repos/frontend/packages/brand"
-add_children "$HOME/faire/repos/frontend/packages/brand"
-
-selected=${1:-$(printf '%s\n' "${paths[@]}" | sort -u | fzf --prompt='workspace> ')}
 [ -n "$selected" ] || exit 0
-
 selected=$(cd "$selected" 2>/dev/null && pwd -P) || exit 1
-label=$(basename "$selected" | tr . _)
+
+# Relative labels stay readable and avoid collisions such as multiple "test"
+# repos. Selecting an open label focuses it; otherwise Herdr creates workspace.
+if [[ "$selected" == "$root/"* ]]; then
+  label=${selected#"$root/"}
+else
+  label=$(basename "$selected" | tr . _)
+fi
+
 workspace_id=$(herdr workspace list | jq -r --arg label "$label" '.result.workspaces[] | select(.label == $label) | .workspace_id' | head -1)
 
 if [ -n "$workspace_id" ]; then
