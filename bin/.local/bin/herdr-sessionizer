@@ -1,0 +1,39 @@
+#!/bin/bash
+
+paths=()
+
+add_dir() {
+  [ -d "$1" ] && paths+=("$1")
+}
+
+add_children() {
+  [ -d "$1" ] || return
+  for dir in "$1"/*/; do
+    [ -d "$dir" ] && paths+=("${dir%/}")
+  done
+}
+
+add_dir "$HOME"
+add_dir "$HOME/faire"
+add_dir "$HOME/kb"
+add_children "$HOME/faire/fe-migration"
+add_children "$HOME/faire/fe-tech-debt"
+add_children "$HOME/faire/feat"
+add_children "$HOME/faire/bug"
+add_children "$HOME/faire/repos"
+add_dir "$HOME/faire/repos/frontend/packages"
+add_dir "$HOME/faire/repos/frontend/packages/brand"
+add_children "$HOME/faire/repos/frontend/packages/brand"
+
+selected=${1:-$(printf '%s\n' "${paths[@]}" | sort -u | fzf --prompt='workspace> ')}
+[ -n "$selected" ] || exit 0
+
+selected=$(cd "$selected" 2>/dev/null && pwd -P) || exit 1
+label=$(basename "$selected" | tr . _)
+workspace_id=$(herdr workspace list | jq -r --arg label "$label" '.result.workspaces[] | select(.label == $label) | .workspace_id' | head -1)
+
+if [ -n "$workspace_id" ]; then
+  herdr workspace focus "$workspace_id" >/dev/null
+else
+  herdr workspace create --cwd "$selected" --label "$label" --focus >/dev/null
+fi
