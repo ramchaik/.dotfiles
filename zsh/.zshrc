@@ -38,7 +38,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 # ── Vim mode (sync — must load after turbo plugins) ──────
 function zvm_after_init() {
   source <(fzf --zsh)
-  bindkey -s ^f "sessionizer\n"
+  bindkey -s ^f "herdr\n"
   bindkey -s ^w "csw\n"
 }
 zinit ice depth=1
