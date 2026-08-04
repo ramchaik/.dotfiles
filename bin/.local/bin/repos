@@ -1,0 +1,164 @@
+#!/usr/bin/env bash
+# Keep ~/faire/repos default branches fresh and local branches/worktrees clean.
+# Usage:
+#   repos sync              fast-forward every repo's default branch
+#   repos prune             dry-run: list branches/worktrees to delete
+#   repos prune -f          actually delete them
+#   repos install           register hourly background sync (launchd)
+#   repos uninstall         remove the launchd job
+set -uo pipefail
+
+ROOT="${REPOS_ROOT:-$HOME/faire/repos}"
+STALE_DAYS="${REPOS_STALE_DAYS:-14}"
+LABEL="com.vaibhav.repos-sync"
+PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
+
+repos() { for d in "$ROOT"/*/; do [ -d "$d/.git" ] && echo "${d%/}"; done; }
+def_branch() { git -C "$1" symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | cut -d/ -f2; }
+
+notify() { /usr/bin/osascript -e "display notification \"$1\" with title \"repos sync\"" 2>/dev/null; }
+
+# owner/name from origin URL, falls back to dir name
+slug() {
+  local url
+  url=$(git -C "$1" remote get-url origin 2>/dev/null) || { basename "$1"; return; }
+  url=${url%.git}
+  case "$url" in
+    *:*/*|*/*/*) echo "$url" | sed -E 's|.*[:/]([^/]+/[^/]+)$|\1|' ;;
+    *) basename "$1" ;;
+  esac
+}
+
+cmd_sync() {
+  local d name def cur failed=""
+  for d in $(repos); do
+    name=$(basename "$d")
+    def=$(def_branch "$d") || true
+    [ -n "${def:-}" ] || { echo "$name: no origin/HEAD, skip"; failed="$failed${failed:+\\n}$(slug "$d"): no remote"; continue; }
+    git -C "$d" fetch -q --prune origin "$def" || { echo "$name: fetch failed"; failed="$failed${failed:+\\n}$(slug "$d"): fetch failed"; continue; }
+    cur=$(git -C "$d" branch --show-current)
+    if [ "$cur" = "$def" ]; then
+      if git -C "$d" merge --ff-only -q "origin/$def" 2>/dev/null; then
+        echo "$name: $def ff"
+      else
+        echo "$name: $def SKIP (checked out; dirty or diverged)"
+      fi
+    elif git -C "$d" merge-base --is-ancestor "$def" "origin/$def" 2>/dev/null; then
+      git -C "$d" update-ref "refs/heads/$def" "refs/remotes/origin/$def" && echo "$name: $def ok"
+    else
+      echo "$name: $def SKIP (local commits ahead)"
+    fi
+  done
+  [ -n "$failed" ] && notify "$failed"
+  return 0
+}
+
+# why_delete <repo> <branch> <last-commit-unix> <upstream-track>
+# echoes a reason, or nothing if the branch should be kept
+why_delete() {
+  local d=$1 br=$2 ts=$3 track=$4 def=$5 cutoff=$6
+  if git -C "$d" merge-base --is-ancestor "$br" "origin/$def" 2>/dev/null; then
+    echo "merged"; return
+  fi
+  [ "$track" = "[gone]" ] && { echo "remote gone"; return; }
+  [ "$ts" -lt "$cutoff" ] && echo "stale >${STALE_DAYS}d (UNMERGED)"
+}
+
+cmd_prune() {
+  local force="" ; [ "${1:-}" = "-f" ] && force=1
+  local cutoff=$(( $(date +%s) - STALE_DAYS * 86400 ))
+  local d name def cur wt_branches
+
+  for d in $(repos); do
+    name=$(basename "$d")
+    def=$(def_branch "$d") || true
+    [ -n "${def:-}" ] || continue
+    git -C "$d" fetch -q --prune origin || { echo "$name: fetch failed"; continue; }
+    git -C "$d" worktree prune
+    cur=$(git -C "$d" branch --show-current)
+
+    # ---- worktrees first: they pin their branch, so must go before branch -D
+    local wt_path wt_head wt_br locked reason ts track
+    while IFS= read -r line; do
+      case "$line" in
+        worktree\ *) wt_path=${line#worktree }; wt_br=""; locked="" ;;
+        branch\ *)   wt_br=${line#branch refs/heads/} ;;
+        locked*)     locked=1 ;;
+        "")
+          [ -n "${wt_path:-}" ] || continue
+          [ "$wt_path" = "$d" ] && { wt_path=""; continue; }   # main checkout
+          if [ -n "$locked" ]; then
+            echo "$name: keep worktree $(basename "$wt_path") (locked)"; wt_path=""; continue
+          fi
+          if [ -n "$wt_br" ]; then
+            ts=$(git -C "$d" log -1 --format=%ct "$wt_br" 2>/dev/null || echo 0)
+            track=$(git -C "$d" for-each-ref --format='%(upstream:track)' "refs/heads/$wt_br")
+            reason=$(why_delete "$d" "$wt_br" "$ts" "$track" "$def" "$cutoff")
+          else
+            reason="detached HEAD"
+          fi
+          [ -n "$reason" ] || { wt_path=""; continue; }
+          if [ -n "$(git -C "$wt_path" status --porcelain 2>/dev/null)" ]; then
+            echo "$name: keep worktree $(basename "$wt_path") (dirty, $reason)"; wt_path=""; continue
+          fi
+          if [ -n "$force" ]; then
+            git -C "$d" worktree remove "$wt_path" \
+              && echo "$name: removed worktree $(basename "$wt_path") ($reason)" \
+              || echo "$name: FAILED worktree $(basename "$wt_path")"
+          else
+            echo "$name: would remove worktree $(basename "$wt_path") ($reason)"
+          fi
+          wt_path=""
+          ;;
+      esac
+    done < <(git -C "$d" worktree list --porcelain; echo)
+
+    # ---- branches
+    wt_branches=$(git -C "$d" worktree list --porcelain | sed -n 's|^branch refs/heads/||p')
+    while read -r br ts track; do
+      [ -n "$br" ] || continue
+      [ "$br" = "$def" ] && continue
+      [ "$br" = "$cur" ] && continue
+      grep -qxF "$br" <<<"$wt_branches" && continue
+      reason=$(why_delete "$d" "$br" "$ts" "${track:-}" "$def" "$cutoff")
+      [ -n "$reason" ] || continue
+      if [ -n "$force" ]; then
+        git -C "$d" branch -D "$br" >/dev/null && echo "$name: deleted $br ($reason)"
+      else
+        echo "$name: would delete $br ($reason)"
+      fi
+    done < <(git -C "$d" for-each-ref --format='%(refname:short) %(committerdate:unix) %(upstream:track)' refs/heads)
+  done
+  [ -n "$force" ] || echo $'\nDry run. Re-run with: repos prune -f'
+}
+
+cmd_install() {
+  mkdir -p "$HOME/Library/LaunchAgents" "$HOME/.local/state"
+  cat > "$PLIST" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>$LABEL</string>
+  <key>ProgramArguments</key>
+  <array><string>$HOME/.local/bin/repos</string><string>sync</string></array>
+  <key>StartInterval</key><integer>3600</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>$HOME/.local/state/repos-sync.log</string>
+  <key>StandardErrorPath</key><string>$HOME/.local/state/repos-sync.log</string>
+  <key>EnvironmentVariables</key>
+  <dict><key>PATH</key><string>/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string></dict>
+</dict></plist>
+EOF
+  launchctl unload "$PLIST" 2>/dev/null
+  launchctl load "$PLIST" && echo "installed: hourly sync. log: ~/.local/state/repos-sync.log"
+}
+
+cmd_uninstall() { launchctl unload "$PLIST" 2>/dev/null; rm -f "$PLIST"; echo "uninstalled"; }
+
+case "${1:-}" in
+  sync) cmd_sync ;;
+  prune) shift; cmd_prune "$@" ;;
+  install) cmd_install ;;
+  uninstall) cmd_uninstall ;;
+  *) sed -n '2,8p' "$0" | sed 's/^# \{0,1\}//' ; exit 1 ;;
+esac
